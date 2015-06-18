@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E36b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MJMovieDirectorCell" id="KGk-i7-Jjw" customClass="MJMovieDirectorCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="导演：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAm-Wq-eu9">
+                        <rect key="frame" x="8" y="8" width="45" height="18"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="主演：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plI-oZ-F0Z">
+                        <rect key="frame" x="8" y="37" width="45" height="18"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TC-pB-RtZ" userLabel="director">
+                        <rect key="frame" x="61" y="8" width="243" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="道恩·强森/亚历珊德拉·达达里奥/卡拉·古奇诺/雅奇·潘嘉比科尔顿·海恩/斯艾恩·格拉法德保罗·吉亚玛提/凯莉·米洛/李威尹/瓦内萨·罗斯" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5J3-s5-YgG" userLabel="actor">
+                        <rect key="frame" x="61" y="37" width="247" height="38.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOb-HF-acf" userLabel="Separator View">
+                        <rect key="frame" x="18" y="78" width="302" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Mye-73-PcN"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="8TC-pB-RtZ" secondAttribute="trailing" constant="8" id="15y-VE-xUk"/>
+                    <constraint firstItem="PAm-Wq-eu9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="2cX-q9-JhU"/>
+                    <constraint firstItem="8TC-pB-RtZ" firstAttribute="bottom" secondItem="PAm-Wq-eu9" secondAttribute="bottom" id="78B-PY-5di"/>
+                    <constraint firstItem="8TC-pB-RtZ" firstAttribute="leading" secondItem="PAm-Wq-eu9" secondAttribute="trailing" constant="8" id="BpN-am-N5D"/>
+                    <constraint firstItem="5J3-s5-YgG" firstAttribute="top" secondItem="plI-oZ-F0Z" secondAttribute="top" id="FKI-DA-5l8"/>
+                    <constraint firstItem="plI-oZ-F0Z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="HCC-0P-Mxf"/>
+                    <constraint firstItem="8TC-pB-RtZ" firstAttribute="top" secondItem="PAm-Wq-eu9" secondAttribute="top" id="Hdu-Yo-p0F"/>
+                    <constraint firstItem="UOb-HF-acf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="Ihn-5c-yGR"/>
+                    <constraint firstAttribute="trailing" secondItem="UOb-HF-acf" secondAttribute="trailing" id="LYY-Em-NYQ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="5J3-s5-YgG" secondAttribute="trailing" constant="4" id="RMt-BK-yVE"/>
+                    <constraint firstAttribute="bottom" secondItem="5J3-s5-YgG" secondAttribute="bottom" constant="4" id="ZOh-DN-y4B"/>
+                    <constraint firstItem="5J3-s5-YgG" firstAttribute="leading" secondItem="plI-oZ-F0Z" secondAttribute="trailing" constant="8" id="d2D-qr-e5r"/>
+                    <constraint firstItem="PAm-Wq-eu9" firstAttribute="trailing" secondItem="plI-oZ-F0Z" secondAttribute="trailing" id="ey8-JG-5UT"/>
+                    <constraint firstItem="plI-oZ-F0Z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="29" id="f7E-ij-YaA"/>
+                    <constraint firstAttribute="bottom" secondItem="UOb-HF-acf" secondAttribute="bottom" id="j15-KC-WdQ"/>
+                    <constraint firstItem="PAm-Wq-eu9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="sda-DC-Eho"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="actorLabel" destination="5J3-s5-YgG" id="sl8-d6-sMD"/>
+                <outlet property="directorLabel" destination="8TC-pB-RtZ" id="tGK-pE-crn"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

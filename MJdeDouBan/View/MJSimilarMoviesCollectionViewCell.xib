@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E33b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MJSimilarMoviesCollectionViewCell" id="gTV-IL-0wX" customClass="MJSimilarMoviesCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vOi-XM-Fc3">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie_icon" translatesAutoresizingMaskIntoConstraints="NO" id="uPy-rP-xk8">
+                                <rect key="frame" x="12.5" y="12.5" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="3Be-JL-sus"/>
+                                    <constraint firstAttribute="width" constant="25" id="WJh-9C-BuN"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="uPy-rP-xk8" secondAttribute="centerX" id="1Vy-E6-weg"/>
+                            <constraint firstAttribute="centerY" secondItem="uPy-rP-xk8" secondAttribute="centerY" id="SbG-PW-DgI"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WWV-9i-cs0">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="vOi-XM-Fc3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1jd-j5-kym"/>
+                <constraint firstItem="vOi-XM-Fc3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="8be-bE-7He"/>
+                <constraint firstAttribute="trailing" secondItem="WWV-9i-cs0" secondAttribute="trailing" id="CtY-Ve-Agl"/>
+                <constraint firstItem="WWV-9i-cs0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DbB-PS-R4j"/>
+                <constraint firstItem="WWV-9i-cs0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="b4i-xj-TM6"/>
+                <constraint firstAttribute="trailing" secondItem="vOi-XM-Fc3" secondAttribute="trailing" id="glV-TW-a7k"/>
+                <constraint firstAttribute="bottom" secondItem="WWV-9i-cs0" secondAttribute="bottom" id="jmf-WP-ddy"/>
+                <constraint firstAttribute="bottom" secondItem="vOi-XM-Fc3" secondAttribute="bottom" id="u2i-Wo-bhB"/>
+            </constraints>
+            <connections>
+                <outlet property="cellBackgroundView" destination="vOi-XM-Fc3" id="zZt-mE-xC3"/>
+                <outlet property="cellImageView" destination="WWV-9i-cs0" id="53p-3b-9CE"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="movie_icon" width="30" height="30"/>
+    </resources>
+</document>

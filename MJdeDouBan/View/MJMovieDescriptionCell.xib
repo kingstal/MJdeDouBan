@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E36b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MJMovieDescriptionCell" id="KGk-i7-Jjw" customClass="MJMovieDescriptionCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZb-3v-70V">
+                        <rect key="frame" x="48" y="8" width="272" height="133.5"/>
+                        <string key="text">雷·盖恩斯（道恩·强森 Dwayne Johnson 饰）正驱车前往旧金山，随着一声巨响，周围的树木与电线杆变得七扭八歪，紧急刹车查看状况的盖恩斯被眼前的景象“惊呆了”:公路被一条深不见底的裂隙截断，甚至错位，加油站被裂成两半隔着“峡谷”遥遥相对。随着这场超级地震毫无预 兆的来袭，整个城市浓烟滚滚、火光冲天，高楼大厦相继倒塌，到处都是惊慌失措的市民。更要命的是，如此强烈的地震，“摧枯拉朽”般粉碎了坚实的大坝，洪水如猛兽一般涌向已经水深火热的城市，“天崩地陷”的景象犹如“末日”已然来临…</string>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="infos_icon" translatesAutoresizingMaskIntoConstraints="NO" id="vMQ-uC-bui">
+                        <rect key="frame" x="8" y="65" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="Sho-93-9ji"/>
+                            <constraint firstAttribute="width" constant="20" id="Vcd-wQ-93o"/>
+                        </constraints>
+                    </imageView>
+                    <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9g-ym-P9t" userLabel="Separator View">
+                        <rect key="frame" x="18" y="148" width="302" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="YVG-nl-g7q"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="centerY" secondItem="vMQ-uC-bui" secondAttribute="centerY" id="13Q-5N-lvG"/>
+                    <constraint firstItem="aZb-3v-70V" firstAttribute="leading" secondItem="vMQ-uC-bui" secondAttribute="trailing" constant="20" id="4dI-o0-G1a"/>
+                    <constraint firstAttribute="bottom" secondItem="D9g-ym-P9t" secondAttribute="bottom" id="6vn-Ad-DZJ"/>
+                    <constraint firstItem="vMQ-uC-bui" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="GHW-sm-map"/>
+                    <constraint firstItem="D9g-ym-P9t" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="MPm-WY-ZPs"/>
+                    <constraint firstAttribute="bottom" secondItem="aZb-3v-70V" secondAttribute="bottom" constant="8" id="Tgo-VF-Xta"/>
+                    <constraint firstItem="aZb-3v-70V" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="djh-Br-71F"/>
+                    <constraint firstItem="aZb-3v-70V" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" id="sBZ-pa-F9Y"/>
+                    <constraint firstAttribute="trailing" secondItem="D9g-ym-P9t" secondAttribute="trailing" id="vD1-9g-nP3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="movieSummaryLabel" destination="aZb-3v-70V" id="uFx-CY-H9z"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="infos_icon" width="30" height="30"/>
+    </resources>
+</document>
