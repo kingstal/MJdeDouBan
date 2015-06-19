@@ -30,8 +30,8 @@
                                     <constraint firstAttribute="height" constant="1" id="4MN-x0-FfB"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View All Similar Movies" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mea-LS-jaU">
-                                <rect key="frame" x="60" y="120" width="158" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="喜欢这部电影的人也喜欢..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mea-LS-jaU">
+                                <rect key="frame" x="60" y="120" width="178" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.13637979294277988" green="0.85877826281414316" blue="0.93602964391414145" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -57,7 +57,7 @@
                                 </state>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie_icon" translatesAutoresizingMaskIntoConstraints="NO" id="IHL-cm-wCT">
-                                <rect key="frame" x="18" y="62.5" width="25" height="25"/>
+                                <rect key="frame" x="18" y="70" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="i4h-ed-fW4"/>
                                     <constraint firstAttribute="width" constant="25" id="j88-Ed-WrU"/>
@@ -90,6 +90,7 @@
                             <constraint firstAttribute="trailing" secondItem="3qw-NI-uEc" secondAttribute="trailing" id="VMG-V5-gcd"/>
                             <constraint firstItem="G81-Fu-dm0" firstAttribute="leading" secondItem="hkY-YJ-wLq" secondAttribute="leading" constant="60" id="Vkz-ib-82t"/>
                             <constraint firstAttribute="bottom" secondItem="6ry-Ag-abl" secondAttribute="bottom" id="XfC-Cx-4Jg"/>
+                            <constraint firstItem="IHL-cm-wCT" firstAttribute="bottom" secondItem="3qw-NI-uEc" secondAttribute="bottom" id="Y4W-vk-Dfg"/>
                             <constraint firstAttribute="bottom" secondItem="mea-LS-jaU" secondAttribute="bottom" constant="8.5" id="dJt-Jz-Xls"/>
                             <constraint firstAttribute="bottom" secondItem="b1N-v7-tww" secondAttribute="bottom" constant="8" id="fJG-Hp-57R"/>
                             <constraint firstItem="mea-LS-jaU" firstAttribute="bottom" secondItem="gSa-Ai-Rlk" secondAttribute="bottom" id="fjT-L5-aBN"/>
@@ -100,6 +101,11 @@
                             <constraint firstItem="b1N-v7-tww" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mea-LS-jaU" secondAttribute="trailing" constant="20" id="v6v-fi-F8W"/>
                             <constraint firstAttribute="trailing" secondItem="6ry-Ag-abl" secondAttribute="trailing" id="xsK-el-e0a"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8cl-Om-aET"/>
+                            </mask>
+                        </variation>
                     </view>
                 </subviews>
                 <constraints>

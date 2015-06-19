@@ -51,21 +51,19 @@
 
 - (void)fetchHotMovieWithCity:(NSString*)city success:(MJHTTPFetcherSuccessBlock)successBlock failure:(MJHTTPFetcherErrorBlock)errorBlock
 {
-    NSLog(@"fetch hot movies");
+    NSString* url = [NSString stringWithFormat:@"http://mjdedouban.sinaapp.com/hotMovie?city=%@", city];
+    NSLog(@"fetch hot movies-------%@", url);
 
-    self.requestOperation = [[self JSONRequestOperationManager] GET:[NSString stringWithFormat:@"http://mjdedouban.sinaapp.com/hotMovie?city=%@", city]
+    self.requestOperation = [[self JSONRequestOperationManager] GET:url
         parameters:nil
         success:^(AFHTTPRequestOperation* operation, id responseObject) {
-            //            NSLog(@"responseObject：%@", responseObject);
             // 解析热门电影
             NSArray* array = (NSArray*)responseObject;
             NSMutableArray* movies = [NSMutableArray new];
             for (id movie in array) {
-                //                NSLog(@"%@", movie);
                 [movies addObject:[MJMovie objectWithKeyValues:movie]];
             }
             successBlock(self, movies);
-
         }
         failure:^(AFHTTPRequestOperation* operation, NSError* error) {
             errorBlock(self, error);
@@ -79,13 +77,12 @@
     if ([movie.movieType isEqualToString:@"comingsoon"]) {
         url = [NSString stringWithFormat:@"%@&type=%@", url, movie.movieType];
     }
+    NSLog(@"fetch movieDetail-------%@", url);
 
     self.requestOperation = [[self JSONRequestOperationManager] GET:url
         parameters:nil
         success:^(AFHTTPRequestOperation* operation, id responseObject) {
             // 解析电影详情
-            //            NSLog(@"responseObject：%@", responseObject);
-
             MJMovie* newMovie = [MJMovie objectWithKeyValues:responseObject];
             movie.movieDirector = newMovie.movieDirector;
             movie.movieCelebrity = newMovie.movieCelebrity;
@@ -98,11 +95,7 @@
             movie.movieSummary = newMovie.movieSummary;
             movie.reviewCount = newMovie.reviewCount;
             for (NSDictionary* dic in newMovie.similarMovies) {
-                MJMovie* similarMovie = [MJMovie new];
-                similarMovie.movieId = [dic valueForKey:@"movieId"];
-                similarMovie.movieTitle = [dic valueForKey:@"movieTitle"];
-                similarMovie.moviePosterUrl = [dic valueForKey:@"moviePosterUrl"];
-                [movie.similarMovies addObject:similarMovie];
+                [movie.similarMovies addObject:[MJMovie objectWithKeyValues:dic]];
             }
             if ([movie.movieType isEqualToString:@"comingsoon"]) {
                 movie.movieScore = newMovie.movieScore;
@@ -114,25 +107,23 @@
             errorBlock(self, error);
             NSLog(@"%@", error);
         }];
-    NSLog(@"finish fetching movie detail");
 }
 
 - (void)fetchComingSoonMovieWithCity:(NSString*)city success:(MJHTTPFetcherSuccessBlock)successBlock failure:(MJHTTPFetcherErrorBlock)errorBlock
 {
-    NSLog(@"fetch comingsoon movies");
+    NSString* url = [NSString stringWithFormat:@"http://mjdedouban.sinaapp.com/comingMovie?city=%@", city];
+    NSLog(@"etch comingsoon movies-------%@", url);
 
-    self.requestOperation = [[self JSONRequestOperationManager] GET:[NSString stringWithFormat:@"http://mjdedouban.sinaapp.com/comingMovie?city=%@", city]
+    self.requestOperation = [[self JSONRequestOperationManager] GET:url
         parameters:nil
         success:^(AFHTTPRequestOperation* operation, id responseObject) {
-            // 解析热门电影
+            // 解析即将上映电影
             NSArray* array = (NSArray*)responseObject;
             NSMutableArray* movies = [NSMutableArray new];
             for (id movie in array) {
-                //                NSLog(@"%@", movie);
                 [movies addObject:[MJMovie objectWithKeyValues:movie]];
             }
             successBlock(self, movies);
-
         }
         failure:^(AFHTTPRequestOperation* operation, NSError* error) {
             errorBlock(self, error);
@@ -142,11 +133,9 @@
 
 - (void)fetchMovieReviewWithMovie:(MJMovie*)movie start:(NSInteger)start limit:(NSInteger)limit success:(MJHTTPFetcherSuccessBlock)successBlock failure:(MJHTTPFetcherErrorBlock)errorBlock
 {
-    NSLog(@"fetch review");
-
     NSString* url = [NSString stringWithFormat:@"http://mjdedouban.sinaapp.com/review?movieId=%@&start=%ld&limit=%ld", movie.movieId, (long)start, (long)limit];
+    NSLog(@"fetch reviews-------%@", url);
 
-    NSLog(@"-------%@", url);
     self.requestOperation = [[self JSONRequestOperationManager] GET:url
         parameters:nil
         success:^(AFHTTPRequestOperation* operation, id responseObject) {
@@ -158,7 +147,6 @@
         }
         failure:^(AFHTTPRequestOperation* operation, NSError* error) {
             errorBlock(self, error);
-
             NSLog(@"error:%@", error);
         }];
 }

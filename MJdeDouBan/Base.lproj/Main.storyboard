@@ -358,7 +358,7 @@
                                             <outlet property="scoreLabel" destination="jqU-cL-1bN" id="5tl-Qe-qYt"/>
                                             <outlet property="titleLabel" destination="H0K-11-5k4" id="fQN-B6-ODc"/>
                                             <outlet property="votecountLabel" destination="mBi-k7-RxE" id="aOO-HV-otb"/>
-                                            <segue destination="fM0-yZ-VVB" kind="push" identifier="MovieDetail" id="RiZ-S8-iU3"/>
+                                            <segue destination="fM0-yZ-VVB" kind="show" identifier="MovieDetail" id="RiZ-S8-iU3"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -432,7 +432,7 @@
         <!--Movie Details View Controller-->
         <scene sceneID="HSZ-Xv-avB">
             <objects>
-                <viewController id="fM0-yZ-VVB" customClass="MJMovieDetailsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MJMovieDetailsViewController" id="fM0-yZ-VVB" customClass="MJMovieDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UhH-Dh-Kk5"/>
                         <viewControllerLayoutGuide type="bottom" id="Chd-KX-cAg"/>
@@ -955,7 +955,7 @@
                                             <outlet property="regionLabel" destination="jfX-pe-A61" id="Akf-ft-9nn"/>
                                             <outlet property="titleLabel" destination="vtz-FK-R4E" id="gy5-ai-43V"/>
                                             <outlet property="trailerButton" destination="3ym-Vf-MVM" id="ais-xZ-mSr"/>
-                                            <segue destination="fM0-yZ-VVB" kind="push" identifier="MovieDetail" id="IoX-RH-lqu"/>
+                                            <segue destination="fM0-yZ-VVB" kind="show" identifier="MovieDetail" id="IoX-RH-lqu"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1074,6 +1074,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="IoX-RH-lqu"/>
-        <segue reference="b4P-bJ-FbK"/>
+        <segue reference="kwe-Il-nSD"/>
     </inferredMetricsTieBreakers>
 </document>

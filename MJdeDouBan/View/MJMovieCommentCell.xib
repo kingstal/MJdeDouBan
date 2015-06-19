@@ -21,7 +21,7 @@
                             <constraint firstAttribute="height" constant="48" id="GSJ-p2-H7D"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="十年一梦功之怒" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nj-BO-S2m" userLabel="title">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="十年一梦功之怒" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8nj-BO-S2m" userLabel="title">
                         <rect key="frame" x="64" y="23" width="105" height="18"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                         <color key="textColor" red="0.28124358281721873" green="0.61280776515151514" blue="0.25757174756177781" alpha="0.67000000000000004" colorSpace="calibratedRGB"/>

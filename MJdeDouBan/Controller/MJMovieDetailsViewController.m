@@ -21,6 +21,7 @@
 #import <UINavigationController+FDFullscreenPopGesture.h>
 #import "MJReview.h"
 #import "MJRefresh.h"
+#import "StoryBoardUtilities.h"
 
 static NSInteger const REVIEWLIMIT = 10;
 
@@ -278,6 +279,9 @@ static NSInteger const REVIEWLIMIT = 10;
     }
 }
 
+/**
+ *  使用UITableView+FDTemplateLayoutCell自动计算 tableViewCell 的高度
+ */
 - (CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
     CGFloat height = 0;
@@ -341,9 +345,10 @@ static NSInteger const REVIEWLIMIT = 10;
 
 - (void)collectionView:(UICollectionView*)collectionView didSelectItemAtIndexPath:(NSIndexPath*)indexPath
 {
-    //    MJMovieDetailsViewController* viewController = [[MJMovieDetailsViewController alloc] init];
-    //    [self.navigationController pushViewController:viewController animated:YES];
-    //    viewController.movie = [self.movie.similarMovies objectAtIndex:indexPath.row];
+    MJMovieDetailsViewController* viewController = (MJMovieDetailsViewController*)[StoryBoardUtilities viewControllerForStoryboardName:@"Main" class:[MJMovieDetailsViewController class]];
+    ;
+    viewController.movie = [self.movie.similarMovies objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 #pragma mark MJDetailsPageDelegate
