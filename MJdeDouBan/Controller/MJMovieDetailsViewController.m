@@ -20,8 +20,9 @@
 #import <UITableView+FDTemplateLayoutCell.h>
 #import <UINavigationController+FDFullscreenPopGesture.h>
 #import "MJReview.h"
+#import "MJRefresh.h"
 
-#define REVIEWLIMIT 10
+static NSInteger const REVIEWLIMIT = 10;
 
 @interface MJMovieDetailsViewController ()
 
@@ -38,11 +39,41 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    //添加下拉刷新
+    __weak __typeof(self) weakSelf = self;
+    self.detailsPageView.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        NSLog(@"共有%@条影评", self.movie.reviewCount);
+        NSLog(@"当前有%lu条影评,正请求%lu 条影评", (unsigned long)[self.movie.reviews count], _currentReviewIndex);
+        if (self.currentReviewIndex == 0 || [self.movie.reviews count] < [self.movie.reviewCount integerValue]) {
+            // 进入刷新状态后会自动调用这个block
+            [weakSelf requestMovieReviewsStartWithIndex:self.currentReviewIndex];
+            // 结束刷新
+            [weakSelf.detailsPageView.tableView.footer endRefreshing];
+        }
+        else {
+            [self.detailsPageView.tableView.footer noticeNoMoreData];
+        }
+    }];
+
     //    self.navigationController.fd_prefersNavigationBarHidden = YES;
     // Do any additional setup after loading the view.
     [self registerNib];
     [self setupDetailsPageView];
     [self requestMovieDetails];
+}
+
+- (NSInteger)currentReviewIndex
+{
+    if (!_currentReviewIndex) {
+        _currentReviewIndex = 0;
+    }
+    return _currentReviewIndex;
+}
+
+- (void)dealloc
+{
+    [[MJHTTPFetcher sharedFetcher] cancel];
 }
 
 #pragma mark - setup
@@ -80,12 +111,11 @@
     [[MJHTTPFetcher sharedFetcher] fetchMovieDetailWithMovie:self.movie
         success:^(MJHTTPFetcher* fetcher, id data) {
             self.movie = (MJMovie*)data;
-            NSLog(@"MovieDetail:%@", self.movie);
+            //            NSLog(@"MovieDetail:%@", self.movie);
             if (self.movie) {
                 [self.detailsPageView reloadData];
 
                 //第一次请求影评
-                self.currentReviewIndex = 0;
                 [self requestMovieReviewsStartWithIndex:self.currentReviewIndex];
 
                 [self hideLoadingView];
@@ -99,11 +129,11 @@
 - (void)requestMovieReviewsStartWithIndex:(NSInteger)startIndex
 {
     [[MJHTTPFetcher sharedFetcher] fetchMovieReviewWithMovie:self.movie
-        start:self.currentReviewIndex
+        start:startIndex
         limit:REVIEWLIMIT
         success:^(MJHTTPFetcher* fetcher, id data) {
-            if (self.movie.reviews && [self.movie.reviews count] > self.currentReviewIndex) {
-                self.currentReviewIndex += [self.movie.reviews count];
+            if (self.movie.reviews) {
+                self.currentReviewIndex = [self.movie.reviews count] + 1;
                 [self.detailsPageView reloadData];
             }
         }
@@ -156,7 +186,6 @@
     return 1;
 }
 
-//TODO: 后期增加真实短评
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 3 + [self.movie.reviews count];
@@ -222,13 +251,12 @@
     default: {
         MJMovieCommentCell* commentCell = [tableView dequeueReusableCellWithIdentifier:@"MJMovieCommentCell"];
 
-        //TODO: 添加真实的评论数据
         MJReview* review = (MJReview*)[self.movie.reviews objectAtIndex:indexPath.row - 3];
         [commentCell.cellImageView sd_setImageWithURL:[NSURL URLWithString:[review avatarUrl]]];
         commentCell.titleLabel.text = review.title;
         commentCell.usernameLabel.text = review.username;
         commentCell.timeLabel.text = review.commnetTime;
-        commentCell.scoreStarsView.value = [review.score floatValue];
+        commentCell.scoreStarsView.value = [review.score floatValue] / 5;
         commentCell.commentLabel.text = review.content;
         commentCell.percentUseLabel.text = [NSString stringWithFormat:@"%@有用", review.percentUse];
 

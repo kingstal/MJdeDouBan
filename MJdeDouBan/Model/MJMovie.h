@@ -26,9 +26,9 @@
 @property (nonatomic, copy) NSString* movieSummary;
 
 @property (nonatomic, copy) NSString* moviePeopleLike;
-@property (nonatomic, copy) NSString* movieTrailerUrl;
+@property (nonatomic, copy) NSString* movieTrailerUrl; //预告片
 
-@property (nonatomic, copy) NSMutableArray* movieSimilars;
+@property (nonatomic, copy) NSMutableArray* similarMovies;
 
 @property (nonatomic, copy) NSString* movieType; //电影类型：热门 or 即将上映
 @property (nonatomic, copy) NSString* reviewCount; //影评总数

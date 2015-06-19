@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MJButton.h"
 
 @interface MJComingSoonMovieListCell : UITableViewCell
 
@@ -16,5 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel* genreLabel;
 @property (weak, nonatomic) IBOutlet UILabel* regionLabel;
 @property (weak, nonatomic) IBOutlet UILabel* peopleWantSeeLabel;
+
+@property (weak, nonatomic) IBOutlet MJButton* trailerButton;
 
 @end

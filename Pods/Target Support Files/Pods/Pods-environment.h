@@ -54,11 +54,17 @@
 #define COCOAPODS_VERSION_MINOR_FDFullscreenPopGesture 1
 #define COCOAPODS_VERSION_PATCH_FDFullscreenPopGesture 0
 
+// KRVideoPlayer
+#define COCOAPODS_POD_AVAILABLE_KRVideoPlayer
+#define COCOAPODS_VERSION_MAJOR_KRVideoPlayer 1
+#define COCOAPODS_VERSION_MINOR_KRVideoPlayer 0
+#define COCOAPODS_VERSION_PATCH_KRVideoPlayer 1
+
 // MJExtension
 #define COCOAPODS_POD_AVAILABLE_MJExtension
 #define COCOAPODS_VERSION_MAJOR_MJExtension 2
 #define COCOAPODS_VERSION_MINOR_MJExtension 3
-#define COCOAPODS_VERSION_PATCH_MJExtension 4
+#define COCOAPODS_VERSION_PATCH_MJExtension 5
 
 // MJRefresh
 #define COCOAPODS_POD_AVAILABLE_MJRefresh

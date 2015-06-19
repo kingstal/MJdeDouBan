@@ -43,7 +43,7 @@
 - (NSMutableArray*)reviews
 {
     if (!_reviews) {
-        _reviews = [NSMutableArray new];
+        _reviews = [[NSMutableArray alloc] initWithCapacity:10];
     }
     return _reviews;
 }

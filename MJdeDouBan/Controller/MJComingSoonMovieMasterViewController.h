@@ -14,4 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIView* networkLoadingContainerView;
 @property (weak, nonatomic) IBOutlet UITableView* tableView;
 
+- (IBAction)playTrailer:(id)sender;
+
 @end

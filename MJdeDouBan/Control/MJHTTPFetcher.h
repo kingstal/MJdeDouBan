@@ -43,4 +43,9 @@ typedef void (^MJHTTPFetcherSuccessBlock)(MJHTTPFetcher* fetcher, id data);
  *  获取影评
  */
 - (void)fetchMovieReviewWithMovie:(MJMovie*)movie start:(NSInteger)start limit:(NSInteger)limit success:(MJHTTPFetcherSuccessBlock)successBlock failure:(MJHTTPFetcherErrorBlock)errorBlock;
+
+/**
+ *  Invokes [self.requestOperation cancel] to cancel the network request
+ */
+- (void)cancel;
 @end

@@ -33,6 +33,11 @@
     [self requestHotMovies];
 }
 
+- (void)dealloc
+{
+    [[MJHTTPFetcher sharedFetcher] cancel];
+}
+
 //- (void)viewWillAppear:(BOOL)animated
 //{
 //    [self.navigationController setNavigationBarHidden:NO animated:YES];

@@ -13,6 +13,8 @@
 #import "MJMovieListCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "MJComingSoonMovieListCell.h"
+//#import <KRVideoPlayerController.h> //不需要了，预告片不是直接的视频链接
+@import UIKit;
 
 @interface MJComingSoonMovieMasterViewController ()
 
@@ -20,6 +22,8 @@
 @property (nonatomic, strong) MJNetworkLoadingViewController* networkLoadingViewController;
 
 @property (nonatomic, strong) NSIndexPath* selectedIndexPath;
+//
+//@property (nonatomic, strong) KRVideoPlayerController* videoPlayerController;
 
 @end
 
@@ -32,10 +36,18 @@
     [self requestComingSoonMovies];
 }
 
-- (void)didReceiveMemoryWarning
+//- (KRVideoPlayerController*)videoPlayerController
+//{
+//    if (!_videoPlayerController) {
+//        CGFloat width = [UIScreen mainScreen].bounds.size.width;
+//        _videoPlayerController = [[KRVideoPlayerController alloc] initWithFrame:CGRectMake(0, 0, width, width * (9.0 / 16.0))];
+//    }
+//    return _videoPlayerController;
+//}
+
+- (void)dealloc
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [[MJHTTPFetcher sharedFetcher] cancel];
 }
 
 #pragma mark - Navigation
@@ -85,6 +97,12 @@
     [self requestComingSoonMovies];
 }
 
+#pragma mark - IBAction
+- (IBAction)playTrailer:(id)sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[(MJButton*)sender videoUrl]]];
+}
+
 #pragma mark UITableViewSource
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
@@ -102,6 +120,7 @@
     [cell.genreLabel setText:[self.comingSoonMovies[indexPath.row] valueForKey:@"movieGenre"]];
     [cell.regionLabel setText:[self.comingSoonMovies[indexPath.row] valueForKey:@"movieRegion"]];
     [cell.peopleWantSeeLabel setText:[self.comingSoonMovies[indexPath.row] valueForKey:@"moviePeopleLike"]];
+    cell.trailerButton.videoUrl = [self.comingSoonMovies[indexPath.row] valueForKey:@"movieTrailerUrl"];
     return cell;
 }
 

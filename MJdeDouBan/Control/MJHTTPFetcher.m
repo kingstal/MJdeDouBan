@@ -77,8 +77,7 @@
 {
     NSString* url = [NSString stringWithFormat:@"http://mjdedouban.sinaapp.com/movieDetail?movieId=%@", movie.movieId];
     if ([movie.movieType isEqualToString:@"comingsoon"]) {
-        url = [NSString stringWithFormat:@"%@&type=%@", url, movie
-                                                                 .movieType];
+        url = [NSString stringWithFormat:@"%@&type=%@", url, movie.movieType];
     }
 
     self.requestOperation = [[self JSONRequestOperationManager] GET:url
@@ -96,6 +95,7 @@
             movie.movieReleaseDate = newMovie.movieReleaseDate;
             movie.movieDuration = newMovie.movieDuration;
             movie.movieSummary = newMovie.movieSummary;
+            movie.reviewCount = newMovie.reviewCount;
             if ([movie.movieType isEqualToString:@"comingsoon"]) {
                 movie.movieScore = newMovie.movieScore;
                 movie.movieVoteCount = newMovie.movieVoteCount;
@@ -137,6 +137,8 @@
     NSLog(@"fetch review");
 
     NSString* url = [NSString stringWithFormat:@"http://mjdedouban.sinaapp.com/review?movieId=%@&start=%ld&limit=%ld", movie.movieId, (long)start, (long)limit];
+    
+    NSLog(@"-------%@",url);
     self.requestOperation = [[self JSONRequestOperationManager] GET:url
         parameters:nil
         success:^(AFHTTPRequestOperation* operation, id responseObject) {
@@ -151,5 +153,10 @@
 
             NSLog(@"error:%@", error);
         }];
+}
+
+- (void)cancel
+{
+    [self.requestOperation cancel];
 }
 @end
