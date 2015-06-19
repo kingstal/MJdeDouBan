@@ -40,7 +40,7 @@ static NSInteger const REVIEWLIMIT = 10;
 {
     [super viewDidLoad];
 
-    //添加下拉刷新
+    //添加上拉刷新
     __weak __typeof(self) weakSelf = self;
     self.detailsPageView.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         NSLog(@"共有%@条影评", self.movie.reviewCount);
@@ -86,6 +86,9 @@ static NSInteger const REVIEWLIMIT = 10;
     UINib* descriptionNib = [UINib nibWithNibName:@"MJMovieDescriptionCell" bundle:nil];
     [self.detailsPageView.tableView registerNib:descriptionNib forCellReuseIdentifier:@"MJMovieDescriptionCell"];
 
+    UINib* similarMoviesNib = [UINib nibWithNibName:@"MJSimilarMoviesCell" bundle:nil];
+    [self.detailsPageView.tableView registerNib:similarMoviesNib forCellReuseIdentifier:@"MJSimilarMoviesCell"];
+
     UINib* directorNib = [UINib nibWithNibName:@"MJMovieDirectorCell" bundle:nil];
     [self.detailsPageView.tableView registerNib:directorNib forCellReuseIdentifier:@"MJMovieDirectorCell"];
 
@@ -113,6 +116,7 @@ static NSInteger const REVIEWLIMIT = 10;
             self.movie = (MJMovie*)data;
             //            NSLog(@"MovieDetail:%@", self.movie);
             if (self.movie) {
+
                 [self.detailsPageView reloadData];
 
                 //第一次请求影评
@@ -188,7 +192,7 @@ static NSInteger const REVIEWLIMIT = 10;
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3 + [self.movie.reviews count];
+    return 4 + [self.movie.reviews count];
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
@@ -230,28 +234,17 @@ static NSInteger const REVIEWLIMIT = 10;
 
         cell = descriptionCell;
     } break;
-    //    case 3: {
-    //        MJSimilarMoviesCell* similarMoviesCell = [tableView dequeueReusableCellWithIdentifier:@"MJSimilarMoviesCell"];
-    //        if (!similarMoviesCell) {
-    //            similarMoviesCell = [MJSimilarMoviesCell similarMoviesCell];
-    //        }
-    //
-    //        [similarMoviesCell.viewAllSimilarMoviesButton addTarget:self action:@selector(viewAllSimilarMoviesButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    //
-    //        cell = similarMoviesCell;
-    //    } break;
-    //    case 4: { //TODO: 添加 action
-    //        MJMovieViewAllCommentsCell* allCommentsCell = [tableView dequeueReusableCellWithIdentifier:@"MJMovieViewAllCommentsCell"];
-    //        if (!allCommentsCell) {
-    //            allCommentsCell = [MJMovieViewAllCommentsCell movieViewAllCommentsCell];
-    //        }
-    //        cell = allCommentsCell;
-    //    } break;
+    case 3: {
+        MJSimilarMoviesCell* similarMoviesCell = [tableView dequeueReusableCellWithIdentifier:@"MJSimilarMoviesCell"];
 
+        [similarMoviesCell.viewAllSimilarMoviesButton addTarget:self action:@selector(viewAllSimilarMoviesButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+
+        cell = similarMoviesCell;
+    } break;
     default: {
         MJMovieCommentCell* commentCell = [tableView dequeueReusableCellWithIdentifier:@"MJMovieCommentCell"];
 
-        MJReview* review = (MJReview*)[self.movie.reviews objectAtIndex:indexPath.row - 3];
+        MJReview* review = (MJReview*)[self.movie.reviews objectAtIndex:indexPath.row - 4];
         [commentCell.cellImageView sd_setImageWithURL:[NSURL URLWithString:[review avatarUrl]]];
         commentCell.titleLabel.text = review.title;
         commentCell.usernameLabel.text = review.username;
@@ -277,12 +270,12 @@ static NSInteger const REVIEWLIMIT = 10;
 - (void)tableView:(UITableView*)tableView willDisplayCell:(UITableViewCell*)cell forRowAtIndexPath:(NSIndexPath*)indexPath
 {
     cell.contentView.backgroundColor = [UIColor clearColor];
-    //    if ([cell isKindOfClass:[MJSimilarMoviesCell class]]) {
-    //        MJSimilarMoviesCell* similarMovieCell = (MJSimilarMoviesCell*)cell;
-    //        [similarMovieCell setCollectionViewDataSourceDelegate:self index:indexPath.row];
-    //    }
-    if ([cell isKindOfClass:[MJMovieCommentCell class]])
-        cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
+
+    // 为MJSimilarMoviesCell的 collectionView 设置 delegate
+    if ([cell isKindOfClass:[MJSimilarMoviesCell class]]) {
+        MJSimilarMoviesCell* similarMovieCell = (MJSimilarMoviesCell*)cell;
+        [similarMovieCell setCollectionViewDataSourceDelegate:self index:indexPath.row];
+    }
 }
 
 - (CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
@@ -307,11 +300,14 @@ static NSInteger const REVIEWLIMIT = 10;
                                                  [(MJMovieDescriptionCell*)cell movieSummaryLabel].text = self.movie.movieSummary;
                                              }];
     }
+    else if (indexPath.row == 3) {
+        height = 150;
+    }
     else {
         height = [tableView fd_heightForCellWithIdentifier:@"MJMovieCommentCell"
                                           cacheByIndexPath:indexPath
                                              configuration:^(id cell) {
-                                                 MJReview* review = (MJReview*)[self.movie.reviews objectAtIndex:indexPath.row - 3];
+                                                 MJReview* review = (MJReview*)[self.movie.reviews objectAtIndex:indexPath.row - 4];
                                                  MJMovieCommentCell* commentCell = (MJMovieCommentCell*)cell;
                                                  [commentCell.imageView sd_setImageWithURL:[NSURL URLWithString:[review avatarUrl]]];
                                                  commentCell.titleLabel.text = review.title;
@@ -327,28 +323,28 @@ static NSInteger const REVIEWLIMIT = 10;
 }
 
 #pragma mark - UICollectionView DataSource
-//
-//- (NSInteger)collectionView:(UICollectionView*)collectionView numberOfItemsInSection:(NSInteger)section
-//{
-//    return [self.movie.movieSimilars count];
-//}
-//
-//- (UICollectionViewCell*)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath*)indexPath
-//{
-//    MJSimilarMoviesCollectionViewCell* cell = (MJSimilarMoviesCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:@"" forIndexPath:indexPath];
-//
-//    [cell.cellImageView sd_setImageWithURL:[NSURL URLWithString:[(MJMovie*)[self.movie.movieSimilars objectAtIndex:indexPath.row] moviePosterUrl]]];
-//    return cell;
-//}
+
+- (NSInteger)collectionView:(UICollectionView*)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return [self.movie.similarMovies count];
+}
+
+- (UICollectionViewCell*)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath*)indexPath
+{
+    MJSimilarMoviesCollectionViewCell* cell = (MJSimilarMoviesCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:@"MJSimilarMoviesCollectionViewCell" forIndexPath:indexPath];
+
+    [cell.cellImageView sd_setImageWithURL:[NSURL URLWithString:[(MJMovie*)[self.movie.similarMovies objectAtIndex:indexPath.row] moviePosterUrl]]];
+    return cell;
+}
 
 #pragma mark - UICollectionView Delegate
-//
-//- (void)collectionView:(UICollectionView*)collectionView didSelectItemAtIndexPath:(NSIndexPath*)indexPath
-//{
-//    MJMovieDetailsViewController* viewController = [[MJMovieDetailsViewController alloc] init];
-//    [self.navigationController pushViewController:viewController animated:YES];
-//    viewController.movie = [self.movie.movieSimilars objectAtIndex:indexPath.row];
-//}
+
+- (void)collectionView:(UICollectionView*)collectionView didSelectItemAtIndexPath:(NSIndexPath*)indexPath
+{
+    //    MJMovieDetailsViewController* viewController = [[MJMovieDetailsViewController alloc] init];
+    //    [self.navigationController pushViewController:viewController animated:YES];
+    //    viewController.movie = [self.movie.similarMovies objectAtIndex:indexPath.row];
+}
 
 #pragma mark MJDetailsPageDelegate
 

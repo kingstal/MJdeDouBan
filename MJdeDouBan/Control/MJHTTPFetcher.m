@@ -85,6 +85,7 @@
         success:^(AFHTTPRequestOperation* operation, id responseObject) {
             // 解析电影详情
             //            NSLog(@"responseObject：%@", responseObject);
+
             MJMovie* newMovie = [MJMovie objectWithKeyValues:responseObject];
             movie.movieDirector = newMovie.movieDirector;
             movie.movieCelebrity = newMovie.movieCelebrity;
@@ -96,6 +97,13 @@
             movie.movieDuration = newMovie.movieDuration;
             movie.movieSummary = newMovie.movieSummary;
             movie.reviewCount = newMovie.reviewCount;
+            for (NSDictionary* dic in newMovie.similarMovies) {
+                MJMovie* similarMovie = [MJMovie new];
+                similarMovie.movieId = [dic valueForKey:@"movieId"];
+                similarMovie.movieTitle = [dic valueForKey:@"movieTitle"];
+                similarMovie.moviePosterUrl = [dic valueForKey:@"moviePosterUrl"];
+                [movie.similarMovies addObject:similarMovie];
+            }
             if ([movie.movieType isEqualToString:@"comingsoon"]) {
                 movie.movieScore = newMovie.movieScore;
                 movie.movieVoteCount = newMovie.movieVoteCount;
@@ -137,8 +145,8 @@
     NSLog(@"fetch review");
 
     NSString* url = [NSString stringWithFormat:@"http://mjdedouban.sinaapp.com/review?movieId=%@&start=%ld&limit=%ld", movie.movieId, (long)start, (long)limit];
-    
-    NSLog(@"-------%@",url);
+
+    NSLog(@"-------%@", url);
     self.requestOperation = [[self JSONRequestOperationManager] GET:url
         parameters:nil
         success:^(AFHTTPRequestOperation* operation, id responseObject) {

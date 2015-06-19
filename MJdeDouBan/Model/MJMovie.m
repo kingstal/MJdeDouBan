@@ -32,12 +32,12 @@
     return self;
 }
 
-- (NSMutableArray*)movieSimilars
+- (NSMutableArray*)similarMovies
 {
-    if (!_movieSimilars) {
-        _movieSimilars = [NSMutableArray new];
+    if (!_similarMovies) {
+        _similarMovies = [NSMutableArray new];
     }
-    return _movieSimilars;
+    return _similarMovies;
 }
 
 - (NSMutableArray*)reviews
