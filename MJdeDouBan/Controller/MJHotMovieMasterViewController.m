@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 WangMinjun. All rights reserved.
 //
 
-#import "MJMovieMasterViewController.h"
+#import "MJHotMovieMasterViewController.h"
 #import "MJHTTPFetcher.h"
 #import "MJMovieListCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -14,7 +14,7 @@
 
 //#import <UINavigationController+FDFullscreenPopGesture.h>
 
-@interface MJMovieMasterViewController ()
+@interface MJHotMovieMasterViewController ()
 @property (nonatomic, strong) NSArray* hotMovies;
 @property (nonatomic, strong) UIRefreshControl* refreshControl;
 @property (nonatomic, strong) MJNetworkLoadingViewController* networkLoadingViewController;
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation MJMovieMasterViewController
+@implementation MJHotMovieMasterViewController
 
 - (void)viewDidLoad
 {

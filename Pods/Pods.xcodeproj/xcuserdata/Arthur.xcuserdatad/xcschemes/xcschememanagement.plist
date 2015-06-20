@@ -14,16 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-KRVideoPlayer-KRVideoPlayer.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-KRVideoPlayer.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-MJExtension.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,52 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>070B453FF3CF6D687D907064</key>
+		<key>1058462B2A5D4FB31419DFA6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4D72DA6BAAC98891C98BE1D5</key>
+		<key>15A80BE6921937638DEB246E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>582FE9781AE4E76916FE855A</key>
+		<key>21FAFA56E40F1E016032A53E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7123B73CF56B73DD4A405180</key>
+		<key>3BEA1B69CF1DEFC82392E4D9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7476DA8AA3D260306CA7BCEC</key>
+		<key>94F9E4B4034C6B834C4A94B6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>85EDCEF1C088FFE3E1B47595</key>
+		<key>AC3E2F1C6078B3678379C86A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9F7210C5920DCE2BAC2D5A87</key>
+		<key>C0C641ABEE8226539A42FDB6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BD85AFF6B44DB8737F30A02D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C3BC283330FBD0A98B84CAE5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FE426CBA4E9E3DB2E359BC96</key>
+		<key>E7B52E05C2EEC7480B950A6C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

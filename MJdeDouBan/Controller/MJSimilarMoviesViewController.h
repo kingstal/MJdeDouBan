@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MJSimilarMoviesViewController : UIViewController
+@interface MJSimilarMoviesViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UICollectionView* collectionView;
+
+@property (strong, nonatomic) NSArray* similarMovies;
 
 @end

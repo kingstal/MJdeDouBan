@@ -74,7 +74,7 @@
 - (void)fetchMovieDetailWithMovie:(MJMovie*)movie success:(MJHTTPFetcherSuccessBlock)successBlock failure:(MJHTTPFetcherErrorBlock)errorBlock
 {
     NSString* url = [NSString stringWithFormat:@"http://mjdedouban.sinaapp.com/movieDetail?movieId=%@", movie.movieId];
-    if ([movie.movieType isEqualToString:@"comingsoon"]) {
+    if (![movie.movieType isEqualToString:@"hot"]) {
         url = [NSString stringWithFormat:@"%@&type=%@", url, movie.movieType];
     }
     NSLog(@"fetch movieDetail-------%@", url);
@@ -97,7 +97,7 @@
             for (NSDictionary* dic in newMovie.similarMovies) {
                 [movie.similarMovies addObject:[MJMovie objectWithKeyValues:dic]];
             }
-            if ([movie.movieType isEqualToString:@"comingsoon"]) {
+            if (![movie.movieType isEqualToString:@"hot"]) {
                 movie.movieScore = newMovie.movieScore;
                 movie.movieVoteCount = newMovie.movieVoteCount;
             }

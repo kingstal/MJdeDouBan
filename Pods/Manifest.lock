@@ -21,7 +21,6 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - FDFullscreenPopGesture (1.1)
-  - KRVideoPlayer (1.0.1)
   - MJExtension (2.3.5)
   - MJRefresh (2.0.1)
   - MMPlaceHolder (1.8)
@@ -33,7 +32,6 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - FDFullscreenPopGesture
-  - KRVideoPlayer
   - MJExtension
   - MJRefresh
   - MMPlaceHolder
@@ -43,7 +41,6 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
-  KRVideoPlayer: 08918da1b99cae35fd4c15b2ec2b49358d4c985f
   MJExtension: ba54786a4e481b9834f56dd1494bfd7651cf72e4
   MJRefresh: ba114191a0ce34bcc9c1853aa1d3781532c9bc3f
   MMPlaceHolder: 6dbbd7d0dbaaa556eefbc75b8039fcd9f9cd576a

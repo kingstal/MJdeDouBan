@@ -22,6 +22,7 @@
 #import "MJReview.h"
 #import "MJRefresh.h"
 #import "StoryBoardUtilities.h"
+#import "MJSimilarMoviesViewController.h"
 
 static NSInteger const REVIEWLIMIT = 10;
 
@@ -182,6 +183,9 @@ static NSInteger const REVIEWLIMIT = 10;
 //TODO: 增加类似电影
 - (void)viewAllSimilarMoviesButtonPressed:(id)sender
 {
+    MJSimilarMoviesViewController* viewController = (MJSimilarMoviesViewController*)[StoryBoardUtilities viewControllerForStoryboardName:@"Main" class:[MJSimilarMoviesViewController class]];
+    viewController.similarMovies = self.movie.similarMovies;
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 #pragma mark - UITableView Data Source
@@ -207,12 +211,7 @@ static NSInteger const REVIEWLIMIT = 10;
         [detailsCell.posterImageView sd_setImageWithURL:[NSURL URLWithString:self.movie.moviePosterUrl]];
         detailsCell.starRatingView.value = [self.movie.movieScore floatValue] / 10.0f;
         detailsCell.scoreLabel.text = self.movie.movieScore;
-        if ([self.movie.movieType isEqualToString:@"comingsoon"]) {
-            detailsCell.voteCountLabel.text = self.movie.movieVoteCount;
-        }
-        else {
-            detailsCell.voteCountLabel.text = [NSString stringWithFormat:@"%@人评价", self.movie.movieVoteCount];
-        }
+        detailsCell.voteCountLabel.text = [NSString stringWithFormat:@"%@人评价", self.movie.movieVoteCount];
         detailsCell.genresLabel.text = self.movie.movieGenre;
         detailsCell.regionDurationLabel.text = [NSString stringWithFormat:@"%@/%@", self.movie.movieRegion, self.movie.movieDuration];
         detailsCell.releaseDateLabel.text = self.movie.movieReleaseDate;
