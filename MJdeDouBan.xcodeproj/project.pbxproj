@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E121FA01B38474000FC0109 /* MJBookDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E121F9F1B38474000FC0109 /* MJBookDetail.m */; };
 		8E133D9D1B28061A007BD0A7 /* MJHotMovieMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E133D9C1B28061A007BD0A7 /* MJHotMovieMasterViewController.m */; };
 		8E133DA01B28093E007BD0A7 /* MJMovieListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E133D9F1B28093E007BD0A7 /* MJMovieListCell.m */; };
 		8E17A3711B2583D400A60CC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E17A3701B2583D400A60CC9 /* main.m */; };
@@ -19,6 +20,7 @@
 		8E2599521B285ACC00C86B76 /* MJHTTPFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2599511B285ACC00C86B76 /* MJHTTPFetcher.m */; };
 		8E2CF6A21B28255900573BC9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2CF6A11B28255900573BC9 /* CoreGraphics.framework */; };
 		8E3431D91B29C49B00439644 /* MJMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3431D81B29C49B00439644 /* MJMovie.m */; };
+		8E3B12EC1B37D96A00E9CD81 /* MJBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3B12EB1B37D96A00E9CD81 /* MJBook.m */; };
 		8E3D4FED1B27F26B00BEAFAE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3D4FEC1B27F26B00BEAFAE /* CoreLocation.framework */; };
 		8E3D4FEF1B27F27100BEAFAE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3D4FEE1B27F27100BEAFAE /* MapKit.framework */; };
 		8E4C83A31B2822A3007EDFF6 /* MJNetworkLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4C83A21B2822A3007EDFF6 /* MJNetworkLoadingViewController.m */; };
@@ -63,6 +65,8 @@
 
 /* Begin PBXFileReference section */
 		50455F608FA4759AEE0F3533 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E121F9E1B38474000FC0109 /* MJBookDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJBookDetail.h; path = Model/MJBookDetail.h; sourceTree = "<group>"; };
+		8E121F9F1B38474000FC0109 /* MJBookDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJBookDetail.m; path = Model/MJBookDetail.m; sourceTree = "<group>"; };
 		8E133D9B1B28061A007BD0A7 /* MJHotMovieMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJHotMovieMasterViewController.h; path = Controller/MJHotMovieMasterViewController.h; sourceTree = "<group>"; };
 		8E133D9C1B28061A007BD0A7 /* MJHotMovieMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJHotMovieMasterViewController.m; path = Controller/MJHotMovieMasterViewController.m; sourceTree = "<group>"; };
 		8E133D9E1B28093E007BD0A7 /* MJMovieListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJMovieListCell.h; path = View/MJMovieListCell.h; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 		8E2CF6A11B28255900573BC9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8E3431D71B29C49B00439644 /* MJMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJMovie.h; path = Model/MJMovie.h; sourceTree = "<group>"; };
 		8E3431D81B29C49B00439644 /* MJMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJMovie.m; path = Model/MJMovie.m; sourceTree = "<group>"; };
+		8E3B12EA1B37D96A00E9CD81 /* MJBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBook.h; sourceTree = "<group>"; };
+		8E3B12EB1B37D96A00E9CD81 /* MJBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBook.m; sourceTree = "<group>"; };
 		8E3D4FEC1B27F26B00BEAFAE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8E3D4FEE1B27F27100BEAFAE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8E4C83A11B2822A3007EDFF6 /* MJNetworkLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJNetworkLoadingViewController.h; path = Controller/MJNetworkLoadingViewController.h; sourceTree = "<group>"; };
@@ -184,6 +190,10 @@
 				8E3431D81B29C49B00439644 /* MJMovie.m */,
 				8EED4A2D1B3292F2000B33D1 /* MJReview.h */,
 				8EED4A2E1B3292F2000B33D1 /* MJReview.m */,
+				8E3B12EA1B37D96A00E9CD81 /* MJBook.h */,
+				8E3B12EB1B37D96A00E9CD81 /* MJBook.m */,
+				8E121F9E1B38474000FC0109 /* MJBookDetail.h */,
+				8E121F9F1B38474000FC0109 /* MJBookDetail.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -590,6 +600,7 @@
 				8EB7E4F01B2AD9EA005F4C2E /* MJMovieDetailCell.m in Sources */,
 				8E2599521B285ACC00C86B76 /* MJHTTPFetcher.m in Sources */,
 				8E3431D91B29C49B00439644 /* MJMovie.m in Sources */,
+				8E3B12EC1B37D96A00E9CD81 /* MJBook.m in Sources */,
 				8E17A37A1B2583D400A60CC9 /* SecondViewController.m in Sources */,
 				8E6B8D501B2A799F001BAC3E /* RAMAnimatedTabBarController.swift in Sources */,
 				8EED4A2C1B31B842000B33D1 /* MJComingSoonMovieListCell.m in Sources */,
@@ -605,6 +616,7 @@
 				8E6B8D4E1B2A799F001BAC3E /* RAMRotationAnimation.swift in Sources */,
 				8EBCA8C71B317059003FA128 /* RKSwipeBetweenViewControllers.m in Sources */,
 				8EB245431B33EA0500CAE35A /* MJButton.m in Sources */,
+				8E121FA01B38474000FC0109 /* MJBookDetail.m in Sources */,
 				8EA1FBD61B29A88A0057E6E2 /* UIColor+flat.m in Sources */,
 				8E5BABD21B2F08CD00C2D59B /* ScoreStarsView.m in Sources */,
 				8E17A3741B2583D400A60CC9 /* AppDelegate.m in Sources */,
