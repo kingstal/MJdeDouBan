@@ -45,6 +45,21 @@ typedef void (^MJHTTPFetcherSuccessBlock)(MJHTTPFetcher* fetcher, id data);
 - (void)fetchMovieReviewWithMovie:(MJMovie*)movie start:(NSInteger)start limit:(NSInteger)limit success:(MJHTTPFetcherSuccessBlock)successBlock failure:(MJHTTPFetcherErrorBlock)errorBlock;
 
 /**
+ *  根据下标获取豆瓣图书 Top250
+ */
+- (void)fetchBookTop250WithStart:(NSInteger)start success:(MJHTTPFetcherSuccessBlock)successBlock failure:(MJHTTPFetcherErrorBlock)errorBlock;
+
+/**
+ *  根据虚构、非虚构分类获取豆瓣新书
+ */
+- (void)fetchBookNewWithFlag:(NSString*)flag success:(MJHTTPFetcherSuccessBlock)successBlock failure:(MJHTTPFetcherErrorBlock)errorBlock;
+
+/**
+ *  根据虚构、非虚构分类获取豆瓣热门图书
+ */
+- (void)fetchBookHotWithFlag:(NSString*)flag success:(MJHTTPFetcherSuccessBlock)successBlock failure:(MJHTTPFetcherErrorBlock)errorBlock;
+
+/**
  *  Invokes [self.requestOperation cancel] to cancel the network request
  */
 - (void)cancel;

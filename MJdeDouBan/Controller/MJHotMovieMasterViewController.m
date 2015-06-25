@@ -28,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"%@ view didLoad", self);
     //    [self setupTableView];
     //self.fd_interactivePopDisabled = YES;
     [self requestHotMovies];

@@ -32,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"%@ view didLoad", self);
     // Do any additional setup after loading the view.
     [self requestComingSoonMovies];
 }

@@ -34,17 +34,24 @@
 		8E6B8D4F1B2A799F001BAC3E /* RAMTransitionItemAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B8D481B2A799F001BAC3E /* RAMTransitionItemAnimation.swift */; };
 		8E6B8D501B2A799F001BAC3E /* RAMAnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B8D491B2A799F001BAC3E /* RAMAnimatedTabBarController.swift */; };
 		8E6B8D511B2A799F001BAC3E /* RAMItemAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B8D4A1B2A799F001BAC3E /* RAMItemAnimationProtocol.swift */; };
+		8E7BC7681B39867D006921F1 /* RKBookSwipeBetweenViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7BC7671B39867D006921F1 /* RKBookSwipeBetweenViewControllers.m */; };
 		8EA1FBD01B29A5810057E6E2 /* MJMovieDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA1FBCF1B29A5810057E6E2 /* MJMovieDetailsViewController.m */; };
 		8EA1FBD31B29A72A0057E6E2 /* FeThreeDotGlow.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA1FBD21B29A72A0057E6E2 /* FeThreeDotGlow.m */; };
 		8EA1FBD61B29A88A0057E6E2 /* UIColor+flat.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA1FBD51B29A88A0057E6E2 /* UIColor+flat.m */; };
 		8EA1FBDB1B29ACB20057E6E2 /* MJDetailsPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA1FBDA1B29ACB20057E6E2 /* MJDetailsPageView.m */; };
+		8EB075011B398D5C00B7AE14 /* MJBookTop250Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB075001B398D5C00B7AE14 /* MJBookTop250Controller.m */; };
+		8EB075051B39904300B7AE14 /* BookTop250ListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB075041B39904300B7AE14 /* BookTop250ListCell.m */; };
 		8EB245431B33EA0500CAE35A /* MJButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB245421B33EA0500CAE35A /* MJButton.m */; };
 		8EB245461B344C0300CAE35A /* StoryBoardUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB245451B344C0300CAE35A /* StoryBoardUtilities.m */; };
 		8EB245491B3453BF00CAE35A /* MJSimilarMoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB245481B3453BF00CAE35A /* MJSimilarMoviesViewController.m */; };
 		8EB7E4F01B2AD9EA005F4C2E /* MJMovieDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB7E4EE1B2AD9EA005F4C2E /* MJMovieDetailCell.m */; };
 		8EB7E4F11B2AD9EA005F4C2E /* MJMovieDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB7E4EF1B2AD9EA005F4C2E /* MJMovieDetailCell.xib */; };
-		8EBCA8C71B317059003FA128 /* RKSwipeBetweenViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EBCA8C61B317059003FA128 /* RKSwipeBetweenViewControllers.m */; };
+		8EBCA8C71B317059003FA128 /* RKMovieSwipeBetweenViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EBCA8C61B317059003FA128 /* RKMovieSwipeBetweenViewControllers.m */; };
 		8EBCA8CA1B319BFC003FA128 /* MJComingSoonMovieMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EBCA8C91B319BFC003FA128 /* MJComingSoonMovieMasterViewController.m */; };
+		8ECFF8CB1B3A81CE0000EBD2 /* MJBookNewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECFF8CA1B3A81CE0000EBD2 /* MJBookNewController.m */; };
+		8ECFF8CE1B3A86840000EBD2 /* BookNewListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECFF8CD1B3A86840000EBD2 /* BookNewListCell.m */; };
+		8ECFF8D11B3AC7FE0000EBD2 /* BookHotListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECFF8D01B3AC7FE0000EBD2 /* BookHotListCell.m */; };
+		8ECFF8D41B3AC87E0000EBD2 /* MJBookHotController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECFF8D31B3AC87E0000EBD2 /* MJBookHotController.m */; };
 		8EDB2A341B2AF4560049DC6A /* MJMovieDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDB2A321B2AF4560049DC6A /* MJMovieDescriptionCell.m */; };
 		8EDB2A351B2AF4560049DC6A /* MJMovieDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDB2A331B2AF4560049DC6A /* MJMovieDescriptionCell.xib */; };
 		8EDB2A391B2AF83C0049DC6A /* MJSimilarMoviesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDB2A371B2AF83C0049DC6A /* MJSimilarMoviesCollectionViewCell.m */; };
@@ -110,6 +117,8 @@
 		8E6B8D481B2A799F001BAC3E /* RAMTransitionItemAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMTransitionItemAnimation.swift; sourceTree = "<group>"; };
 		8E6B8D491B2A799F001BAC3E /* RAMAnimatedTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMAnimatedTabBarController.swift; sourceTree = "<group>"; };
 		8E6B8D4A1B2A799F001BAC3E /* RAMItemAnimationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMItemAnimationProtocol.swift; sourceTree = "<group>"; };
+		8E7BC7661B39867D006921F1 /* RKBookSwipeBetweenViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKBookSwipeBetweenViewControllers.h; sourceTree = "<group>"; };
+		8E7BC7671B39867D006921F1 /* RKBookSwipeBetweenViewControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKBookSwipeBetweenViewControllers.m; sourceTree = "<group>"; };
 		8EA1FBCE1B29A5810057E6E2 /* MJMovieDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJMovieDetailsViewController.h; path = Controller/MJMovieDetailsViewController.h; sourceTree = "<group>"; };
 		8EA1FBCF1B29A5810057E6E2 /* MJMovieDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJMovieDetailsViewController.m; path = Controller/MJMovieDetailsViewController.m; sourceTree = "<group>"; };
 		8EA1FBD11B29A72A0057E6E2 /* FeThreeDotGlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeThreeDotGlow.h; path = MJdeDouBan/FeThreeDotGlow.h; sourceTree = "<group>"; };
@@ -118,6 +127,10 @@
 		8EA1FBD51B29A88A0057E6E2 /* UIColor+flat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+flat.m"; path = "MJdeDouBan/UIColor+flat.m"; sourceTree = "<group>"; };
 		8EA1FBD91B29ACB20057E6E2 /* MJDetailsPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJDetailsPageView.h; path = View/MJDetailsPageView.h; sourceTree = "<group>"; };
 		8EA1FBDA1B29ACB20057E6E2 /* MJDetailsPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJDetailsPageView.m; path = View/MJDetailsPageView.m; sourceTree = "<group>"; };
+		8EB074FF1B398D5C00B7AE14 /* MJBookTop250Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJBookTop250Controller.h; path = Controller/MJBookTop250Controller.h; sourceTree = "<group>"; };
+		8EB075001B398D5C00B7AE14 /* MJBookTop250Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJBookTop250Controller.m; path = Controller/MJBookTop250Controller.m; sourceTree = "<group>"; };
+		8EB075031B39904300B7AE14 /* BookTop250ListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookTop250ListCell.h; path = View/BookTop250ListCell.h; sourceTree = "<group>"; };
+		8EB075041B39904300B7AE14 /* BookTop250ListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookTop250ListCell.m; path = View/BookTop250ListCell.m; sourceTree = "<group>"; };
 		8EB245411B33EA0500CAE35A /* MJButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJButton.h; sourceTree = "<group>"; };
 		8EB245421B33EA0500CAE35A /* MJButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJButton.m; sourceTree = "<group>"; };
 		8EB245441B344C0300CAE35A /* StoryBoardUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryBoardUtilities.h; sourceTree = "<group>"; };
@@ -127,10 +140,18 @@
 		8EB7E4ED1B2AD9EA005F4C2E /* MJMovieDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJMovieDetailCell.h; path = View/MJMovieDetailCell.h; sourceTree = "<group>"; };
 		8EB7E4EE1B2AD9EA005F4C2E /* MJMovieDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJMovieDetailCell.m; path = View/MJMovieDetailCell.m; sourceTree = "<group>"; };
 		8EB7E4EF1B2AD9EA005F4C2E /* MJMovieDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MJMovieDetailCell.xib; path = View/MJMovieDetailCell.xib; sourceTree = "<group>"; };
-		8EBCA8C51B317059003FA128 /* RKSwipeBetweenViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKSwipeBetweenViewControllers.h; sourceTree = "<group>"; };
-		8EBCA8C61B317059003FA128 /* RKSwipeBetweenViewControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKSwipeBetweenViewControllers.m; sourceTree = "<group>"; };
+		8EBCA8C51B317059003FA128 /* RKMovieSwipeBetweenViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKMovieSwipeBetweenViewControllers.h; sourceTree = "<group>"; };
+		8EBCA8C61B317059003FA128 /* RKMovieSwipeBetweenViewControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKMovieSwipeBetweenViewControllers.m; sourceTree = "<group>"; };
 		8EBCA8C81B319BFC003FA128 /* MJComingSoonMovieMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJComingSoonMovieMasterViewController.h; path = Controller/MJComingSoonMovieMasterViewController.h; sourceTree = "<group>"; };
 		8EBCA8C91B319BFC003FA128 /* MJComingSoonMovieMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJComingSoonMovieMasterViewController.m; path = Controller/MJComingSoonMovieMasterViewController.m; sourceTree = "<group>"; };
+		8ECFF8C91B3A81CE0000EBD2 /* MJBookNewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJBookNewController.h; path = Controller/MJBookNewController.h; sourceTree = "<group>"; };
+		8ECFF8CA1B3A81CE0000EBD2 /* MJBookNewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJBookNewController.m; path = Controller/MJBookNewController.m; sourceTree = "<group>"; };
+		8ECFF8CC1B3A86840000EBD2 /* BookNewListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookNewListCell.h; path = View/BookNewListCell.h; sourceTree = "<group>"; };
+		8ECFF8CD1B3A86840000EBD2 /* BookNewListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookNewListCell.m; path = View/BookNewListCell.m; sourceTree = "<group>"; };
+		8ECFF8CF1B3AC7FE0000EBD2 /* BookHotListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookHotListCell.h; path = View/BookHotListCell.h; sourceTree = "<group>"; };
+		8ECFF8D01B3AC7FE0000EBD2 /* BookHotListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookHotListCell.m; path = View/BookHotListCell.m; sourceTree = "<group>"; };
+		8ECFF8D21B3AC87E0000EBD2 /* MJBookHotController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJBookHotController.h; path = Controller/MJBookHotController.h; sourceTree = "<group>"; };
+		8ECFF8D31B3AC87E0000EBD2 /* MJBookHotController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJBookHotController.m; path = Controller/MJBookHotController.m; sourceTree = "<group>"; };
 		8EDB2A311B2AF4560049DC6A /* MJMovieDescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJMovieDescriptionCell.h; path = View/MJMovieDescriptionCell.h; sourceTree = "<group>"; };
 		8EDB2A321B2AF4560049DC6A /* MJMovieDescriptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJMovieDescriptionCell.m; path = View/MJMovieDescriptionCell.m; sourceTree = "<group>"; };
 		8EDB2A331B2AF4560049DC6A /* MJMovieDescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MJMovieDescriptionCell.xib; path = View/MJMovieDescriptionCell.xib; sourceTree = "<group>"; };
@@ -201,10 +222,12 @@
 		8E133D991B2805AB007BD0A7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8EB075061B3993E500B7AE14 /* Common */,
 				8EA1FBCD1B29A53D0057E6E2 /* MovieMaster */,
 				8EA1FBD81B29AC770057E6E2 /* MovieDetail */,
 				8EED4A291B31B7F1000B33D1 /* ComingSoonMovieMaster */,
 				8E54A16B1B34565000DF8BB3 /* SimilarMovie */,
+				8EB075021B39900E00B7AE14 /* Book */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -212,16 +235,12 @@
 		8E133D9A1B2805B9007BD0A7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8E133D9B1B28061A007BD0A7 /* MJHotMovieMasterViewController.h */,
-				8E133D9C1B28061A007BD0A7 /* MJHotMovieMasterViewController.m */,
 				8E4C83A11B2822A3007EDFF6 /* MJNetworkLoadingViewController.h */,
 				8E4C83A21B2822A3007EDFF6 /* MJNetworkLoadingViewController.m */,
-				8EA1FBCE1B29A5810057E6E2 /* MJMovieDetailsViewController.h */,
-				8EA1FBCF1B29A5810057E6E2 /* MJMovieDetailsViewController.m */,
-				8EBCA8C81B319BFC003FA128 /* MJComingSoonMovieMasterViewController.h */,
-				8EBCA8C91B319BFC003FA128 /* MJComingSoonMovieMasterViewController.m */,
-				8EB245471B3453BF00CAE35A /* MJSimilarMoviesViewController.h */,
-				8EB245481B3453BF00CAE35A /* MJSimilarMoviesViewController.m */,
+				8E7BC7651B398616006921F1 /* RKBookSwipeBetweenViewControllers */,
+				8EBCA8C41B317049003FA128 /* RKMovieSwipeBetweenViewControllers */,
+				8EB074FD1B398CEC00B7AE14 /* Movie */,
+				8EB074FE1B398CF600B7AE14 /* Book */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -297,7 +316,6 @@
 		8E17A3971B2583E700A60CC9 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				8EBCA8C41B317049003FA128 /* RKSwipeBetweenViewControllers */,
 				8EFAA9761B2A856E0072B78E /* FeSpinner */,
 				8E6B8D3D1B2A799F001BAC3E /* RAMAnimatedTabBarController */,
 			);
@@ -384,6 +402,15 @@
 			path = TransitionAniamtions;
 			sourceTree = "<group>";
 		};
+		8E7BC7651B398616006921F1 /* RKBookSwipeBetweenViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8E7BC7661B39867D006921F1 /* RKBookSwipeBetweenViewControllers.h */,
+				8E7BC7671B39867D006921F1 /* RKBookSwipeBetweenViewControllers.m */,
+			);
+			name = RKBookSwipeBetweenViewControllers;
+			sourceTree = "<group>";
+		};
 		8EA1FBCD1B29A53D0057E6E2 /* MovieMaster */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,10 +434,6 @@
 		8EA1FBD81B29AC770057E6E2 /* MovieDetail */ = {
 			isa = PBXGroup;
 			children = (
-				8E5BABCD1B2F08CD00C2D59B /* ScoreStarsKit.h */,
-				8E5BABCE1B2F08CD00C2D59B /* ScoreStarsKit.m */,
-				8E5BABCF1B2F08CD00C2D59B /* ScoreStarsView.h */,
-				8E5BABD01B2F08CD00C2D59B /* ScoreStarsView.m */,
 				8EA1FBD91B29ACB20057E6E2 /* MJDetailsPageView.h */,
 				8EA1FBDA1B29ACB20057E6E2 /* MJDetailsPageView.m */,
 				8EB7E4ED1B2AD9EA005F4C2E /* MJMovieDetailCell.h */,
@@ -438,13 +461,66 @@
 			name = MovieDetail;
 			sourceTree = "<group>";
 		};
-		8EBCA8C41B317049003FA128 /* RKSwipeBetweenViewControllers */ = {
+		8EB074FD1B398CEC00B7AE14 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
-				8EBCA8C51B317059003FA128 /* RKSwipeBetweenViewControllers.h */,
-				8EBCA8C61B317059003FA128 /* RKSwipeBetweenViewControllers.m */,
+				8E133D9B1B28061A007BD0A7 /* MJHotMovieMasterViewController.h */,
+				8E133D9C1B28061A007BD0A7 /* MJHotMovieMasterViewController.m */,
+				8EA1FBCE1B29A5810057E6E2 /* MJMovieDetailsViewController.h */,
+				8EA1FBCF1B29A5810057E6E2 /* MJMovieDetailsViewController.m */,
+				8EBCA8C81B319BFC003FA128 /* MJComingSoonMovieMasterViewController.h */,
+				8EBCA8C91B319BFC003FA128 /* MJComingSoonMovieMasterViewController.m */,
+				8EB245471B3453BF00CAE35A /* MJSimilarMoviesViewController.h */,
+				8EB245481B3453BF00CAE35A /* MJSimilarMoviesViewController.m */,
 			);
-			name = RKSwipeBetweenViewControllers;
+			name = Movie;
+			sourceTree = "<group>";
+		};
+		8EB074FE1B398CF600B7AE14 /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				8EB074FF1B398D5C00B7AE14 /* MJBookTop250Controller.h */,
+				8EB075001B398D5C00B7AE14 /* MJBookTop250Controller.m */,
+				8ECFF8C91B3A81CE0000EBD2 /* MJBookNewController.h */,
+				8ECFF8CA1B3A81CE0000EBD2 /* MJBookNewController.m */,
+				8ECFF8D21B3AC87E0000EBD2 /* MJBookHotController.h */,
+				8ECFF8D31B3AC87E0000EBD2 /* MJBookHotController.m */,
+			);
+			name = Book;
+			sourceTree = "<group>";
+		};
+		8EB075021B39900E00B7AE14 /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				8EB075031B39904300B7AE14 /* BookTop250ListCell.h */,
+				8EB075041B39904300B7AE14 /* BookTop250ListCell.m */,
+				8ECFF8CC1B3A86840000EBD2 /* BookNewListCell.h */,
+				8ECFF8CD1B3A86840000EBD2 /* BookNewListCell.m */,
+				8ECFF8CF1B3AC7FE0000EBD2 /* BookHotListCell.h */,
+				8ECFF8D01B3AC7FE0000EBD2 /* BookHotListCell.m */,
+			);
+			name = Book;
+			sourceTree = "<group>";
+		};
+		8EB075061B3993E500B7AE14 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8E5BABCD1B2F08CD00C2D59B /* ScoreStarsKit.h */,
+				8E5BABCE1B2F08CD00C2D59B /* ScoreStarsKit.m */,
+				8E5BABCF1B2F08CD00C2D59B /* ScoreStarsView.h */,
+				8E5BABD01B2F08CD00C2D59B /* ScoreStarsView.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		8EBCA8C41B317049003FA128 /* RKMovieSwipeBetweenViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8EBCA8C51B317059003FA128 /* RKMovieSwipeBetweenViewControllers.h */,
+				8EBCA8C61B317059003FA128 /* RKMovieSwipeBetweenViewControllers.m */,
+			);
+			name = RKMovieSwipeBetweenViewControllers;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		8EED4A291B31B7F1000B33D1 /* ComingSoonMovieMaster */ = {
@@ -598,6 +674,7 @@
 				8E133DA01B28093E007BD0A7 /* MJMovieListCell.m in Sources */,
 				8E6B8D4B1B2A799F001BAC3E /* RAMBounceAnimation.swift in Sources */,
 				8EB7E4F01B2AD9EA005F4C2E /* MJMovieDetailCell.m in Sources */,
+				8ECFF8D11B3AC7FE0000EBD2 /* BookHotListCell.m in Sources */,
 				8E2599521B285ACC00C86B76 /* MJHTTPFetcher.m in Sources */,
 				8E3431D91B29C49B00439644 /* MJMovie.m in Sources */,
 				8E3B12EC1B37D96A00E9CD81 /* MJBook.m in Sources */,
@@ -605,7 +682,9 @@
 				8E6B8D501B2A799F001BAC3E /* RAMAnimatedTabBarController.swift in Sources */,
 				8EED4A2C1B31B842000B33D1 /* MJComingSoonMovieListCell.m in Sources */,
 				8E133D9D1B28061A007BD0A7 /* MJHotMovieMasterViewController.m in Sources */,
+				8ECFF8D41B3AC87E0000EBD2 /* MJBookHotController.m in Sources */,
 				8EDB2A3E1B2AFA4E0049DC6A /* MJSimilarMoviesCell.m in Sources */,
+				8ECFF8CE1B3A86840000EBD2 /* BookNewListCell.m in Sources */,
 				8E5BABD11B2F08CD00C2D59B /* ScoreStarsKit.m in Sources */,
 				8EDB2A461B2B11CB0049DC6A /* MJMovieCommentCell.m in Sources */,
 				8EB245461B344C0300CAE35A /* StoryBoardUtilities.m in Sources */,
@@ -614,13 +693,17 @@
 				8E54A16E1B34568200DF8BB3 /* MJMoviePosterCell.m in Sources */,
 				8EDB2A4B1B2B15780049DC6A /* MJMovieViewAllCommentsCell.m in Sources */,
 				8E6B8D4E1B2A799F001BAC3E /* RAMRotationAnimation.swift in Sources */,
-				8EBCA8C71B317059003FA128 /* RKSwipeBetweenViewControllers.m in Sources */,
+				8EBCA8C71B317059003FA128 /* RKMovieSwipeBetweenViewControllers.m in Sources */,
+				8EB075011B398D5C00B7AE14 /* MJBookTop250Controller.m in Sources */,
 				8EB245431B33EA0500CAE35A /* MJButton.m in Sources */,
 				8E121FA01B38474000FC0109 /* MJBookDetail.m in Sources */,
 				8EA1FBD61B29A88A0057E6E2 /* UIColor+flat.m in Sources */,
 				8E5BABD21B2F08CD00C2D59B /* ScoreStarsView.m in Sources */,
 				8E17A3741B2583D400A60CC9 /* AppDelegate.m in Sources */,
+				8EB075051B39904300B7AE14 /* BookTop250ListCell.m in Sources */,
+				8ECFF8CB1B3A81CE0000EBD2 /* MJBookNewController.m in Sources */,
 				8E17A3771B2583D400A60CC9 /* FirstViewController.m in Sources */,
+				8E7BC7681B39867D006921F1 /* RKBookSwipeBetweenViewControllers.m in Sources */,
 				8E6B8D4F1B2A799F001BAC3E /* RAMTransitionItemAnimation.swift in Sources */,
 				8EA1FBDB1B29ACB20057E6E2 /* MJDetailsPageView.m in Sources */,
 				8EA1FBD01B29A5810057E6E2 /* MJMovieDetailsViewController.m in Sources */,

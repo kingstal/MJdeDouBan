@@ -41,12 +41,13 @@ static NSInteger const REVIEWLIMIT = 10;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"%@ view didLoad", self);
 
     //添加上拉刷新
     __weak __typeof(self) weakSelf = self;
     self.detailsPageView.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         NSLog(@"共有%@条影评", self.movie.reviewCount);
-        NSLog(@"当前有%lu条影评,正请求%lu 条影评", (unsigned long)[self.movie.reviews count], _currentReviewIndex);
+        NSLog(@"当前有%lu条影评,正请求%lu 条影评", (unsigned long)[self.movie.reviews count], (long)_currentReviewIndex);
         if (self.currentReviewIndex == 0 || [self.movie.reviews count] < [self.movie.reviewCount integerValue]) {
             // 进入刷新状态后会自动调用这个block
             [weakSelf requestMovieReviewsStartWithIndex:self.currentReviewIndex];
@@ -379,6 +380,7 @@ static NSInteger const REVIEWLIMIT = 10;
                             if ([detailsPageView.delegate respondsToSelector:@selector(headerImageViewFinishedLoading:)])
                                 [detailsPageView.delegate headerImageViewFinishedLoading:blockImageView];
                         }];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
 
     return imageView;
 }

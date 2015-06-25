@@ -7,21 +7,23 @@
 //
 //  @cwRichardKim for regular updates
 
-#import "RKSwipeBetweenViewControllers.h"
+#import "RKBookSwipeBetweenViewControllers.h"
+#import "MJBookNewController.h"
+#import "MJBookHotController.h"
 //%%% customizeable button attributes
-CGFloat X_BUFFER = 0.0; //%%% the number of pixels on either side of the segment
-CGFloat Y_BUFFER = 14.0; //%%% number of pixels on top of the segment
-CGFloat HEIGHT = 30.0; //%%% height of the segment
+CGFloat X_BUFFER_book = 0.0; //%%% the number of pixels on either side of the segment
+CGFloat Y_BUFFER_book = 14.0; //%%% number of pixels on top of the segment
+CGFloat HEIGHT_book = 30.0; //%%% height of the segment
 
 //%%% customizeable selector bar attributes (the black bar under the buttons)
-CGFloat BOUNCE_BUFFER = 10.0; //%%% adds bounce to the selection bar when you scroll
-CGFloat ANIMATION_SPEED = 0.2; //%%% the number of seconds it takes to complete the animation
-CGFloat SELECTOR_Y_BUFFER = 40.0; //%%% the y-value of the bar that shows what page you are on (0 is the top)
-CGFloat SELECTOR_HEIGHT = 4.0; //%%% thickness of the selector bar
+CGFloat BOUNCE_BUFFER_book = 10.0; //%%% adds bounce to the selection bar when you scroll
+CGFloat ANIMATION_SPEED_book = 0.2; //%%% the number of seconds it takes to complete the animation
+CGFloat SELECTOR_Y_BUFFER_book = 40.0; //%%% the y-value of the bar that shows what page you are on (0 is the top)
+CGFloat SELECTOR_HEIGHT_book = 4.0; //%%% thickness of the selector bar
 
-CGFloat X_OFFSET = 8.0; //%%% for some reason there's a little bit of a glitchy offset.  I'm going to look for a better workaround in the future
+CGFloat X_OFFSET_book = 8.0; //%%% for some reason there's a little bit of a glitchy offset.  I'm going to look for a better workaround in the future
 
-@interface RKSwipeBetweenViewControllers ()
+@interface RKBookSwipeBetweenViewControllers ()
 
 @property (nonatomic) UIScrollView* pageScrollView;
 @property (nonatomic) NSInteger currentPageIndex;
@@ -30,7 +32,7 @@ CGFloat X_OFFSET = 8.0; //%%% for some reason there's a little bit of a glitchy 
 
 @end
 
-@implementation RKSwipeBetweenViewControllers
+@implementation RKBookSwipeBetweenViewControllers
 @synthesize viewControllerArray;
 @synthesize selectionBar;
 @synthesize pageController;
@@ -56,10 +58,24 @@ CGFloat X_OFFSET = 8.0; //%%% for some reason there's a little bit of a glitchy 
 
     // arthur add
     UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController* hotMoviesController = [storyboard instantiateViewControllerWithIdentifier:@"HotMovies"];
-    [viewControllerArray addObject:hotMoviesController];
-    UIViewController* comingSoonMoviesController = [storyboard instantiateViewControllerWithIdentifier:@"ComingSoonMovies"];
-    [viewControllerArray addObject:comingSoonMoviesController];
+    UIViewController* bookTop250Controller = [storyboard instantiateViewControllerWithIdentifier:@"BookTop250"];
+    [viewControllerArray addObject:bookTop250Controller];
+
+    MJBookNewController* bookNewFController = [storyboard instantiateViewControllerWithIdentifier:@"BookNew"];
+    bookNewFController.flag = @"F";
+    [viewControllerArray addObject:bookNewFController];
+
+    MJBookNewController* bookNewIController = [storyboard instantiateViewControllerWithIdentifier:@"BookNew"];
+    bookNewIController.flag = @"I";
+    [viewControllerArray addObject:bookNewIController];
+
+    MJBookHotController* bookHotFController = [storyboard instantiateViewControllerWithIdentifier:@"BookHot"];
+    bookHotFController.flag = @"F";
+    [viewControllerArray addObject:bookHotFController];
+
+    MJBookHotController* bookHotIController = [storyboard instantiateViewControllerWithIdentifier:@"BookHot"];
+    bookHotIController.flag = @"I";
+    [viewControllerArray addObject:bookHotIController];
 
     self.currentPageIndex = 0;
     self.isPageScrollingFlag = NO;
@@ -83,19 +99,22 @@ CGFloat X_OFFSET = 8.0; //%%% for some reason there's a little bit of a glitchy 
     NSInteger numControllers = [viewControllerArray count];
 
     if (!buttonText) {
-        buttonText = [[NSArray alloc] initWithObjects:@"正在上映", @"即将上映", @"third", @"fourth", @"etc", @"etc", @"etc", @"etc", nil]; //%%%buttontitle
+        buttonText = [[NSArray alloc] initWithObjects:@"豆瓣250", @"新书(虚构)", @"新书(非虚构)", @"热门(虚构)", @"热门(非虚构)", @"etc", @"etc", @"etc", nil]; //%%%buttontitle
     }
 
     for (int i = 0; i < numControllers; i++) {
-        UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(X_BUFFER + i * (self.view.frame.size.width - 2 * X_BUFFER) / numControllers - X_OFFSET, Y_BUFFER, (self.view.frame.size.width - 2 * X_BUFFER) / numControllers, HEIGHT)];
+        UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(X_BUFFER_book + i * (self.view.frame.size.width - 2 * X_BUFFER_book) / numControllers - X_OFFSET_book, Y_BUFFER_book, (self.view.frame.size.width - 2 * X_BUFFER_book) / numControllers, HEIGHT_book)];
         [navigationView addSubview:button];
-
+        
         button.tag = i; //%%% IMPORTANT: if you make your own custom buttons, you have to tag them appropriately
         button.backgroundColor = [UIColor colorWithWhite:0.756 alpha:1.000]; //%%% buttoncolors
 
         [button addTarget:self action:@selector(tapSegmentButtonAction:) forControlEvents:UIControlEventTouchUpInside];
 
         [button setTitle:[buttonText objectAtIndex:i] forState:UIControlStateNormal]; //%%%buttontitle
+        // add by Arthur
+        button.titleLabel.font = [UIFont systemFontOfSize:12];
+        button.titleLabel.minimumScaleFactor = 0.5;
     }
 
     pageController.navigationController.navigationBar.topItem.titleView = navigationView;
@@ -106,23 +125,23 @@ CGFloat X_OFFSET = 8.0; //%%% for some reason there's a little bit of a glitchy 
     UIButton *leftButton = [[UIButton alloc]initWithFrame:CGRectMake(X_BUFFER, Y_BUFFER, width, HEIGHT)];
     UIButton *middleButton = [[UIButton alloc]initWithFrame:CGRectMake(X_BUFFER+width, Y_BUFFER, width, HEIGHT)];
     UIButton *rightButton = [[UIButton alloc]initWithFrame:CGRectMake(X_BUFFER+2*width, Y_BUFFER, width, HEIGHT)];
-    
+
     [self.navigationBar addSubview:leftButton];
     [self.navigationBar addSubview:middleButton];
     [self.navigationBar addSubview:rightButton];
-    
+
     leftButton.tag = 0;
     middleButton.tag = 1;
     rightButton.tag = 2;
-    
+
     leftButton.backgroundColor = [UIColor colorWithRed:0.03 green:0.07 blue:0.08 alpha:1];
     middleButton.backgroundColor = [UIColor colorWithRed:0.03 green:0.07 blue:0.08 alpha:1];
     rightButton.backgroundColor = [UIColor colorWithRed:0.03 green:0.07 blue:0.08 alpha:1];
-    
+
     [leftButton addTarget:self action:@selector(tapSegmentButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [middleButton addTarget:self action:@selector(tapSegmentButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [rightButton addTarget:self action:@selector(tapSegmentButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    
+
     [leftButton setTitle:@"left" forState:UIControlStateNormal];
     [middleButton setTitle:@"middle" forState:UIControlStateNormal];
     [rightButton setTitle:@"right" forState:UIControlStateNormal];
@@ -134,7 +153,7 @@ CGFloat X_OFFSET = 8.0; //%%% for some reason there's a little bit of a glitchy 
 //%%% sets up the selection bar under the buttons on the navigation bar
 - (void)setupSelector
 {
-    selectionBar = [[UIView alloc] initWithFrame:CGRectMake(X_BUFFER - X_OFFSET, SELECTOR_Y_BUFFER, (self.view.frame.size.width - 2 * X_BUFFER) / [viewControllerArray count], SELECTOR_HEIGHT)];
+    selectionBar = [[UIView alloc] initWithFrame:CGRectMake(X_BUFFER_book - X_OFFSET_book, SELECTOR_Y_BUFFER_book, (self.view.frame.size.width - 2 * X_BUFFER_book) / [viewControllerArray count], SELECTOR_HEIGHT_book)];
     selectionBar.backgroundColor = [UIColor colorWithWhite:0.6 alpha:1.000]; //%%% sbcolor
     selectionBar.alpha = 0.8; //%%% sbalpha
     [navigationView addSubview:selectionBar];
@@ -243,7 +262,7 @@ CGFloat X_OFFSET = 8.0; //%%% for some reason there's a little bit of a glitchy 
     //%%% checks to see what page you are on and adjusts the xCoor accordingly.
     //i.e. if you're on the second page, it makes sure that the bar starts from the frame.origin.x of the
     //second tab instead of the beginning
-    NSInteger xCoor = X_BUFFER + selectionBar.frame.size.width * self.currentPageIndex - X_OFFSET;
+    NSInteger xCoor = X_BUFFER_book + selectionBar.frame.size.width * self.currentPageIndex - X_OFFSET_book;
 
     selectionBar.frame = CGRectMake(xCoor - xFromCenter / [viewControllerArray count], selectionBar.frame.origin.y, selectionBar.frame.size.width, selectionBar.frame.size.height);
 }

@@ -11,6 +11,7 @@
 #import "MJMovie.h"
 #import "MJExtension.h"
 #import "MJReview.h"
+#import "MJBook.h"
 
 @implementation MJHTTPFetcher
 
@@ -144,6 +145,83 @@
                 [movie.reviews addObject:[MJReview objectWithKeyValues:review]];
             }
             successBlock(self, movie);
+        }
+        failure:^(AFHTTPRequestOperation* operation, NSError* error) {
+            errorBlock(self, error);
+            NSLog(@"error:%@", error);
+        }];
+}
+
+- (void)fetchBookTop250WithStart:(NSInteger)start success:(MJHTTPFetcherSuccessBlock)successBlock failure:(MJHTTPFetcherErrorBlock)errorBlock
+{
+    NSString* url = [NSString stringWithFormat:@"http://mjdedouban.sinaapp.com/top250?start=%ld", (long)start];
+    NSLog(@"fetch BookTop250,%ld-------%@", (long)start, url);
+
+    self.requestOperation = [[self JSONRequestOperationManager] GET:url
+        parameters:nil
+        success:^(AFHTTPRequestOperation* operation, id responseObject) {
+            NSArray* array = (NSArray*)responseObject;
+            NSMutableArray* books = [NSMutableArray new];
+            for (id book in array) {
+                [books addObject:[MJBook objectWithKeyValues:book]];
+            }
+            successBlock(self, books);
+        }
+        failure:^(AFHTTPRequestOperation* operation, NSError* error) {
+            errorBlock(self, error);
+            NSLog(@"error:%@", error);
+        }];
+}
+
+- (void)fetchBookNewWithFlag:(NSString*)flag success:(MJHTTPFetcherSuccessBlock)successBlock failure:(MJHTTPFetcherErrorBlock)errorBlock
+{
+    NSString* url = @"";
+    if ([flag isEqualToString:@"F"]) {
+        //虚构
+        url = @"http://mjdedouban.sinaapp.com/newBookF";
+    }
+    else if ([flag isEqualToString:@"I"]) {
+        url = @"http://mjdedouban.sinaapp.com/newBookI";
+    }
+    NSLog(@"fetch new book:%@,----%@", flag, url);
+
+    self.requestOperation = [[self JSONRequestOperationManager] GET:url
+        parameters:nil
+        success:^(AFHTTPRequestOperation* operation, id responseObject) {
+            NSArray* array = (NSArray*)responseObject;
+            NSMutableArray* books = [NSMutableArray new];
+            for (id book in array) {
+                [books addObject:[MJBook objectWithKeyValues:book]];
+            }
+            successBlock(self, books);
+        }
+        failure:^(AFHTTPRequestOperation* operation, NSError* error) {
+            errorBlock(self, error);
+            NSLog(@"error:%@", error);
+        }];
+}
+
+- (void)fetchBookHotWithFlag:(NSString*)flag success:(MJHTTPFetcherSuccessBlock)successBlock failure:(MJHTTPFetcherErrorBlock)errorBlock
+{
+    NSString* url = @"";
+    if ([flag isEqualToString:@"F"]) {
+        //虚构
+        url = @"http://mjdedouban.sinaapp.com/hotBookF";
+    }
+    else if ([flag isEqualToString:@"I"]) {
+        url = @"http://mjdedouban.sinaapp.com/hotBookI";
+    }
+    NSLog(@"fetch new book:%@,----%@", flag, url);
+
+    self.requestOperation = [[self JSONRequestOperationManager] GET:url
+        parameters:nil
+        success:^(AFHTTPRequestOperation* operation, id responseObject) {
+            NSArray* array = (NSArray*)responseObject;
+            NSMutableArray* books = [NSMutableArray new];
+            for (id book in array) {
+                [books addObject:[MJBook objectWithKeyValues:book]];
+            }
+            successBlock(self, books);
         }
         failure:^(AFHTTPRequestOperation* operation, NSError* error) {
             errorBlock(self, error);

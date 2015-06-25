@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton* refreshButton;
 @property (weak, nonatomic) IBOutlet UIView* noContentView;
 
+
 @property (weak, nonatomic) id<MJNetworkLoadingViewDelegate> delegate;
 
 - (IBAction)retryRequest:(id)sender;
