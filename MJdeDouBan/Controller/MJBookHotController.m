@@ -11,6 +11,7 @@
 #import "MJHTTPFetcher.h"
 #import "BookHotListCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "MJBookDetailController.h"
 
 @interface MJBookHotController ()
 @property (nonatomic, strong) NSArray* books;
@@ -57,11 +58,10 @@
         self.networkLoadingViewController = segue.destinationViewController;
         self.networkLoadingViewController.delegate = self;
     }
-    //    else if ([segue.identifier isEqualToString:@"BookDetail"]) {
-    //TODO: book detail
-    //        MJMovieDetailsViewController* controller = segue.destinationViewController;
-    //        controller.movie = [self.hotMovies objectAtIndex:self.selectedIndexPath.row];
-    //    }
+    else if ([segue.identifier isEqualToString:@"BookDetail"]) {
+        MJBookDetailController* controller = segue.destinationViewController;
+        controller.bookId = [[self.books objectAtIndex:self.selectedIndexPath.row] bookId];
+    }
 }
 
 #pragma mark - Network Requests methods
@@ -69,21 +69,21 @@
 - (void)requestBookHot
 {
     [[MJHTTPFetcher sharedFetcher] fetchBookHotWithFlag:self.flag
-                                                success:^(MJHTTPFetcher* fetcher, id data) {
-                                                    NSArray* temp = (NSArray*)data;
-                                                    NSLog(@"%@", temp);
-                                                    if ([temp count] == 0) {
-                                                        [self.networkLoadingViewController showNoContentView];
-                                                    }
-                                                    else {
-                                                        self.books = temp;
-                                                        [self hideLoadingView];
-                                                        [self.tableView reloadData];
-                                                    }
-                                                }
-                                                failure:^(MJHTTPFetcher* fetcher, NSError* error) {
-                                                    [self.networkLoadingViewController showErrorView];
-                                                }];
+        success:^(MJHTTPFetcher* fetcher, id data) {
+            NSArray* temp = (NSArray*)data;
+            NSLog(@"%@", temp);
+            if ([temp count] == 0) {
+                [self.networkLoadingViewController showNoContentView];
+            }
+            else {
+                self.books = temp;
+                [self hideLoadingView];
+                [self.tableView reloadData];
+            }
+        }
+        failure:^(MJHTTPFetcher* fetcher, NSError* error) {
+            [self.networkLoadingViewController showErrorView];
+        }];
 }
 
 #pragma mark - MJNetworkLoadingViewDelegate
@@ -103,12 +103,12 @@
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
     BookHotListCell* cell = (BookHotListCell*)[tableView dequeueReusableCellWithIdentifier:@"BookHotListCell" forIndexPath:indexPath];
-    
+
     [cell.posterImageView sd_setImageWithURL:[self.books[indexPath.row] valueForKey:@"bookPosterUrl"] placeholderImage:nil];
     [cell.titleLabel setText:[self.books[indexPath.row] valueForKey:@"bookTitle"]];
     [cell.subTitleLabel setText:[self.books[indexPath.row] valueForKey:@"bookSubTitle"]];
     [cell.rankingTimeLabel setText:[self.books[indexPath.row] valueForKey:@"bookRankingTime"]];
-    
+
     NSString* score = [self.books[indexPath.row] valueForKey:@"bookScore"];
     cell.scoreStarsView.value = [score floatValue] / 10;
     [cell.scoreLabel setText:score];
@@ -134,14 +134,14 @@
 {
     NSLog(@"remove loadingView");
     [UIView transitionWithView:self.view
-                      duration:0.3f
-                       options:UIViewAnimationOptionTransitionCrossDissolve
-                    animations:^(void) {
-                        [self.networkLoadingContainerView removeFromSuperview];
-                    }
-                    completion:^(BOOL finished) {
-                        [self.networkLoadingViewController removeFromParentViewController];
-                        self.networkLoadingContainerView = nil;
-                    }];
+        duration:0.3f
+        options:UIViewAnimationOptionTransitionCrossDissolve
+        animations:^(void) {
+            [self.networkLoadingContainerView removeFromSuperview];
+        }
+        completion:^(BOOL finished) {
+            [self.networkLoadingViewController removeFromParentViewController];
+            self.networkLoadingContainerView = nil;
+        }];
 }
 @end

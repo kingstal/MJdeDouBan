@@ -12,6 +12,7 @@
 #import "MJExtension.h"
 #import "MJReview.h"
 #import "MJBook.h"
+#import "MJBookDetail.h"
 
 @implementation MJHTTPFetcher
 
@@ -222,6 +223,22 @@
                 [books addObject:[MJBook objectWithKeyValues:book]];
             }
             successBlock(self, books);
+        }
+        failure:^(AFHTTPRequestOperation* operation, NSError* error) {
+            errorBlock(self, error);
+            NSLog(@"error:%@", error);
+        }];
+}
+
+- (void)fetchBookDetailWithBookId:(NSString*)bookId success:(MJHTTPFetcherSuccessBlock)successBlock failure:(MJHTTPFetcherErrorBlock)errorBlock
+{
+    NSString* url = [NSString stringWithFormat:@"http://mjdedouban.sinaapp.com/bookDetail?bookId=%@", bookId];
+    NSLog(@"fetch bookDetail:%@", url);
+    self.requestOperation = [[self JSONRequestOperationManager] GET:url
+        parameters:nil
+        success:^(AFHTTPRequestOperation* operation, id responseObject) {
+            MJBookDetail* bookDetail = [MJBookDetail objectWithKeyValues:responseObject];
+            successBlock(self, bookDetail);
         }
         failure:^(AFHTTPRequestOperation* operation, NSError* error) {
             errorBlock(self, error);

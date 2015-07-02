@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E003DF91B3BD44600819AAB /* MJBookDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E003DF81B3BD44600819AAB /* MJBookDetailController.m */; };
 		8E121FA01B38474000FC0109 /* MJBookDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E121F9F1B38474000FC0109 /* MJBookDetail.m */; };
 		8E133D9D1B28061A007BD0A7 /* MJHotMovieMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E133D9C1B28061A007BD0A7 /* MJHotMovieMasterViewController.m */; };
 		8E133DA01B28093E007BD0A7 /* MJMovieListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E133D9F1B28093E007BD0A7 /* MJMovieListCell.m */; };
+		8E152C501B3CE11800CC6DD0 /* BookDetailFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E152C4E1B3CE11800CC6DD0 /* BookDetailFirstCell.m */; };
+		8E152C511B3CE11800CC6DD0 /* BookDetailFirstCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E152C4F1B3CE11800CC6DD0 /* BookDetailFirstCell.xib */; };
+		8E152C551B3CE61000CC6DD0 /* BookDetailSecondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E152C531B3CE61000CC6DD0 /* BookDetailSecondCell.m */; };
+		8E152C561B3CE61000CC6DD0 /* BookDetailSecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E152C541B3CE61000CC6DD0 /* BookDetailSecondCell.xib */; };
 		8E17A3711B2583D400A60CC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E17A3701B2583D400A60CC9 /* main.m */; };
 		8E17A3741B2583D400A60CC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E17A3731B2583D400A60CC9 /* AppDelegate.m */; };
 		8E17A3771B2583D400A60CC9 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E17A3761B2583D400A60CC9 /* FirstViewController.m */; };
@@ -25,6 +30,10 @@
 		8E3D4FEF1B27F27100BEAFAE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3D4FEE1B27F27100BEAFAE /* MapKit.framework */; };
 		8E4C83A31B2822A3007EDFF6 /* MJNetworkLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4C83A21B2822A3007EDFF6 /* MJNetworkLoadingViewController.m */; };
 		8E54A16E1B34568200DF8BB3 /* MJMoviePosterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E54A16D1B34568200DF8BB3 /* MJMoviePosterCell.m */; };
+		8E5760FE1B3C3E4E00508591 /* BookDetailSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5760FC1B3C3E4E00508591 /* BookDetailSummaryCell.m */; };
+		8E5760FF1B3C3E4E00508591 /* BookDetailSummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E5760FD1B3C3E4E00508591 /* BookDetailSummaryCell.xib */; };
+		8E5761031B3C3F8F00508591 /* BookDetailAuthorSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5761011B3C3F8F00508591 /* BookDetailAuthorSummaryCell.m */; };
+		8E5761041B3C3F8F00508591 /* BookDetailAuthorSummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E5761021B3C3F8F00508591 /* BookDetailAuthorSummaryCell.xib */; };
 		8E5BABD11B2F08CD00C2D59B /* ScoreStarsKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5BABCE1B2F08CD00C2D59B /* ScoreStarsKit.m */; };
 		8E5BABD21B2F08CD00C2D59B /* ScoreStarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5BABD01B2F08CD00C2D59B /* ScoreStarsView.m */; };
 		8E6B8D4B1B2A799F001BAC3E /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B8D401B2A799F001BAC3E /* RAMBounceAnimation.swift */; };
@@ -72,12 +81,20 @@
 
 /* Begin PBXFileReference section */
 		50455F608FA4759AEE0F3533 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E003DF71B3BD44600819AAB /* MJBookDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJBookDetailController.h; path = Controller/MJBookDetailController.h; sourceTree = "<group>"; };
+		8E003DF81B3BD44600819AAB /* MJBookDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJBookDetailController.m; path = Controller/MJBookDetailController.m; sourceTree = "<group>"; };
 		8E121F9E1B38474000FC0109 /* MJBookDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJBookDetail.h; path = Model/MJBookDetail.h; sourceTree = "<group>"; };
 		8E121F9F1B38474000FC0109 /* MJBookDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJBookDetail.m; path = Model/MJBookDetail.m; sourceTree = "<group>"; };
 		8E133D9B1B28061A007BD0A7 /* MJHotMovieMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJHotMovieMasterViewController.h; path = Controller/MJHotMovieMasterViewController.h; sourceTree = "<group>"; };
 		8E133D9C1B28061A007BD0A7 /* MJHotMovieMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJHotMovieMasterViewController.m; path = Controller/MJHotMovieMasterViewController.m; sourceTree = "<group>"; };
 		8E133D9E1B28093E007BD0A7 /* MJMovieListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJMovieListCell.h; path = View/MJMovieListCell.h; sourceTree = "<group>"; };
 		8E133D9F1B28093E007BD0A7 /* MJMovieListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJMovieListCell.m; path = View/MJMovieListCell.m; sourceTree = "<group>"; };
+		8E152C4D1B3CE11800CC6DD0 /* BookDetailFirstCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookDetailFirstCell.h; path = View/BookDetailFirstCell.h; sourceTree = "<group>"; };
+		8E152C4E1B3CE11800CC6DD0 /* BookDetailFirstCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookDetailFirstCell.m; path = View/BookDetailFirstCell.m; sourceTree = "<group>"; };
+		8E152C4F1B3CE11800CC6DD0 /* BookDetailFirstCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookDetailFirstCell.xib; path = View/BookDetailFirstCell.xib; sourceTree = "<group>"; };
+		8E152C521B3CE61000CC6DD0 /* BookDetailSecondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookDetailSecondCell.h; path = View/BookDetailSecondCell.h; sourceTree = "<group>"; };
+		8E152C531B3CE61000CC6DD0 /* BookDetailSecondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookDetailSecondCell.m; path = View/BookDetailSecondCell.m; sourceTree = "<group>"; };
+		8E152C541B3CE61000CC6DD0 /* BookDetailSecondCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookDetailSecondCell.xib; path = View/BookDetailSecondCell.xib; sourceTree = "<group>"; };
 		8E17A36B1B2583D400A60CC9 /* MJdeDouBan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MJdeDouBan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E17A36F1B2583D400A60CC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E17A3701B2583D400A60CC9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -106,6 +123,12 @@
 		8E4C83A21B2822A3007EDFF6 /* MJNetworkLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJNetworkLoadingViewController.m; path = Controller/MJNetworkLoadingViewController.m; sourceTree = "<group>"; };
 		8E54A16C1B34568200DF8BB3 /* MJMoviePosterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJMoviePosterCell.h; path = View/MJMoviePosterCell.h; sourceTree = "<group>"; };
 		8E54A16D1B34568200DF8BB3 /* MJMoviePosterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJMoviePosterCell.m; path = View/MJMoviePosterCell.m; sourceTree = "<group>"; };
+		8E5760FB1B3C3E4E00508591 /* BookDetailSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookDetailSummaryCell.h; path = View/BookDetailSummaryCell.h; sourceTree = "<group>"; };
+		8E5760FC1B3C3E4E00508591 /* BookDetailSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookDetailSummaryCell.m; path = View/BookDetailSummaryCell.m; sourceTree = "<group>"; };
+		8E5760FD1B3C3E4E00508591 /* BookDetailSummaryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookDetailSummaryCell.xib; path = View/BookDetailSummaryCell.xib; sourceTree = "<group>"; };
+		8E5761001B3C3F8F00508591 /* BookDetailAuthorSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookDetailAuthorSummaryCell.h; path = View/BookDetailAuthorSummaryCell.h; sourceTree = "<group>"; };
+		8E5761011B3C3F8F00508591 /* BookDetailAuthorSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookDetailAuthorSummaryCell.m; path = View/BookDetailAuthorSummaryCell.m; sourceTree = "<group>"; };
+		8E5761021B3C3F8F00508591 /* BookDetailAuthorSummaryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookDetailAuthorSummaryCell.xib; path = View/BookDetailAuthorSummaryCell.xib; sourceTree = "<group>"; };
 		8E5BABCD1B2F08CD00C2D59B /* ScoreStarsKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreStarsKit.h; sourceTree = "<group>"; };
 		8E5BABCE1B2F08CD00C2D59B /* ScoreStarsKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreStarsKit.m; sourceTree = "<group>"; };
 		8E5BABCF1B2F08CD00C2D59B /* ScoreStarsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreStarsView.h; sourceTree = "<group>"; };
@@ -485,6 +508,8 @@
 				8ECFF8CA1B3A81CE0000EBD2 /* MJBookNewController.m */,
 				8ECFF8D21B3AC87E0000EBD2 /* MJBookHotController.h */,
 				8ECFF8D31B3AC87E0000EBD2 /* MJBookHotController.m */,
+				8E003DF71B3BD44600819AAB /* MJBookDetailController.h */,
+				8E003DF81B3BD44600819AAB /* MJBookDetailController.m */,
 			);
 			name = Book;
 			sourceTree = "<group>";
@@ -498,6 +523,18 @@
 				8ECFF8CD1B3A86840000EBD2 /* BookNewListCell.m */,
 				8ECFF8CF1B3AC7FE0000EBD2 /* BookHotListCell.h */,
 				8ECFF8D01B3AC7FE0000EBD2 /* BookHotListCell.m */,
+				8E152C4D1B3CE11800CC6DD0 /* BookDetailFirstCell.h */,
+				8E152C4E1B3CE11800CC6DD0 /* BookDetailFirstCell.m */,
+				8E152C4F1B3CE11800CC6DD0 /* BookDetailFirstCell.xib */,
+				8E152C521B3CE61000CC6DD0 /* BookDetailSecondCell.h */,
+				8E152C531B3CE61000CC6DD0 /* BookDetailSecondCell.m */,
+				8E152C541B3CE61000CC6DD0 /* BookDetailSecondCell.xib */,
+				8E5760FB1B3C3E4E00508591 /* BookDetailSummaryCell.h */,
+				8E5760FC1B3C3E4E00508591 /* BookDetailSummaryCell.m */,
+				8E5760FD1B3C3E4E00508591 /* BookDetailSummaryCell.xib */,
+				8E5761001B3C3F8F00508591 /* BookDetailAuthorSummaryCell.h */,
+				8E5761011B3C3F8F00508591 /* BookDetailAuthorSummaryCell.m */,
+				8E5761021B3C3F8F00508591 /* BookDetailAuthorSummaryCell.xib */,
 			);
 			name = Book;
 			sourceTree = "<group>";
@@ -618,15 +655,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EDB2A351B2AF4560049DC6A /* MJMovieDescriptionCell.xib in Resources */,
+				8E152C511B3CE11800CC6DD0 /* BookDetailFirstCell.xib in Resources */,
 				8EDB2A471B2B11CB0049DC6A /* MJMovieCommentCell.xib in Resources */,
+				8E152C561B3CE61000CC6DD0 /* BookDetailSecondCell.xib in Resources */,
 				8EB7E4F11B2AD9EA005F4C2E /* MJMovieDetailCell.xib in Resources */,
 				8EDB2A511B2B22AD0049DC6A /* MJMovieDirectorCell.xib in Resources */,
 				8EDB2A3A1B2AF83C0049DC6A /* MJSimilarMoviesCollectionViewCell.xib in Resources */,
+				8E5760FF1B3C3E4E00508591 /* BookDetailSummaryCell.xib in Resources */,
 				8E17A37D1B2583D400A60CC9 /* Main.storyboard in Resources */,
 				8E17A3821B2583D400A60CC9 /* LaunchScreen.xib in Resources */,
 				8EDB2A3F1B2AFA4E0049DC6A /* MJSimilarMoviesCell.xib in Resources */,
 				8EDB2A4C1B2B15780049DC6A /* MJMovieViewAllCommentsCell.xib in Resources */,
 				8E17A37F1B2583D400A60CC9 /* Images.xcassets in Resources */,
+				8E5761041B3C3F8F00508591 /* BookDetailAuthorSummaryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,6 +727,7 @@
 				8EDB2A3E1B2AFA4E0049DC6A /* MJSimilarMoviesCell.m in Sources */,
 				8ECFF8CE1B3A86840000EBD2 /* BookNewListCell.m in Sources */,
 				8E5BABD11B2F08CD00C2D59B /* ScoreStarsKit.m in Sources */,
+				8E5760FE1B3C3E4E00508591 /* BookDetailSummaryCell.m in Sources */,
 				8EDB2A461B2B11CB0049DC6A /* MJMovieCommentCell.m in Sources */,
 				8EB245461B344C0300CAE35A /* StoryBoardUtilities.m in Sources */,
 				8EED4A2F1B3292F2000B33D1 /* MJReview.m in Sources */,
@@ -700,7 +742,9 @@
 				8EA1FBD61B29A88A0057E6E2 /* UIColor+flat.m in Sources */,
 				8E5BABD21B2F08CD00C2D59B /* ScoreStarsView.m in Sources */,
 				8E17A3741B2583D400A60CC9 /* AppDelegate.m in Sources */,
+				8E152C551B3CE61000CC6DD0 /* BookDetailSecondCell.m in Sources */,
 				8EB075051B39904300B7AE14 /* BookTop250ListCell.m in Sources */,
+				8E152C501B3CE11800CC6DD0 /* BookDetailFirstCell.m in Sources */,
 				8ECFF8CB1B3A81CE0000EBD2 /* MJBookNewController.m in Sources */,
 				8E17A3771B2583D400A60CC9 /* FirstViewController.m in Sources */,
 				8E7BC7681B39867D006921F1 /* RKBookSwipeBetweenViewControllers.m in Sources */,
@@ -714,6 +758,8 @@
 				8E4C83A31B2822A3007EDFF6 /* MJNetworkLoadingViewController.m in Sources */,
 				8E6B8D4C1B2A799F001BAC3E /* RAMFrameItemAnimation.swift in Sources */,
 				8E6B8D4D1B2A799F001BAC3E /* RAMFumeAnimation.swift in Sources */,
+				8E5761031B3C3F8F00508591 /* BookDetailAuthorSummaryCell.m in Sources */,
+				8E003DF91B3BD44600819AAB /* MJBookDetailController.m in Sources */,
 				8E17A3711B2583D400A60CC9 /* main.m in Sources */,
 				8EDB2A391B2AF83C0049DC6A /* MJSimilarMoviesCollectionViewCell.m in Sources */,
 				8EDB2A501B2B22AD0049DC6A /* MJMovieDirectorCell.m in Sources */,

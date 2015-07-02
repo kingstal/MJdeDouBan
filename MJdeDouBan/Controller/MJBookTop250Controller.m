@@ -11,6 +11,7 @@
 #import "BookTop250ListCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "MJRefresh.h"
+#import "MJBookDetailController.h"
 
 const static NSInteger BOOKTOP250 = 250;
 
@@ -75,9 +76,8 @@ const static NSInteger BOOKTOP250 = 250;
         self.networkLoadingViewController.delegate = self;
     }
     else if ([segue.identifier isEqualToString:@"BookDetail"]) {
-        //TODO: book detail
-        //        MJMovieDetailsViewController* controller = segue.destinationViewController;
-        //        controller.movie = [self.hotMovies objectAtIndex:self.selectedIndexPath.row];
+        MJBookDetailController* controller = segue.destinationViewController;
+        controller.bookId = [[self.books objectAtIndex:self.selectedIndexPath.row] bookId];
     }
 }
 

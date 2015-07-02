@@ -60,6 +60,11 @@ typedef void (^MJHTTPFetcherSuccessBlock)(MJHTTPFetcher* fetcher, id data);
 - (void)fetchBookHotWithFlag:(NSString*)flag success:(MJHTTPFetcherSuccessBlock)successBlock failure:(MJHTTPFetcherErrorBlock)errorBlock;
 
 /**
+ *  根据movieId获得电影详情
+ */
+- (void)fetchBookDetailWithBookId:(NSString*)bookId success:(MJHTTPFetcherSuccessBlock)successBlock failure:(MJHTTPFetcherErrorBlock)errorBlock;
+
+/**
  *  Invokes [self.requestOperation cancel] to cancel the network request
  */
 - (void)cancel;

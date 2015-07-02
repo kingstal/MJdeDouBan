@@ -11,6 +11,7 @@
 #import "MJHTTPFetcher.h"
 #import "BookNewListCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "MJBookDetailController.h"
 
 @interface MJBookNewController ()
 
@@ -59,11 +60,10 @@
         self.networkLoadingViewController = segue.destinationViewController;
         self.networkLoadingViewController.delegate = self;
     }
-    //    else if ([segue.identifier isEqualToString:@"BookDetail"]) {
-    //TODO: book detail
-    //        MJMovieDetailsViewController* controller = segue.destinationViewController;
-    //        controller.movie = [self.hotMovies objectAtIndex:self.selectedIndexPath.row];
-    //    }
+    else if ([segue.identifier isEqualToString:@"BookDetail"]) {
+        MJBookDetailController* controller = segue.destinationViewController;
+        controller.bookId = [[self.books objectAtIndex:self.selectedIndexPath.row] bookId];
+    }
 }
 
 #pragma mark - Network Requests methods
