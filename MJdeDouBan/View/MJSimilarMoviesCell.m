@@ -11,7 +11,7 @@
 
 @interface MJSimilarMoviesCell ()
 
-@property (weak, nonatomic) IBOutlet MJIndexedCollectionView* collectionView;
+@property (weak, nonatomic) IBOutlet UICollectionView* collectionView;
 @property (weak, nonatomic) IBOutlet UIButton* viewAllSimilarMoviesButton;
 - (IBAction)buttonPressed:(id)sender;
 
@@ -33,16 +33,13 @@
     return cell;
 }
 
-- (void)setCollectionViewDataSourceDelegate:(id<UICollectionViewDataSource, UICollectionViewDelegate>)dataSourceDelegate index:(NSInteger)index
+- (void)setCollectionViewDataSourceDelegate:(id<UICollectionViewDataSource, UICollectionViewDelegate>)dataSourceDelegate
 {
-    //    UINib* nib = [UINib nibWithNibName:@"MJSimilarMoviesCollectionViewCell" bundle:nil];
-    //    [self.collectionView registerNib:nib forCellWithReuseIdentifier:@"MJSimilarMoviesCollectionViewCell"];
 
     [MJSimilarMoviesCollectionViewCell registerNibWithCollection:self.collectionView];
 
     self.collectionView.dataSource = dataSourceDelegate;
     self.collectionView.delegate = dataSourceDelegate;
-    self.collectionView.index = index;
 
     [self.collectionView reloadData];
 }

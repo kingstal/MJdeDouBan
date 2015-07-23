@@ -16,6 +16,10 @@
 
 #define kVerticalMarginForCollectionViewItems 0
 
+@interface MJSimilarMoviesViewController ()
+@property (weak, nonatomic) IBOutlet UICollectionView* collectionView;
+@end
+
 @implementation MJSimilarMoviesViewController
 
 - (void)awakeFromNib
@@ -60,9 +64,6 @@
 
         flowLayoutPort.itemSize = CGSizeMake(viewSize.height / 2.0 - kVerticalMarginForCollectionViewItems, itemHeight);
     }
-    //    CGFloat itemHeight = (viewSize.width / 2.0 - kVerticalMarginForCollectionViewItems) * cellAspectRatio;
-    //
-    //    flowLayoutPort.itemSize = CGSizeMake(viewSize.width / 2.0 - kVerticalMarginForCollectionViewItems, itemHeight);
 
     [self.collectionView setCollectionViewLayout:flowLayoutPort];
 }
@@ -76,9 +77,8 @@
 
 - (UICollectionViewCell*)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath*)indexPath;
 {
-    MJMoviePosterCell* cell = (MJMoviePosterCell*)[collectionView dequeueReusableCellWithReuseIdentifier:@"MJMoviePosterCell" forIndexPath:indexPath];
-    [cell.moviePosterImageView showPlaceHolderWithLineColor:[UIColor redColor]];
-    [cell.moviePosterImageView sd_setImageWithURL:[NSURL URLWithString:[[self.similarMovies objectAtIndex:indexPath.row] moviePosterUrl]]];
+    MJMoviePosterCell* cell = [MJMoviePosterCell cellWithCollectionView:collectionView forIndexPath:indexPath];
+    cell.movie = self.similarMovies[indexPath.row];
     return cell;
 }
 

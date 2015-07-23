@@ -66,7 +66,6 @@
 		8EDB2A3A1B2AF83C0049DC6A /* MJSimilarMoviesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDB2A381B2AF83C0049DC6A /* MJSimilarMoviesCollectionViewCell.xib */; };
 		8EDB2A3E1B2AFA4E0049DC6A /* MJSimilarMoviesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDB2A3C1B2AFA4E0049DC6A /* MJSimilarMoviesCell.m */; };
 		8EDB2A3F1B2AFA4E0049DC6A /* MJSimilarMoviesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDB2A3D1B2AFA4E0049DC6A /* MJSimilarMoviesCell.xib */; };
-		8EDB2A421B2AFACA0049DC6A /* MJIndexedCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDB2A411B2AFACA0049DC6A /* MJIndexedCollectionView.m */; };
 		8EDB2A461B2B11CB0049DC6A /* MJMovieCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDB2A441B2B11CB0049DC6A /* MJMovieCommentCell.m */; };
 		8EDB2A471B2B11CB0049DC6A /* MJMovieCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDB2A451B2B11CB0049DC6A /* MJMovieCommentCell.xib */; };
 		8EDB2A4B1B2B15780049DC6A /* MJMovieViewAllCommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDB2A491B2B15780049DC6A /* MJMovieViewAllCommentsCell.m */; };
@@ -181,8 +180,6 @@
 		8EDB2A3B1B2AFA4E0049DC6A /* MJSimilarMoviesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJSimilarMoviesCell.h; path = View/MJSimilarMoviesCell.h; sourceTree = "<group>"; };
 		8EDB2A3C1B2AFA4E0049DC6A /* MJSimilarMoviesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJSimilarMoviesCell.m; path = View/MJSimilarMoviesCell.m; sourceTree = "<group>"; };
 		8EDB2A3D1B2AFA4E0049DC6A /* MJSimilarMoviesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MJSimilarMoviesCell.xib; path = View/MJSimilarMoviesCell.xib; sourceTree = "<group>"; };
-		8EDB2A401B2AFACA0049DC6A /* MJIndexedCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJIndexedCollectionView.h; path = Utils/MJIndexedCollectionView.h; sourceTree = "<group>"; };
-		8EDB2A411B2AFACA0049DC6A /* MJIndexedCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJIndexedCollectionView.m; path = Utils/MJIndexedCollectionView.m; sourceTree = "<group>"; };
 		8EDB2A431B2B11CB0049DC6A /* MJMovieCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJMovieCommentCell.h; path = View/MJMovieCommentCell.h; sourceTree = "<group>"; };
 		8EDB2A441B2B11CB0049DC6A /* MJMovieCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJMovieCommentCell.m; path = View/MJMovieCommentCell.m; sourceTree = "<group>"; };
 		8EDB2A451B2B11CB0049DC6A /* MJMovieCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MJMovieCommentCell.xib; path = View/MJMovieCommentCell.xib; sourceTree = "<group>"; };
@@ -443,8 +440,6 @@
 		8EA1FBD71B29A8920057E6E2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				8EDB2A401B2AFACA0049DC6A /* MJIndexedCollectionView.h */,
-				8EDB2A411B2AFACA0049DC6A /* MJIndexedCollectionView.m */,
 				8EB245441B344C0300CAE35A /* StoryBoardUtilities.h */,
 				8EB245451B344C0300CAE35A /* StoryBoardUtilities.m */,
 			);
@@ -729,7 +724,6 @@
 				8E6899351B5FCCDF00EFF4CA /* RAMTransitionItemAnimation.swift in Sources */,
 				8E6899311B5FCCDF00EFF4CA /* RAMBounceAnimation.swift in Sources */,
 				8EED4A2F1B3292F2000B33D1 /* MJReview.m in Sources */,
-				8EDB2A421B2AFACA0049DC6A /* MJIndexedCollectionView.m in Sources */,
 				8E54A16E1B34568200DF8BB3 /* MJMoviePosterCell.m in Sources */,
 				8EDB2A4B1B2B15780049DC6A /* MJMovieViewAllCommentsCell.m in Sources */,
 				8EBCA8C71B317059003FA128 /* RKMovieSwipeBetweenViewControllers.m in Sources */,

@@ -42,7 +42,7 @@ static NSInteger const REVIEWLIMIT = 10;
 
 @implementation MJMovieDetailsViewController
 
-#pragma mark - View Lifecycle
+#pragma mark - ViewController Lifecycle
 
 - (void)viewDidLoad
 {
@@ -76,7 +76,7 @@ static NSInteger const REVIEWLIMIT = 10;
     [[MJHTTPFetcher sharedFetcher] cancel];
 }
 
-#pragma mark - setup
+#pragma mark - Setup
 
 - (void)registerNib
 {
@@ -99,16 +99,19 @@ static NSInteger const REVIEWLIMIT = 10;
     self.detailsPageView.navBarView = [self.navigationController navigationBar];
 }
 
-#pragma mark - Show subViews
+#pragma mark - Show SubViews
 - (void)showLoadingView
 {
     //    self.errorView.hidden = YES;
     //    self.noContentView.hidden = YES;
 
     FeThreeDotGlow* threeDotGlow = [[FeThreeDotGlow alloc] initWithView:self.view blur:YES];
-    //    [self.view insertSubview:threeDotGlow aboveSubview:self.detailsPageView];
-    [self.detailsPageView addSubview:threeDotGlow];
-    [self.detailsPageView bringSubviewToFront:threeDotGlow];
+
+    CGRect frame = threeDotGlow.frame;
+    CGPoint origin = CGPointMake(frame.origin.x, frame.origin.y - 64);
+    threeDotGlow.frame = CGRectMake(origin.x, origin.y, frame.size.width, frame.size.height);
+
+    [self.detailsPageView insertSubview:threeDotGlow aboveSubview:self.detailsPageView];
     [threeDotGlow show];
     self.showView = threeDotGlow;
 }
@@ -127,7 +130,7 @@ static NSInteger const REVIEWLIMIT = 10;
         }];
 }
 
-#pragma mark - Network Requests methods
+#pragma mark - Network Request
 - (void)requestMovieDetails
 {
     [[MJHTTPFetcher sharedFetcher] fetchMovieDetailWithMovie:self.movie
@@ -162,7 +165,7 @@ static NSInteger const REVIEWLIMIT = 10;
         }];
 }
 
-#pragma mark - Action Methods
+#pragma mark - Action
 
 - (void)similarMoviesCellButtonPressed:(MJSimilarMoviesCell*)cell;
 {
@@ -172,11 +175,6 @@ static NSInteger const REVIEWLIMIT = 10;
 }
 
 #pragma mark - UITableView Data Source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
-{
-    return 1;
-}
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -207,7 +205,7 @@ static NSInteger const REVIEWLIMIT = 10;
     case 3: {
         MJSimilarMoviesCell* similarMoviesCell = [MJSimilarMoviesCell cellWithTableView:tableView];
         similarMoviesCell.delegate = self;
-        [similarMoviesCell setCollectionViewDataSourceDelegate:self index:indexPath.row];
+        [similarMoviesCell setCollectionViewDataSourceDelegate:self];
         cell = similarMoviesCell;
     } break;
     default: {
@@ -222,22 +220,6 @@ static NSInteger const REVIEWLIMIT = 10;
 }
 
 #pragma mark - UITableView Delegate
-
-- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-}
-
-- (void)tableView:(UITableView*)tableView willDisplayCell:(UITableViewCell*)cell forRowAtIndexPath:(NSIndexPath*)indexPath
-{
-    cell.contentView.backgroundColor = [UIColor clearColor];
-
-    // 为MJSimilarMoviesCell的 collectionView 设置 delegate
-    if ([cell isKindOfClass:[MJSimilarMoviesCell class]]) {
-        //        MJSimilarMoviesCell* similarMovieCell = (MJSimilarMoviesCell*)cell;
-        //        [similarMovieCell setCollectionViewDataSourceDelegate:self index:indexPath.row];
-    }
-}
 
 /**
  *  使用UITableView+FDTemplateLayoutCell自动计算 tableViewCell 的高度

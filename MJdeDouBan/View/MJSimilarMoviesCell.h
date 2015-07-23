@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MJIndexedCollectionView.h"
 
 @class MJSimilarMoviesCell;
 
@@ -24,5 +23,5 @@
 
 + (MJSimilarMoviesCell*)cellWithTableView:(UITableView*)tableView;
 
-- (void)setCollectionViewDataSourceDelegate:(id<UICollectionViewDataSource, UICollectionViewDelegate>)dataSourceDelegate index:(NSInteger)index;
+- (void)setCollectionViewDataSourceDelegate:(id<UICollectionViewDataSource, UICollectionViewDelegate>)dataSourceDelegate;
 @end

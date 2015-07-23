@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "mjmovie.h"
 
 @interface MJMoviePosterCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView* moviePosterImageView;
+@property (strong, nonatomic) MJMovie* movie;
 
++ (void)registerNibWithCollection:(UICollectionView*)collection;
++ (MJMoviePosterCell*)cellWithCollectionView:(UICollectionView*)collectionView forIndexPath:(NSIndexPath*)indexPath;
 @end
