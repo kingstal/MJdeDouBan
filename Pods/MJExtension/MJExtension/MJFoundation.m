@@ -14,27 +14,33 @@ static NSSet *_foundationClasses;
 
 @implementation MJFoundation
 
-+ (void)load
++ (NSSet *)foundatonClasses
 {
-    _foundationClasses = [NSSet setWithObjects:
-                          [NSObject class],
-                          [NSURL class],
-                          [NSDate class],
-                          [NSNumber class],
-                          [NSDecimalNumber class],
-                          [NSData class],
-                          [NSMutableData class],
-                          [NSArray class],
-                          [NSMutableArray class],
-                          [NSDictionary class],
-                          [NSMutableDictionary class],
-                          [NSManagedObject class],
-                          [NSString class],
-                          [NSMutableString class], nil];
+    if (_foundationClasses == nil) {
+        // 集合中没有NSObject，因为几乎所有的类都是继承自NSObject，具体是不是NSObject需要特殊判断
+        _foundationClasses = [NSSet setWithObjects:
+                              [NSURL class],
+                              [NSDate class],
+                              [NSValue class],
+                              [NSData class],
+                              [NSArray class],
+                              [NSDictionary class],
+                              [NSString class], nil];
+    }
+    return _foundationClasses;
 }
 
 + (BOOL)isClassFromFoundation:(Class)c
 {
-    return [_foundationClasses containsObject:c];
+    if (c == [NSObject class] || c == [NSManagedObject class]) return YES;
+    
+    __block BOOL result = NO;
+    [[self foundatonClasses] enumerateObjectsUsingBlock:^(Class foundationClass, BOOL *stop) {
+        if (c == foundationClass || [c isSubclassOfClass:foundationClass]) {
+            result = YES;
+            *stop = YES;
+        }
+    }];
+    return result;
 }
 @end

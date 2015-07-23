@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ScoreStarsView.h"
-
+#import "MJReview.h"
 @interface MJMovieCommentCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel* titleLabel;
@@ -19,6 +19,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView* cellImageView;
 @property (weak, nonatomic) IBOutlet ScoreStarsView* scoreStarsView;
 
-+ (MJMovieCommentCell*)movieCommentCell;
+@property (strong, nonatomic) MJReview* review;
+
++ (void)registerNibWithTableView:(UITableView*)tableView;
++ (MJMovieCommentCell*)cellWithTableView:(UITableView*)tableView;
 
 @end

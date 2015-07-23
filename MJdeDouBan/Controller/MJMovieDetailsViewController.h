@@ -9,14 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "MJDetailsPageView.h"
 #import "MJMovie.h"
-#import "MJNetworkLoadingViewController.h"
 
-@interface MJMovieDetailsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, MJDetailsPageDelegate, MJNetworkLoadingViewDelegate>
-
-//@property (weak, nonatomic) IBOutlet UIView* navigationBarView;
-@property (weak, nonatomic) IBOutlet UIView* networkLoadingContainerView;
-@property (weak, nonatomic) IBOutlet MJDetailsPageView* detailsPageView;
-//@property (weak, nonatomic) IBOutlet UILabel* navBarTitleLabel;
+@interface MJMovieDetailsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, MJDetailsPageDelegate>
 
 @property (strong, nonatomic) MJMovie* movie;
 

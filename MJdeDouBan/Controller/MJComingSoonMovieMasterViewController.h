@@ -7,13 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MJNetworkLoadingViewController.h"
+//#import "MJNetworkLoadingViewController.h"
 
-@interface MJComingSoonMovieMasterViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MJNetworkLoadingViewDelegate>
-
-@property (weak, nonatomic) IBOutlet UIView* networkLoadingContainerView;
-@property (weak, nonatomic) IBOutlet UITableView* tableView;
-
-- (IBAction)playTrailer:(id)sender;
-
+@interface MJComingSoonMovieMasterViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @end

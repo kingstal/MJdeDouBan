@@ -7,11 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MJNetworkLoadingViewController.h"
 
-@interface MJHotMovieMasterViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MJNetworkLoadingViewDelegate>
-
-@property (weak, nonatomic) IBOutlet UIView* networkLoadingContainerView;
-@property (weak, nonatomic) IBOutlet UITableView* tableView;
-
+@interface MJHotMovieMasterViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @end

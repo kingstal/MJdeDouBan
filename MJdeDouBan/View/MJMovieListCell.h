@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MJMovie.h"
 
 @interface MJMovieListCell : UITableViewCell
 
@@ -16,4 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel* scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel* votecountLabel;
 
+@property (strong, nonatomic) MJMovie* movie;
+
++(MJMovieListCell*)cellWithTableView:(UITableView*)tableView;
 @end

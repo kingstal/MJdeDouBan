@@ -7,17 +7,31 @@
 //
 
 #import "MJMovieListCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation MJMovieListCell
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
++ (MJMovieListCell*)cellWithTableView:(UITableView*)tableView
+{
+    static NSString* ID = @"MJMovieListCell";
+    MJMovieListCell* cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    return cell;
+}
 
-    // Configure the view for the selected state
+- (void)setMovie:(MJMovie*)movie
+{
+    _movie = movie;
+
+    [self.posterImageView sd_setImageWithURL:[NSURL URLWithString:movie.moviePosterUrl] placeholderImage:nil];
+    [self.titleLabel setText:movie.movieTitle];
+    [self.votecountLabel setText:[NSString stringWithFormat:@"%@人评价", movie.movieVoteCount]];
+    [self.scoreLabel setText:[NSString stringWithFormat:@"%@分", movie.movieScore]];
+    [self.durationLabel setText:movie.movieDuration];
 }
 
 @end

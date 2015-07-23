@@ -4,37 +4,27 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-AFNetworking.xcscheme</key>
+		<key>AFNetworking.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-FDFullscreenPopGesture.xcscheme</key>
+		<key>FDFullscreenPopGesture.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-MJExtension.xcscheme</key>
+		<key>MJExtension.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-MJRefresh.xcscheme</key>
+		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-MMPlaceHolder.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-SDWebImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-UITableView+FDTemplateLayoutCell.xcscheme</key>
+		<key>MMPlaceHolder.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -44,45 +34,55 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UITableView+FDTemplateLayoutCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1058462B2A5D4FB31419DFA6</key>
+		<key>07FE2796A09ECE69B9258260C54B65A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>15A80BE6921937638DEB246E</key>
+		<key>2E767C26CC6DB41BB0886516CCB27EF1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>21FAFA56E40F1E016032A53E</key>
+		<key>4F63BE3B6413D75937E33517789E1797</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3BEA1B69CF1DEFC82392E4D9</key>
+		<key>9B7079F8CCCA4FEC05E36BFF7B8F0BC4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>94F9E4B4034C6B834C4A94B6</key>
+		<key>AE404A8863AE0077F678FDD3A4199AE8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AC3E2F1C6078B3678379C86A</key>
+		<key>B34968AA405FF80226F96F1E992F0ED2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C0C641ABEE8226539A42FDB6</key>
+		<key>D7960206D57C86D4C2827DEE033D3D48</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E7B52E05C2EEC7480B950A6C</key>
+		<key>FC8D8DB85B1033181A37AB4DBE4404B4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
