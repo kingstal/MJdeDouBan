@@ -7,14 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ScoreStarsView.h"
+#import "MJBook.h"
 
 @interface BookHotListCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView* posterImageView;
-@property (weak, nonatomic) IBOutlet UILabel* titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel* rankingTimeLabel;
-@property (weak, nonatomic) IBOutlet UILabel* subTitleLabel;
-@property (weak, nonatomic) IBOutlet UILabel* scoreLabel;
-@property (weak, nonatomic) IBOutlet UILabel* votecountLabel;
-@property (weak, nonatomic) IBOutlet ScoreStarsView* scoreStarsView;
+
+@property (nonatomic, strong) MJBook* book;
++ (BookHotListCell*)cellWithTableView:(UITableView*)tableView;
+
 @end

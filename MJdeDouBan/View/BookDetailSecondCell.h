@@ -7,13 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MJBookDetail.h"
 
 @interface BookDetailSecondCell : UITableViewCell
 
-@property (nonatomic, weak) IBOutlet UILabel* authorDetailLabel;
-@property (nonatomic, weak) IBOutlet UILabel* publishDetailLabel;
-@property (nonatomic, weak) IBOutlet UILabel* publishTimeLabel;
-@property (nonatomic, weak) IBOutlet UILabel* pageCountLabel;
-@property (nonatomic, weak) IBOutlet UILabel* priceLabel;
-@property (nonatomic, weak) IBOutlet UILabel* ISBNLabel;
+@property (nonatomic, strong) MJBookDetail* bookDetail;
+
++ (void)registerNibWithTableView:(UITableView*)tableView;
++ (BookDetailSecondCell*)cellWithTableView:(UITableView*)tableView;
 @end

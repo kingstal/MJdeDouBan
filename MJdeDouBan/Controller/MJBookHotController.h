@@ -7,13 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MJNetworkLoadingViewController.h"
 
-@interface MJBookHotController : UIViewController <UITableViewDataSource, UITableViewDelegate, MJNetworkLoadingViewDelegate>
+@interface MJBookHotController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSString* flag; //用于区分虚构、非虚构的标识
-
-@property (weak, nonatomic) IBOutlet UIView* networkLoadingContainerView;
-@property (weak, nonatomic) IBOutlet UITableView* tableView;
 
 @end

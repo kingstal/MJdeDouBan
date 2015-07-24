@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MJBookDetail.h"
 
 @interface BookDetailSummaryCell : UITableViewCell
+@property (nonatomic, strong) MJBookDetail* bookDetail;
 
-@property (nonatomic, weak) IBOutlet UILabel* bookSummaryLabel;
++ (void)registerNibWithTableView:(UITableView*)tableView;
++ (BookDetailSummaryCell*)cellWithTableView:(UITableView*)tableView;
 
 @end

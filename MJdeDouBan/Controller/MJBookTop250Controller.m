@@ -9,17 +9,16 @@
 #import "MJBookTop250Controller.h"
 #import "MJHTTPFetcher.h"
 #import "BookTop250ListCell.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "MJRefresh.h"
 #import "MJBookDetailController.h"
 
 const static NSInteger BOOKTOP250 = 250;
 
 @interface MJBookTop250Controller ()
-@property (nonatomic, strong) NSMutableArray* books;
-@property (nonatomic, strong) MJNetworkLoadingViewController* networkLoadingViewController;
+@property (weak, nonatomic) IBOutlet UITableView* tableView;
 
-@property (nonatomic, strong) NSIndexPath* selectedIndexPath;
+@property (nonatomic, strong) NSMutableArray* books;
+
 @property (nonatomic) NSInteger startIndex;
 
 @end
@@ -69,15 +68,9 @@ const static NSInteger BOOKTOP250 = 250;
 
 - (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    if ([segue.identifier isEqualToString:@"MJNetworkLoadingViewController"]) {
-        self.networkLoadingViewController = segue.destinationViewController;
-        self.networkLoadingViewController.delegate = self;
-    }
-    else if ([segue.identifier isEqualToString:@"BookDetail"]) {
+    if ([segue.identifier isEqualToString:@"BookDetail"]) {
         MJBookDetailController* controller = segue.destinationViewController;
-        controller.bookId = [[self.books objectAtIndex:self.selectedIndexPath.row] bookId];
+        controller.bookId = [[self.books objectAtIndex:[self.tableView indexPathForSelectedRow].row] bookId];
     }
 }
 
@@ -89,7 +82,7 @@ const static NSInteger BOOKTOP250 = 250;
         success:^(MJHTTPFetcher* fetcher, id data) {
             NSArray* temp = (NSArray*)data;
             if ([temp count] == 0) {
-                [self.networkLoadingViewController showNoContentView];
+                //                [self.networkLoadingViewController showNoContentView];
             }
             else {
                 [self.books addObjectsFromArray:temp];
@@ -98,16 +91,9 @@ const static NSInteger BOOKTOP250 = 250;
                 [self.tableView reloadData];
             }
         }
-        failure:^(MJHTTPFetcher* fetcher, NSError* error) {
-            [self.networkLoadingViewController showErrorView];
+        failure:^(MJHTTPFetcher* fetcher, NSError* error){
+            //            [self.networkLoadingViewController showErrorView];
         }];
-}
-
-#pragma mark - MJNetworkLoadingViewDelegate
-
-- (void)retryRequest;
-{
-    [self requestBookTop250];
 }
 
 #pragma mark UITableViewSource
@@ -119,31 +105,10 @@ const static NSInteger BOOKTOP250 = 250;
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    BookTop250ListCell* cell = (BookTop250ListCell*)[tableView dequeueReusableCellWithIdentifier:@"BookTop250ListCell" forIndexPath:indexPath];
+    BookTop250ListCell* cell = [BookTop250ListCell cellWithTableView:tableView];
 
-    [cell.posterImageView sd_setImageWithURL:[self.books[indexPath.row] valueForKey:@"bookPosterUrl"] placeholderImage:nil];
-    [cell.titleLabel setText:[self.books[indexPath.row] valueForKey:@"bookTitle"]];
-    [cell.titleEngLabel setText:[self.books[indexPath.row] valueForKey:@"bookTitleEng"]];
-    [cell.subTitleLabel setText:[self.books[indexPath.row] valueForKey:@"bookSubTitle"]];
-
-    NSString* score = [self.books[indexPath.row] valueForKey:@"bookScore"];
-    cell.scoreStarsView.value = [score floatValue] / 10;
-    [cell.scoreLabel setText:score];
-    [cell.votecountLabel setText:[NSString stringWithFormat:@"(%@人评价)", [self.books[indexPath.row] valueForKey:@"bookVoteCount"]]];
+    cell.book = self.books[indexPath.row];
     return cell;
-}
-
-#pragma mark - UITableViewDelegate
-
-- (NSIndexPath*)tableView:(UITableView*)tableView willSelectRowAtIndexPath:(NSIndexPath*)indexPath
-{
-    self.selectedIndexPath = indexPath;
-    return indexPath;
-}
-
-- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - MJNetworkLoadingViewController Methods
@@ -154,11 +119,11 @@ const static NSInteger BOOKTOP250 = 250;
         duration:0.3f
         options:UIViewAnimationOptionTransitionCrossDissolve
         animations:^(void) {
-            [self.networkLoadingContainerView removeFromSuperview];
+            //            [self.networkLoadingContainerView removeFromSuperview];
         }
-        completion:^(BOOL finished) {
-            [self.networkLoadingViewController removeFromParentViewController];
-            self.networkLoadingContainerView = nil;
+        completion:^(BOOL finished){
+            //            [self.networkLoadingViewController removeFromParentViewController];
+            //            self.networkLoadingContainerView = nil;
         }];
 }
 @end

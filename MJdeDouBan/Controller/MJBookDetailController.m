@@ -18,8 +18,9 @@
 
 @interface MJBookDetailController ()
 
+@property (weak, nonatomic) IBOutlet UITableView* tableView;
 @property (nonatomic, strong) MJBookDetail* bookDetail;
-@property (nonatomic, strong) MJNetworkLoadingViewController* networkLoadingViewController;
+
 @end
 
 @implementation MJBookDetailController
@@ -28,11 +29,10 @@
 {
     [super viewDidLoad];
 
-    //    self.tableView.sectionHeaderHeight = 20;
-    [self.tableView registerNib:[UINib nibWithNibName:@"BookDetailFirstCell" bundle:nil] forCellReuseIdentifier:@"BookDetailFirstCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"BookDetailSecondCell" bundle:nil] forCellReuseIdentifier:@"BookDetailSecondCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"BookDetailAuthorSummaryCell" bundle:nil] forCellReuseIdentifier:@"BookDetailAuthorSummaryCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"BookDetailSummaryCell" bundle:nil] forCellReuseIdentifier:@"BookDetailSummaryCell"];
+    [BookDetailFirstCell registerNibWithTableView:self.tableView];
+    [BookDetailSecondCell registerNibWithTableView:self.tableView];
+    [BookDetailAuthorSummaryCell registerNibWithTableView:self.tableView];
+    [BookDetailSummaryCell registerNibWithTableView:self.tableView];
 
     [self requestBookDetails];
 }
@@ -53,16 +53,9 @@
                 [self.tableView reloadData];
             }
         }
-        failure:^(MJHTTPFetcher* fetcher, NSError* error) {
-            [self.networkLoadingViewController showErrorView];
+        failure:^(MJHTTPFetcher* fetcher, NSError* error){
+            //            [self.networkLoadingViewController showErrorView];
         }];
-}
-
-#pragma mark KMNetworkLoadingViewDelegate
-
-- (void)retryRequest;
-{
-    [self requestBookDetails];
 }
 
 #pragma mark - MJNetworkLoadingViewController Methods
@@ -72,20 +65,12 @@
         duration:0.3f
         options:UIViewAnimationOptionTransitionCrossDissolve
         animations:^(void) {
-            [self.networkLoadingContainerView removeFromSuperview];
+            //            [self.networkLoadingContainerView removeFromSuperview];
         }
-        completion:^(BOOL finished) {
-            [self.networkLoadingViewController removeFromParentViewController];
-            self.networkLoadingContainerView = nil;
+        completion:^(BOOL finished){
+            //            [self.networkLoadingViewController removeFromParentViewController];
+            //            self.networkLoadingContainerView = nil;
         }];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"MJNetworkLoadingViewController"]) {
-        self.networkLoadingViewController = segue.destinationViewController;
-        self.networkLoadingViewController.delegate = self;
-    }
 }
 
 #pragma mark - UITableViewDatasouce
@@ -104,42 +89,24 @@
     UITableViewCell* cell = nil;
 
     if (indexPath.section == 0) {
-        BookDetailFirstCell* firstCell = [tableView dequeueReusableCellWithIdentifier:@"BookDetailFirstCell"];
-
-        [firstCell.posterImageView sd_setImageWithURL:[NSURL URLWithString:self.bookDetail.bookPosterUrl]];
-        [firstCell.titleLabel setText:self.bookDetail.bookTitle];
-        NSString* score = self.bookDetail.bookScore;
-        firstCell.scoreStarView.value = [score floatValue] / 10;
-        [firstCell.scoreLabel setText:score];
-        [firstCell.voteCountLabel setText:[NSString stringWithFormat:@"(%@人评价)", self.bookDetail.bookVoteCount]];
-        [firstCell.authorLabel setText:self.bookDetail.bookAuthor];
-        [firstCell.publishLabel setText:self.bookDetail.bookPress];
-
+        BookDetailFirstCell* firstCell = [BookDetailFirstCell cellWithTableView:tableView];
+        firstCell.bookDetail = self.bookDetail;
         cell = firstCell;
     }
     else if (indexPath.section == 1) {
-        BookDetailSecondCell* secondCell = [tableView dequeueReusableCellWithIdentifier:@"BookDetailSecondCell"];
-
-        [secondCell.authorDetailLabel setText:self.bookDetail.bookAuthor];
-        [secondCell.publishDetailLabel setText:self.bookDetail.bookPress];
-        [secondCell.publishTimeLabel setText:self.bookDetail.bookPublishTime];
-        [secondCell.pageCountLabel setText:self.bookDetail.bookPageCount];
-        [secondCell.priceLabel setText:self.bookDetail.bookPrice];
-        [secondCell.ISBNLabel setText:self.bookDetail.bookISBN];
-
+        BookDetailSecondCell* secondCell = [BookDetailSecondCell cellWithTableView:tableView];
+        secondCell.bookDetail = self.bookDetail;
         cell = secondCell;
     }
 
     if (indexPath.section == 2) {
-        BookDetailSummaryCell* summaryCell = [tableView dequeueReusableCellWithIdentifier:@"BookDetailSummaryCell"];
-        [summaryCell.bookSummaryLabel setText:self.bookDetail.bookSummary];
-
+        BookDetailSummaryCell* summaryCell = [BookDetailSummaryCell cellWithTableView:tableView];
+        summaryCell.bookDetail = self.bookDetail;
         cell = summaryCell;
     }
     else if (indexPath.section == 3) {
-        BookDetailAuthorSummaryCell* authorCell = [tableView dequeueReusableCellWithIdentifier:@"BookDetailAuthorSummaryCell"];
-        [authorCell.authorSummaryLabel setText:self.bookDetail.bookAuthorSummary];
-
+        BookDetailAuthorSummaryCell* authorCell = [BookDetailAuthorSummaryCell cellWithTableView:tableView];
+        authorCell.bookDetail = self.bookDetail;
         cell = authorCell;
     }
 
@@ -178,14 +145,16 @@
         height = [tableView fd_heightForCellWithIdentifier:@"BookDetailSummaryCell"
                                           cacheByIndexPath:indexPath
                                              configuration:^(id cell) {
-                                                 [(BookDetailSummaryCell*)cell bookSummaryLabel].text = self.bookDetail.bookSummary;
+                                                 BookDetailSummaryCell* summaryCell = (BookDetailSummaryCell*)cell;
+                                                 summaryCell.bookDetail = self.bookDetail;
                                              }];
     }
     else if (indexPath.section == 3) {
         height = [tableView fd_heightForCellWithIdentifier:@"BookDetailAuthorSummaryCell"
                                           cacheByIndexPath:indexPath
                                              configuration:^(id cell) {
-                                                 [(BookDetailAuthorSummaryCell*)cell authorSummaryLabel].text = self.bookDetail.bookAuthorSummary;
+                                                 BookDetailAuthorSummaryCell* authorCell = (BookDetailAuthorSummaryCell*)cell;
+                                                 authorCell.bookDetail = self.bookDetail;
                                              }];
     }
     return height;

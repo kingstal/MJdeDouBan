@@ -7,11 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MJNetworkLoadingViewController.h"
 
-@interface MJBookTop250Controller : UIViewController <UITableViewDataSource, UITableViewDelegate, MJNetworkLoadingViewDelegate>
-
-@property (weak, nonatomic) IBOutlet UIView* networkLoadingContainerView;
-@property (weak, nonatomic) IBOutlet UITableView* tableView;
-
+@interface MJBookTop250Controller : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @end

@@ -13,7 +13,6 @@
 + (void)registerNibWithTableView:(UITableView*)tableView
 {
     static NSString* ID = @"MJMovieDirectorCell";
-
     UINib* directorNib = [UINib nibWithNibName:ID bundle:nil];
     [tableView registerNib:directorNib forCellReuseIdentifier:ID];
 }
@@ -23,7 +22,6 @@
 
     static NSString* ID = @"MJMovieDirectorCell";
     MJMovieDirectorCell* cell = [tableView dequeueReusableCellWithIdentifier:ID];
-
     return cell;
 }
 

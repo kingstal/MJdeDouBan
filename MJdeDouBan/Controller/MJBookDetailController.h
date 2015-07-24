@@ -8,13 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ScoreStarsView.h"
-#import "MJNetworkLoadingViewController.h"
 
-@interface MJBookDetailController : UIViewController <MJNetworkLoadingViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface MJBookDetailController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSString* bookId;
-@property (weak, nonatomic) IBOutlet UIView* networkLoadingContainerView;
-
-@property (weak, nonatomic) IBOutlet UITableView* tableView;
 
 @end

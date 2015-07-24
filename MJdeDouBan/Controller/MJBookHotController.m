@@ -14,10 +14,11 @@
 #import "MJBookDetailController.h"
 
 @interface MJBookHotController ()
-@property (nonatomic, strong) NSArray* books;
-@property (nonatomic, strong) MJNetworkLoadingViewController* networkLoadingViewController;
 
-@property (nonatomic, strong) NSIndexPath* selectedIndexPath;
+@property (weak, nonatomic) IBOutlet UITableView* tableView;
+
+@property (nonatomic, strong) NSArray* books;
+
 @end
 
 @implementation MJBookHotController
@@ -28,14 +29,6 @@
     NSLog(@"%@,---%@", self, self.flag);
     [self requestBookHot];
 }
-//
-//- (void)viewWillAppear:(BOOL)animated
-//{
-//    [super viewWillAppear:animated];
-//    if (!self.books) {
-//        [self.tableView reloadData];
-//    }
-//}
 
 - (NSArray*)books
 {
@@ -54,13 +47,9 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"MJNetworkLoadingViewController"]) {
-        self.networkLoadingViewController = segue.destinationViewController;
-        self.networkLoadingViewController.delegate = self;
-    }
-    else if ([segue.identifier isEqualToString:@"BookDetail"]) {
+    if ([segue.identifier isEqualToString:@"BookDetail"]) {
         MJBookDetailController* controller = segue.destinationViewController;
-        controller.bookId = [[self.books objectAtIndex:self.selectedIndexPath.row] bookId];
+        controller.bookId = [[self.books objectAtIndex:[self.tableView indexPathForSelectedRow].row] bookId];
     }
 }
 
@@ -73,7 +62,7 @@
             NSArray* temp = (NSArray*)data;
             NSLog(@"%@", temp);
             if ([temp count] == 0) {
-                [self.networkLoadingViewController showNoContentView];
+                //                [self.networkLoadingViewController showNoContentView];
             }
             else {
                 self.books = temp;
@@ -81,8 +70,8 @@
                 [self.tableView reloadData];
             }
         }
-        failure:^(MJHTTPFetcher* fetcher, NSError* error) {
-            [self.networkLoadingViewController showErrorView];
+        failure:^(MJHTTPFetcher* fetcher, NSError* error){
+            //            [self.networkLoadingViewController showErrorView];
         }];
 }
 
@@ -102,31 +91,9 @@
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    BookHotListCell* cell = (BookHotListCell*)[tableView dequeueReusableCellWithIdentifier:@"BookHotListCell" forIndexPath:indexPath];
-
-    [cell.posterImageView sd_setImageWithURL:[self.books[indexPath.row] valueForKey:@"bookPosterUrl"] placeholderImage:nil];
-    [cell.titleLabel setText:[self.books[indexPath.row] valueForKey:@"bookTitle"]];
-    [cell.subTitleLabel setText:[self.books[indexPath.row] valueForKey:@"bookSubTitle"]];
-    [cell.rankingTimeLabel setText:[self.books[indexPath.row] valueForKey:@"bookRankingTime"]];
-
-    NSString* score = [self.books[indexPath.row] valueForKey:@"bookScore"];
-    cell.scoreStarsView.value = [score floatValue] / 10;
-    [cell.scoreLabel setText:score];
-    [cell.votecountLabel setText:[NSString stringWithFormat:@"(%@人评价)", [self.books[indexPath.row] valueForKey:@"bookVoteCount"]]];
+    BookHotListCell* cell = [BookHotListCell cellWithTableView:tableView];
+    cell.book = self.books[indexPath.row];
     return cell;
-}
-
-#pragma mark - UITableViewDelegate
-
-- (NSIndexPath*)tableView:(UITableView*)tableView willSelectRowAtIndexPath:(NSIndexPath*)indexPath
-{
-    self.selectedIndexPath = indexPath;
-    return indexPath;
-}
-
-- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - MJNetworkLoadingViewController Methods
@@ -137,11 +104,11 @@
         duration:0.3f
         options:UIViewAnimationOptionTransitionCrossDissolve
         animations:^(void) {
-            [self.networkLoadingContainerView removeFromSuperview];
+            //            [self.networkLoadingContainerView removeFromSuperview];
         }
-        completion:^(BOOL finished) {
-            [self.networkLoadingViewController removeFromParentViewController];
-            self.networkLoadingContainerView = nil;
+        completion:^(BOOL finished){
+            //            [self.networkLoadingViewController removeFromParentViewController];
+            //            self.networkLoadingContainerView = nil;
         }];
 }
 @end
