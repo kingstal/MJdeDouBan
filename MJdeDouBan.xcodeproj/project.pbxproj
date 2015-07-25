@@ -17,8 +17,6 @@
 		8E152C561B3CE61000CC6DD0 /* BookDetailSecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E152C541B3CE61000CC6DD0 /* BookDetailSecondCell.xib */; };
 		8E17A3711B2583D400A60CC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E17A3701B2583D400A60CC9 /* main.m */; };
 		8E17A3741B2583D400A60CC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E17A3731B2583D400A60CC9 /* AppDelegate.m */; };
-		8E17A3771B2583D400A60CC9 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E17A3761B2583D400A60CC9 /* FirstViewController.m */; };
-		8E17A37A1B2583D400A60CC9 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E17A3791B2583D400A60CC9 /* SecondViewController.m */; };
 		8E17A37D1B2583D400A60CC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E17A37B1B2583D400A60CC9 /* Main.storyboard */; };
 		8E17A37F1B2583D400A60CC9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E17A37E1B2583D400A60CC9 /* Images.xcassets */; };
 		8E17A3821B2583D400A60CC9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E17A3801B2583D400A60CC9 /* LaunchScreen.xib */; };
@@ -100,10 +98,6 @@
 		8E17A3701B2583D400A60CC9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8E17A3721B2583D400A60CC9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8E17A3731B2583D400A60CC9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8E17A3751B2583D400A60CC9 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		8E17A3761B2583D400A60CC9 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		8E17A3781B2583D400A60CC9 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		8E17A3791B2583D400A60CC9 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		8E17A37C1B2583D400A60CC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8E17A37E1B2583D400A60CC9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8E17A3811B2583D400A60CC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -291,14 +285,9 @@
 				8EA1FBD71B29A8920057E6E2 /* Utils */,
 				8E133D981B2805A0007BD0A7 /* Model */,
 				8E133D991B2805AB007BD0A7 /* View */,
-				8E25994F1B285A8D00C86B76 /* Control */,
 				8E133D9A1B2805B9007BD0A7 /* Controller */,
 				8E17A3721B2583D400A60CC9 /* AppDelegate.h */,
 				8E17A3731B2583D400A60CC9 /* AppDelegate.m */,
-				8E17A3751B2583D400A60CC9 /* FirstViewController.h */,
-				8E17A3761B2583D400A60CC9 /* FirstViewController.m */,
-				8E17A3781B2583D400A60CC9 /* SecondViewController.h */,
-				8E17A3791B2583D400A60CC9 /* SecondViewController.m */,
 				8E17A37B1B2583D400A60CC9 /* Main.storyboard */,
 				8E17A37E1B2583D400A60CC9 /* Images.xcassets */,
 				8E17A3801B2583D400A60CC9 /* LaunchScreen.xib */,
@@ -340,15 +329,6 @@
 				8EFAA9761B2A856E0072B78E /* FeSpinner */,
 			);
 			name = Library;
-			sourceTree = "<group>";
-		};
-		8E25994F1B285A8D00C86B76 /* Control */ = {
-			isa = PBXGroup;
-			children = (
-				8E2599501B285ACC00C86B76 /* MJHTTPFetcher.h */,
-				8E2599511B285ACC00C86B76 /* MJHTTPFetcher.m */,
-			);
-			name = Control;
 			sourceTree = "<group>";
 		};
 		8E6899231B5FCCDF00EFF4CA /* RAMAnimatedTabBarController */ = {
@@ -425,6 +405,8 @@
 		8EA1FBD71B29A8920057E6E2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8E2599501B285ACC00C86B76 /* MJHTTPFetcher.h */,
+				8E2599511B285ACC00C86B76 /* MJHTTPFetcher.m */,
 				8EB245441B344C0300CAE35A /* StoryBoardUtilities.h */,
 				8EB245451B344C0300CAE35A /* StoryBoardUtilities.m */,
 				8EEF5D911B62718F000A6AAF /* UIViewController+Tracking.h */,
@@ -695,7 +677,6 @@
 				8E3431D91B29C49B00439644 /* MJMovie.m in Sources */,
 				8E3B12EC1B37D96A00E9CD81 /* MJBook.m in Sources */,
 				8E6899361B5FCCDF00EFF4CA /* RAMAnimatedTabBarController.swift in Sources */,
-				8E17A37A1B2583D400A60CC9 /* SecondViewController.m in Sources */,
 				8EED4A2C1B31B842000B33D1 /* MJComingSoonMovieListCell.m in Sources */,
 				8E5247C91B637321004DD4B0 /* MJLoadingView.m in Sources */,
 				8E133D9D1B28061A007BD0A7 /* MJHotMovieMasterViewController.m in Sources */,
@@ -724,7 +705,6 @@
 				8EB075051B39904300B7AE14 /* BookTop250ListCell.m in Sources */,
 				8E152C501B3CE11800CC6DD0 /* BookDetailFirstCell.m in Sources */,
 				8ECFF8CB1B3A81CE0000EBD2 /* MJBookNewController.m in Sources */,
-				8E17A3771B2583D400A60CC9 /* FirstViewController.m in Sources */,
 				8E7BC7681B39867D006921F1 /* RKBookSwipeBetweenViewControllers.m in Sources */,
 				8EA1FBDB1B29ACB20057E6E2 /* MJDetailsPageView.m in Sources */,
 				8E6899321B5FCCDF00EFF4CA /* RAMFrameItemAnimation.swift in Sources */,
