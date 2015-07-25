@@ -21,7 +21,7 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - FDFullscreenPopGesture (1.1)
-  - MJExtension (2.5.2)
+  - MJExtension (2.5.3)
   - MJRefresh (2.3.2)
   - MMPlaceHolder (1.8)
   - SDWebImage (3.7.3):
@@ -41,7 +41,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
-  MJExtension: 73e812aca0846e4a7b4d7aca34cfacf48d1f3310
+  MJExtension: d636ed42d1af44cba81106ae7831cccb66906eb7
   MJRefresh: 0f6f5e8387970607c26080b44058b229a23065d7
   MMPlaceHolder: 6dbbd7d0dbaaa556eefbc75b8039fcd9f9cd576a
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
