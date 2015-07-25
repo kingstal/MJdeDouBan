@@ -11,11 +11,13 @@
 #import "BookTop250ListCell.h"
 #import "MJRefresh.h"
 #import "MJBookDetailController.h"
+#import "MJLoadingView.h"
 
 const static NSInteger BOOKTOP250 = 250;
 
 @interface MJBookTop250Controller ()
 @property (weak, nonatomic) IBOutlet UITableView* tableView;
+@property (nonatomic, weak) MJLoadingView* loadingView;
 
 @property (nonatomic, strong) NSMutableArray* books;
 
@@ -28,11 +30,9 @@ const static NSInteger BOOKTOP250 = 250;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //    [self setupTableView];
-    //self.fd_interactivePopDisabled = YES;
-
     self.startIndex = 0;
 
+    [self showLoadingView];
     [self requestBookTop250];
 
     //    添加上拉刷新
@@ -87,7 +87,7 @@ const static NSInteger BOOKTOP250 = 250;
             else {
                 [self.books addObjectsFromArray:temp];
                 self.startIndex = [self.books count];
-                [self hideLoadingView];
+                [self.loadingView hideLoadingView];
                 [self.tableView reloadData];
             }
         }
@@ -111,19 +111,11 @@ const static NSInteger BOOKTOP250 = 250;
     return cell;
 }
 
-#pragma mark - MJNetworkLoadingViewController Methods
-- (void)hideLoadingView
+#pragma mark - LoadingView
+- (void)showLoadingView
 {
-    NSLog(@"remove loadingView");
-    [UIView transitionWithView:self.view
-        duration:0.3f
-        options:UIViewAnimationOptionTransitionCrossDissolve
-        animations:^(void) {
-            //            [self.networkLoadingContainerView removeFromSuperview];
-        }
-        completion:^(BOOL finished){
-            //            [self.networkLoadingViewController removeFromParentViewController];
-            //            self.networkLoadingContainerView = nil;
-        }];
+    MJLoadingView* loadingView = [[MJLoadingView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:loadingView];
+    self.loadingView = loadingView;
 }
 @end

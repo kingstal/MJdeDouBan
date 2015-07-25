@@ -26,7 +26,7 @@
 #import "MJReview.h"
 #import "MJRefresh.h"
 
-#import "FeThreeDotGlow.h"
+#import "MJLoadingView.h"
 
 static NSInteger const REVIEWLIMIT = 10;
 
@@ -36,7 +36,7 @@ static NSInteger const REVIEWLIMIT = 10;
 @property (nonatomic, assign) NSInteger currentReviewIndex;
 
 @property (weak, nonatomic) IBOutlet MJDetailsPageView* detailsPageView;
-@property (nonatomic, strong) FeThreeDotGlow* showView;
+@property (nonatomic, weak) MJLoadingView* loadingView;
 
 @end
 
@@ -99,35 +99,12 @@ static NSInteger const REVIEWLIMIT = 10;
     self.detailsPageView.navBarView = [self.navigationController navigationBar];
 }
 
-#pragma mark - Show SubViews
+#pragma mark - LoadingView
 - (void)showLoadingView
 {
-    //    self.errorView.hidden = YES;
-    //    self.noContentView.hidden = YES;
-
-    FeThreeDotGlow* threeDotGlow = [[FeThreeDotGlow alloc] initWithView:self.view blur:YES];
-
-    CGRect frame = threeDotGlow.frame;
-    CGPoint origin = CGPointMake(frame.origin.x, frame.origin.y - 64);
-    threeDotGlow.frame = CGRectMake(origin.x, origin.y, frame.size.width, frame.size.height);
-
-    [self.detailsPageView insertSubview:threeDotGlow aboveSubview:self.detailsPageView];
-    [threeDotGlow show];
-    self.showView = threeDotGlow;
-}
-
-- (void)hideLoadingView
-{
-    NSLog(@"remove loadingView");
-    [UIView transitionWithView:self.view
-        duration:0.3f
-        options:UIViewAnimationOptionTransitionCrossDissolve
-        animations:^(void) {
-            [self.showView removeFromSuperview];
-        }
-        completion:^(BOOL finished) {
-            self.showView = nil;
-        }];
+    MJLoadingView* loadingView = [[MJLoadingView alloc] initWithFrame:self.view.frame];
+    [self.detailsPageView addSubview:loadingView];
+    self.loadingView = loadingView;
 }
 
 #pragma mark - Network Request
@@ -141,7 +118,7 @@ static NSInteger const REVIEWLIMIT = 10;
                 //第一次请求影评
                 [self requestMovieReviewsStartWithIndex:self.currentReviewIndex];
 
-                [self hideLoadingView];
+                [self.loadingView hideLoadingView];
             }
         }
         failure:^(MJHTTPFetcher* fetcher, NSError* error){

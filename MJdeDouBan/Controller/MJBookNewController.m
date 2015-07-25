@@ -10,12 +10,13 @@
 #import "MJNetworkLoadingViewController.h"
 #import "MJHTTPFetcher.h"
 #import "BookNewListCell.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "MJBookDetailController.h"
+#import "MJLoadingView.h"
 
 @interface MJBookNewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView* tableView;
+@property (nonatomic, weak) MJLoadingView* loadingView;
 
 @property (nonatomic, strong) NSArray* books;
 
@@ -26,17 +27,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"%@,---%@", self, self.flag);
+    [self showLoadingView];
     [self requestBookNew];
 }
-//
-//- (void)viewWillAppear:(BOOL)animated
-//{
-//    [super viewWillAppear:animated];
-//    if (!self.books) {
-//        [self.tableView reloadData];
-//    }
-//}
 
 - (NSArray*)books
 {
@@ -74,20 +67,13 @@
             }
             else {
                 self.books = temp;
-                [self hideLoadingView];
+                [self.loadingView hideLoadingView];
                 [self.tableView reloadData];
             }
         }
         failure:^(MJHTTPFetcher* fetcher, NSError* error){
             //            [self.networkLoadingViewController showErrorView];
         }];
-}
-
-#pragma mark - MJNetworkLoadingViewDelegate
-
-- (void)retryRequest;
-{
-    [self requestBookNew];
 }
 
 #pragma mark UITableViewSource
@@ -104,19 +90,11 @@
     return cell;
 }
 
-#pragma mark - MJNetworkLoadingViewController Methods
-- (void)hideLoadingView
+#pragma mark - LoadingView
+- (void)showLoadingView
 {
-    NSLog(@"remove loadingView");
-    [UIView transitionWithView:self.view
-        duration:0.3f
-        options:UIViewAnimationOptionTransitionCrossDissolve
-        animations:^(void) {
-            //            [self.networkLoadingContainerView removeFromSuperview];
-        }
-        completion:^(BOOL finished){
-            //            [self.networkLoadingViewController removeFromParentViewController];
-            //            self.networkLoadingContainerView = nil;
-        }];
+    MJLoadingView* loadingView = [[MJLoadingView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:loadingView];
+    self.loadingView = loadingView;
 }
 @end

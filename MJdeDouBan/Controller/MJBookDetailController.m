@@ -9,16 +9,18 @@
 #import "MJBookDetailController.h"
 #import "MJHTTPFetcher.h"
 #import "MJBookDetail.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "BookDetailAuthorSummaryCell.h"
 #import "BookDetailSummaryCell.h"
 #import "BookDetailFirstCell.h"
 #import "BookDetailSecondCell.h"
 #import <UITableView+FDTemplateLayoutCell.h>
+#import "MJLoadingView.h"
 
 @interface MJBookDetailController ()
 
 @property (weak, nonatomic) IBOutlet UITableView* tableView;
+@property (nonatomic, weak) MJLoadingView* loadingView;
+
 @property (nonatomic, strong) MJBookDetail* bookDetail;
 
 @end
@@ -29,12 +31,19 @@
 {
     [super viewDidLoad];
 
+    self.navigationItem.leftBarButtonItem.title = @"返回";
+
+    [self registerNib];
+    [self showLoadingView];
+    [self requestBookDetails];
+}
+
+- (void)registerNib
+{
     [BookDetailFirstCell registerNibWithTableView:self.tableView];
     [BookDetailSecondCell registerNibWithTableView:self.tableView];
     [BookDetailAuthorSummaryCell registerNibWithTableView:self.tableView];
     [BookDetailSummaryCell registerNibWithTableView:self.tableView];
-
-    [self requestBookDetails];
 }
 
 - (void)dealloc
@@ -47,9 +56,8 @@
     [[MJHTTPFetcher sharedFetcher] fetchBookDetailWithBookId:self.bookId
         success:^(MJHTTPFetcher* fetcher, id data) {
             self.bookDetail = (MJBookDetail*)data;
-            //            NSLog(@"MovieDetail:%@", self.movie);
             if (self.bookDetail) {
-                [self hideLoadingView];
+                [self.loadingView hideLoadingView];
                 [self.tableView reloadData];
             }
         }
@@ -58,19 +66,12 @@
         }];
 }
 
-#pragma mark - MJNetworkLoadingViewController Methods
-- (void)hideLoadingView
+#pragma mark - LoadingView
+- (void)showLoadingView
 {
-    [UIView transitionWithView:self.view
-        duration:0.3f
-        options:UIViewAnimationOptionTransitionCrossDissolve
-        animations:^(void) {
-            //            [self.networkLoadingContainerView removeFromSuperview];
-        }
-        completion:^(BOOL finished){
-            //            [self.networkLoadingViewController removeFromParentViewController];
-            //            self.networkLoadingContainerView = nil;
-        }];
+    MJLoadingView* loadingView = [[MJLoadingView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:loadingView];
+    self.loadingView = loadingView;
 }
 
 #pragma mark - UITableViewDatasouce

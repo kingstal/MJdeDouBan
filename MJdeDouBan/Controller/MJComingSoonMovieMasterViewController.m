@@ -12,6 +12,7 @@
 #import "MJMovieListCell.h"
 #import "MJComingSoonMovieListCell.h"
 #import "FeThreeDotGlow.h"
+#import "MJLoadingView.h"
 
 @import UIKit;
 
@@ -20,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITableView* tableView;
 @property (nonatomic, strong) NSArray* comingSoonMovies;
 
-@property (nonatomic, strong) FeThreeDotGlow* showView;
+@property (nonatomic, weak) MJLoadingView* loadingView;
 
 @end
 
@@ -59,7 +60,7 @@
                 //                [self.networkLoadingViewController showNoContentView];
             }
             else {
-                [self hideLoadingView];
+                [self.loadingView hideLoadingView];
                 [self.tableView reloadData];
             }
         }
@@ -89,35 +90,12 @@
     return cell;
 }
 
-#pragma mark - Show subViews
+#pragma mark - LoadingView
 - (void)showLoadingView
 {
-    //    self.errorView.hidden = YES;
-    //    self.noContentView.hidden = YES;
-
-    FeThreeDotGlow* threeDotGlow = [[FeThreeDotGlow alloc] initWithView:self.view blur:YES];
-
-    CGRect frame = threeDotGlow.frame;
-    CGPoint origin = CGPointMake(frame.origin.x, frame.origin.y - 64);
-    threeDotGlow.frame = CGRectMake(origin.x, origin.y, frame.size.width, frame.size.height);
-
-    [self.view insertSubview:threeDotGlow aboveSubview:self.tableView];
-    [threeDotGlow show];
-    self.showView = threeDotGlow;
-}
-
-- (void)hideLoadingView
-{
-    NSLog(@"remove loadingView");
-    [UIView transitionWithView:self.view
-        duration:0.3f
-        options:UIViewAnimationOptionTransitionCrossDissolve
-        animations:^(void) {
-            [self.showView removeFromSuperview];
-        }
-        completion:^(BOOL finished) {
-            self.showView = nil;
-        }];
+    MJLoadingView* loadingView = [[MJLoadingView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:loadingView];
+    self.loadingView = loadingView;
 }
 
 @end

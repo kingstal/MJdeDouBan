@@ -11,8 +11,7 @@
 #import "MJMovie.h"
 #import "MJMovieDetailsViewController.h"
 #import "MJMoviePosterCell.h"
-#import <SDWebImage/UIImageView+WebCache.h>
-#import <MMPlaceHolder.h>
+#import "MJLoadingView.h"
 
 #define kVerticalMarginForCollectionViewItems 0
 
