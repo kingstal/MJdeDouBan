@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "mjmovie.h"
+#import "MJMovie.h"
 
 @interface MJMoviePosterCell : UICollectionViewCell
 

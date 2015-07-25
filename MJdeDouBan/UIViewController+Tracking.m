@@ -21,8 +21,9 @@
         // Class class = object_getClass((id)self);
 
         // the method might not exist in the class, but in its superclass
-        SEL originalSelector = @selector(viewWillAppear:);
-        SEL swizzledSelector = @selector(xxx_viewWillAppear:);
+        //        SEL originalSelector = @selector(viewWillAppear:);
+        SEL originalSelector = @selector(viewDidLoad);
+        SEL swizzledSelector = @selector(xxx_viewDidLoad);
 
         Method originalMethod = class_getInstanceMethod(class, originalSelector);
         Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
@@ -48,10 +49,16 @@
 
 #pragma mark - Method Swizzling
 
-- (void)xxx_viewWillAppear:(BOOL)animated
+//- (void)xxx_viewWillAppear:(BOOL)animated
+//{
+//    [self xxx_viewWillAppear:animated];
+//    NSLog(@"----viewWillAppear: %@----", self);
+//}
+
+- (void)xxx_viewDidLoad
 {
-    [self xxx_viewWillAppear:animated];
-    NSLog(@"viewWillAppear: %@", self);
+    [self xxx_viewDidLoad];
+    NSLog(@"----viewWillAppear: %@----", self);
 }
 
 @end
