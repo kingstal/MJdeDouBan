@@ -70,7 +70,7 @@ const static NSInteger BOOKTOP250 = 250;
 {
     if ([segue.identifier isEqualToString:@"BookDetail"]) {
         MJBookDetailController* controller = segue.destinationViewController;
-        controller.bookId = [[self.books objectAtIndex:[self.tableView indexPathForSelectedRow].row] bookId];
+        controller.book = [self.books objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     }
 }
 

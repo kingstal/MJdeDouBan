@@ -31,7 +31,9 @@
 {
     [super viewDidLoad];
 
-    self.navigationItem.leftBarButtonItem.title = @"返回";
+    UINavigationItem* item = self.navigationItem;
+    item.title = self.book.bookTitle;
+    item.leftBarButtonItem.title = @"返回";
 
     [self registerNib];
     [self showLoadingView];
@@ -53,7 +55,7 @@
 
 - (void)requestBookDetails
 {
-    [[MJHTTPFetcher sharedFetcher] fetchBookDetailWithBookId:self.bookId
+    [[MJHTTPFetcher sharedFetcher] fetchBookDetailWithBookId:self.book.bookId
         success:^(MJHTTPFetcher* fetcher, id data) {
             self.bookDetail = (MJBookDetail*)data;
             if (self.bookDetail) {
