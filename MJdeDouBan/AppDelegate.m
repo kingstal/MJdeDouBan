@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "AFNetworkActivityIndicatorManager.h"
 #import "UIViewController+Swizzled.h"
+#import "MJURLCache.h"
+#import "MJHTTPURLProtocol.h"
+#import "CWObjectCache.h"
 
 @interface AppDelegate ()
 
@@ -22,6 +25,13 @@
     SWIZZ_IT;
 
     // Override point for customization after application launch.
+
+    // 缓存
+    [NSURLCache setSharedURLCache:[[MJURLCache alloc] init]];
+    [[CWObjectCache sharedCache] setMaxCacheSize:1024 * 1024 * 256];
+
+    [NSURLProtocol registerClass:[MJHTTPURLProtocol class]];
+
     [AFNetworkActivityIndicatorManager sharedManager]
         .enabled = YES;
     self.window.backgroundColor = [UIColor grayColor];
