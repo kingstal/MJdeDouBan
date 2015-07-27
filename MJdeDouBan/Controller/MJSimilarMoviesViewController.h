@@ -10,8 +10,6 @@
 
 @interface MJSimilarMoviesViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UICollectionView* collectionView;
-
 @property (strong, nonatomic) NSArray* similarMovies;
 
 @end

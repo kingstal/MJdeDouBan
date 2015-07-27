@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AFNetworkActivityIndicatorManager.h"
+#import "UIViewController+Swizzled.h"
 
 @interface AppDelegate ()
 
@@ -17,8 +18,13 @@
 
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
+
+    SWIZZ_IT;
+
     // Override point for customization after application launch.
-    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    [AFNetworkActivityIndicatorManager sharedManager]
+        .enabled = YES;
+    self.window.backgroundColor = [UIColor grayColor];
     return YES;
 }
 

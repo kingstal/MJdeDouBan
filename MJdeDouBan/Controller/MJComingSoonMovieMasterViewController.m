@@ -7,23 +7,21 @@
 //
 
 #import "MJComingSoonMovieMasterViewController.h"
-#import "MJNetworkLoadingViewController.h"
 #import "MJMovieDetailsViewController.h"
 #import "MJHTTPFetcher.h"
 #import "MJMovieListCell.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "MJComingSoonMovieListCell.h"
-//#import <KRVideoPlayerController.h> //不需要了，预告片不是直接的视频链接
+#import "FeThreeDotGlow.h"
+#import "MJLoadingView.h"
+
 @import UIKit;
 
-@interface MJComingSoonMovieMasterViewController ()
+@interface MJComingSoonMovieMasterViewController () <MJComingSoonMovieListCellDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView* tableView;
 @property (nonatomic, strong) NSArray* comingSoonMovies;
-@property (nonatomic, strong) MJNetworkLoadingViewController* networkLoadingViewController;
 
-@property (nonatomic, strong) NSIndexPath* selectedIndexPath;
-//
-//@property (nonatomic, strong) KRVideoPlayerController* videoPlayerController;
+@property (nonatomic, weak) MJLoadingView* loadingView;
 
 @end
 
@@ -32,19 +30,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"%@ view didLoad", self);
-    // Do any additional setup after loading the view.
+    [self showLoadingView];
     [self requestComingSoonMovies];
 }
-
-//- (KRVideoPlayerController*)videoPlayerController
-//{
-//    if (!_videoPlayerController) {
-//        CGFloat width = [UIScreen mainScreen].bounds.size.width;
-//        _videoPlayerController = [[KRVideoPlayerController alloc] initWithFrame:CGRectMake(0, 0, width, width * (9.0 / 16.0))];
-//    }
-//    return _videoPlayerController;
-//}
 
 - (void)dealloc
 {
@@ -55,53 +43,36 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"MJNetworkLoadingViewController"]) {
-        self.networkLoadingViewController = segue.destinationViewController;
-        self.networkLoadingViewController.delegate = self;
-    }
-    else if ([segue.identifier isEqualToString:@"MovieDetail"]) {
+    if ([segue.identifier isEqualToString:@"MovieDetail"]) {
         MJMovieDetailsViewController* controller = segue.destinationViewController;
-        controller.movie = [self.comingSoonMovies objectAtIndex:self.selectedIndexPath.row];
+        controller.movie = [self.comingSoonMovies objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     }
 }
 
 #pragma mark - Network Requests methods
-
-//- (void)refreshFeed
-//{
-//    [self requestHotMovies];
-//}
 
 - (void)requestComingSoonMovies
 {
     [[MJHTTPFetcher sharedFetcher] fetchComingSoonMovieWithCity:@"nanjing"
         success:^(MJHTTPFetcher* fetcher, id data) {
             self.comingSoonMovies = (NSArray*)data;
-            //            NSLog(@"movieArray: %@", self.hotMovies);
             if ([self.comingSoonMovies count] == 0) {
-                [self.networkLoadingViewController showNoContentView];
+                //                [self.networkLoadingViewController showNoContentView];
             }
             else {
-                [self hideLoadingView];
+                [self.loadingView hideLoadingView];
                 [self.tableView reloadData];
             }
         }
-        failure:^(MJHTTPFetcher* fetcher, NSError* error) {
-            [self.networkLoadingViewController showErrorView];
+        failure:^(MJHTTPFetcher* fetcher, NSError* error){
+            //            [self.networkLoadingViewController showErrorView];
         }];
 }
 
-#pragma mark - MJNetworkLoadingViewDelegate
-
-- (void)retryRequest;
+#pragma mark - MJComingSoonMovieListCellDelegate
+- (void)comingSoonMovieListCellBtnPressed:(MJComingSoonMovieListCell*)cell;
 {
-    [self requestComingSoonMovies];
-}
-
-#pragma mark - IBAction
-- (IBAction)playTrailer:(id)sender
-{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[(MJButton*)sender videoUrl]]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:cell.movie.movieTrailerUrl]];
 }
 
 #pragma mark UITableViewSource
@@ -113,45 +84,18 @@
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    MJComingSoonMovieListCell* cell = (MJComingSoonMovieListCell*)[tableView dequeueReusableCellWithIdentifier:@"MJComingSoonMovieCell" forIndexPath:indexPath];
-
-    [cell.posterImageView sd_setImageWithURL:[self.comingSoonMovies[indexPath.row] valueForKey:@"moviePosterUrl"] placeholderImage:nil];
-    [cell.titleLabel setText:[self.comingSoonMovies[indexPath.row] valueForKey:@"movieTitle"]];
-    [cell.dateLabel setText:[self.comingSoonMovies[indexPath.row] valueForKey:@"movieReleaseDate"]];
-    [cell.genreLabel setText:[self.comingSoonMovies[indexPath.row] valueForKey:@"movieGenre"]];
-    [cell.regionLabel setText:[self.comingSoonMovies[indexPath.row] valueForKey:@"movieRegion"]];
-    [cell.peopleWantSeeLabel setText:[self.comingSoonMovies[indexPath.row] valueForKey:@"moviePeopleLike"]];
-    cell.trailerButton.videoUrl = [self.comingSoonMovies[indexPath.row] valueForKey:@"movieTrailerUrl"];
+    MJComingSoonMovieListCell* cell = [MJComingSoonMovieListCell cellWithTableView:tableView];
+    cell.movie = self.comingSoonMovies[indexPath.row];
+    cell.deleaget = self;
     return cell;
 }
 
-#pragma mark - UITableViewDelegate
-
-- (NSIndexPath*)tableView:(UITableView*)tableView willSelectRowAtIndexPath:(NSIndexPath*)indexPath
+#pragma mark - LoadingView
+- (void)showLoadingView
 {
-    self.selectedIndexPath = indexPath;
-    return indexPath;
-}
-
-- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-#pragma mark - MJNetworkLoadingViewController Methods
-- (void)hideLoadingView
-{
-    NSLog(@"remove loadingView");
-    [UIView transitionWithView:self.view
-        duration:0.3f
-        options:UIViewAnimationOptionTransitionCrossDissolve
-        animations:^(void) {
-            [self.networkLoadingContainerView removeFromSuperview];
-        }
-        completion:^(BOOL finished) {
-            [self.networkLoadingViewController removeFromParentViewController];
-            self.networkLoadingContainerView = nil;
-        }];
+    MJLoadingView* loadingView = [[MJLoadingView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:loadingView];
+    self.loadingView = loadingView;
 }
 
 @end

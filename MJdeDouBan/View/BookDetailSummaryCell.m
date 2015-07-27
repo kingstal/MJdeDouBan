@@ -8,16 +8,29 @@
 
 #import "BookDetailSummaryCell.h"
 
+@interface BookDetailSummaryCell ()
+@property (nonatomic, weak) IBOutlet UILabel* bookSummaryLabel;
+@end
+
 @implementation BookDetailSummaryCell
 
-- (void)awakeFromNib {
-    // Initialization code
++ (void)registerNibWithTableView:(UITableView*)tableView
+{
+    static NSString* ID = @"BookDetailSummaryCell";
+    UINib* directorNib = [UINib nibWithNibName:ID bundle:nil];
+    [tableView registerNib:directorNib forCellReuseIdentifier:ID];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
++ (BookDetailSummaryCell*)cellWithTableView:(UITableView*)tableView
+{
+    static NSString* ID = @"BookDetailSummaryCell";
+    BookDetailSummaryCell* cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    return cell;
 }
 
+- (void)setBookDetail:(MJBookDetail*)bookDetail
+{
+    _bookDetail = bookDetail;
+    [self.bookSummaryLabel setText:bookDetail.bookSummary];
+}
 @end

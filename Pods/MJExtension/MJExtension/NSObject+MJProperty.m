@@ -26,7 +26,7 @@ static const char MJIgnoredCodingPropertyNamesKey = '\0';
 #pragma mark - --私有方法--
 + (NSString *)propertyKey:(NSString *)propertyName
 {
-    MJAssertParamNotNil2(propertyName, nil);
+    MJExtensionAssertParamNotNil2(propertyName, nil);
     
     __block NSString *key = nil;
     // 查看有没有需要替换的key
@@ -220,17 +220,35 @@ static const char MJIgnoredCodingPropertyNamesKey = '\0';
 + (void)setupObjectClassInArray:(MJObjectClassInArray)objectClassInArray
 {
     [self setupObjectWithBlock:objectClassInArray key:&MJObjectClassInArrayKey];
+    
+    // 更新
+    NSArray *properties = [self properties];
+    for (MJProperty *property in properties) {
+        [property setObjectClassInArray:[self propertyObjectClassInArray:property.name] forClass:self];
+    }
 }
 
 #pragma mark - key配置
 + (void)setupReplacedKeyFromPropertyName:(MJReplacedKeyFromPropertyName)replacedKeyFromPropertyName
 {
     [self setupObjectWithBlock:replacedKeyFromPropertyName key:&MJReplacedKeyFromPropertyNameKey];
+    
+    // 更新
+    NSArray *properties = [self properties];
+    for (MJProperty *property in properties) {
+        [property setKey:[self propertyKey:property.name] forClass:self];
+    }
 }
 
 + (void)setupReplacedKeyFromPropertyName121:(MJReplacedKeyFromPropertyName121)replacedKeyFromPropertyName121
 {
     objc_setAssociatedObject(self, &MJReplacedKeyFromPropertyName121Key, replacedKeyFromPropertyName121, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    
+    // 更新
+    NSArray *properties = [self properties];
+    for (MJProperty *property in properties) {
+        [property setKey:[self propertyKey:property.name] forClass:self];
+    }
 }
 
 #pragma mark - 属性黑名单配置

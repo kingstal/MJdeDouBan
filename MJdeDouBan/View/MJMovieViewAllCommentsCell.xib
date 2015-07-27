@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E33b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15A226f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -16,12 +16,14 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View All 12 Comments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O01-YR-pUy">
                         <rect key="frame" x="83" y="15" width="154" height="18"/>
+                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.13637979289999999" green="0.85877826280000003" blue="0.93602964389999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37c-us-61d">
                         <rect key="frame" x="290" y="13" width="22" height="22"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="22" id="JYp-VA-yES"/>
                             <constraint firstAttribute="height" constant="22" id="rcp-MZ-RCR"/>
@@ -32,6 +34,7 @@
                         </state>
                     </button>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstItem="O01-YR-pUy" firstAttribute="centerY" secondItem="37c-us-61d" secondAttribute="centerY" id="bX3-ft-BhI"/>
                     <constraint firstAttribute="centerX" secondItem="O01-YR-pUy" secondAttribute="centerX" id="dQo-VL-gUY"/>
@@ -39,6 +42,7 @@
                     <constraint firstItem="37c-us-61d" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="xfn-vm-DUh"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
         </tableViewCell>
     </objects>
     <resources>

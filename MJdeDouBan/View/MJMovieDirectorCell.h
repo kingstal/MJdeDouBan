@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MJMovie.h"
 
 @interface MJMovieDirectorCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel* directorLabel;
 @property (nonatomic, weak) IBOutlet UILabel* actorLabel;
 
-+ (MJMovieDirectorCell*)movieDirectorCell;
+@property (strong, nonatomic) MJMovie* movie;
+
++ (void)registerNibWithTableView:(UITableView*)tableView;
++ (MJMovieDirectorCell*)cellWithTableView:(UITableView*)tableView;
 
 @end

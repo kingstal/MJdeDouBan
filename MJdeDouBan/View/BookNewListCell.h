@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MJBook.h"
 
 @interface BookNewListCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView* posterImageView;
-@property (weak, nonatomic) IBOutlet UILabel* titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel* subTitleLabel;
-@property (weak, nonatomic) IBOutlet UILabel* summaryLabel;
+@property (nonatomic, strong) MJBook* book;
++ (BookNewListCell*)cellWithTableView:(UITableView*)tableView;
 @end

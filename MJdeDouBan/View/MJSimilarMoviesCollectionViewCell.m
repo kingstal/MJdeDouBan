@@ -7,13 +7,35 @@
 //
 
 #import "MJSimilarMoviesCollectionViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
+@interface MJSimilarMoviesCollectionViewCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView* cellImageView;
+@property (weak, nonatomic) IBOutlet UIView* cellBackgroundView;
+
+@end
 
 @implementation MJSimilarMoviesCollectionViewCell
 
-+ (MJSimilarMoviesCollectionViewCell*)similarMoviesCollectionViewCell
++ (void)registerNibWithCollection:(UICollectionView*)collectionView
 {
-    MJSimilarMoviesCollectionViewCell* cell = [[[NSBundle mainBundle] loadNibNamed:@"MJSimilarMoviesCollectionViewCell" owner:self options:nil] objectAtIndex:0];
+    static NSString* ID = @"MJSimilarMoviesCollectionViewCell";
+    UINib* nib = [UINib nibWithNibName:ID bundle:nil];
+    [collectionView registerNib:nib forCellWithReuseIdentifier:ID];
+}
+
++ (MJSimilarMoviesCollectionViewCell*)cellWithCollectionView:(UICollectionView*)collectionView forIndexPath:(NSIndexPath*)indexPath
+{
+    static NSString* ID = @"MJSimilarMoviesCollectionViewCell";
+    MJSimilarMoviesCollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
     return cell;
+}
+
+- (void)setMovie:(MJMovie*)movie
+{
+    _movie = movie;
+    [self.cellImageView sd_setImageWithURL:[NSURL URLWithString:[movie moviePosterUrl]]];
 }
 
 - (void)awakeFromNib

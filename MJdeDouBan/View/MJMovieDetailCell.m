@@ -8,14 +8,35 @@
 
 #import "MJMovieDetailCell.h"
 #import "MMPlaceHolder.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
+@interface MJMovieDetailCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView* posterImageView;
+@property (weak, nonatomic) IBOutlet ScoreStarsView* starRatingView;
+@property (weak, nonatomic) IBOutlet UILabel* scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel* voteCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel* genresLabel;
+@property (weak, nonatomic) IBOutlet UILabel* regionDurationLabel;
+@property (weak, nonatomic) IBOutlet UILabel* releaseDateLabel;
+
+@end
 
 @implementation MJMovieDetailCell
 
-+ (MJMovieDetailCell*)movieDetailsCell
++ (void)registerNibWithTableView:(UITableView*)tableView
 {
-    MJMovieDetailCell* cell = [[[NSBundle mainBundle] loadNibNamed:@"MJMovieDetailCell" owner:self options:nil] objectAtIndex:0];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
+    static NSString* ID = @"MJMovieDetailCell";
+
+    UINib* directorNib = [UINib nibWithNibName:ID bundle:nil];
+    [tableView registerNib:directorNib forCellReuseIdentifier:ID];
+}
+
++ (MJMovieDetailCell*)cellWithTableView:(UITableView*)tableView
+{
+    static NSString* ID = @"MJMovieDetailCell";
+    MJMovieDetailCell* detailsCell = [tableView dequeueReusableCellWithIdentifier:ID];
+    return detailsCell;
 }
 
 - (void)awakeFromNib
@@ -26,11 +47,17 @@
     self.posterImageView.layer.masksToBounds = YES;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+- (void)setMovie:(MJMovie*)movie
 {
-    [super setSelected:selected animated:animated];
+    _movie = movie;
 
-    // Configure the view for the selected state
+    [self.posterImageView sd_setImageWithURL:[NSURL URLWithString:movie.moviePosterUrl]];
+    self.starRatingView.value = [movie.movieScore floatValue] / 10.0f;
+    self.scoreLabel.text = movie.movieScore;
+    self.voteCountLabel.text = [NSString stringWithFormat:@"%@人评价", movie.movieVoteCount];
+    self.genresLabel.text = movie.movieGenre;
+    self.regionDurationLabel.text = [NSString stringWithFormat:@"%@/%@", movie.movieRegion, movie.movieDuration];
+    self.releaseDateLabel.text = movie.movieReleaseDate;
 }
 
 @end

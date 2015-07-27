@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MJMovie.h"
 
 @interface MJMovieDescriptionCell : UITableViewCell
-+ (MJMovieDescriptionCell*)movieDescriptionCell;
 
-@property (weak, nonatomic) IBOutlet UILabel* movieSummaryLabel;
++ (void)registerNibWithTableView:(UITableView*)tableView;
++ (MJMovieDescriptionCell*)cellWithTableView:(UITableView*)tableView;
+
+@property (strong, nonatomic) MJMovie* movie;
 
 @end

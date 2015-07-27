@@ -7,38 +7,46 @@
 //
 
 #import "MJSimilarMoviesCell.h"
+#import "MJSimilarMoviesCollectionViewCell.h"
+
+@interface MJSimilarMoviesCell ()
+
+@property (weak, nonatomic) IBOutlet UICollectionView* collectionView;
+@property (weak, nonatomic) IBOutlet UIButton* viewAllSimilarMoviesButton;
+- (IBAction)buttonPressed:(id)sender;
+
+@end
 
 @implementation MJSimilarMoviesCell
 
-+ (MJSimilarMoviesCell*)similarMoviesCell
++ (void)registerNibWithTableView:(UITableView*)tableView
 {
-    MJSimilarMoviesCell* cell = [[[NSBundle mainBundle] loadNibNamed:@"MJSimilarMoviesCell" owner:self options:nil] objectAtIndex:0];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    static NSString* ID = @"MJSimilarMoviesCell";
+    UINib* directorNib = [UINib nibWithNibName:ID bundle:nil];
+    [tableView registerNib:directorNib forCellReuseIdentifier:ID];
+}
+
++ (MJSimilarMoviesCell*)cellWithTableView:(UITableView*)tableView
+{
+    NSString* ID = @"MJSimilarMoviesCell";
+    MJSimilarMoviesCell* cell = [tableView dequeueReusableCellWithIdentifier:ID];
     return cell;
 }
 
-- (void)awakeFromNib
+- (void)setCollectionViewDataSourceDelegate:(id<UICollectionViewDataSource, UICollectionViewDelegate>)dataSourceDelegate
 {
-    // Initialization code
-}
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
-- (void)setCollectionViewDataSourceDelegate:(id<UICollectionViewDataSource, UICollectionViewDelegate>)dataSourceDelegate index:(NSInteger)index
-{
-    UINib* nib = [UINib nibWithNibName:@"MJSimilarMoviesCollectionViewCell" bundle:nil];
-    [self.collectionView registerNib:nib forCellWithReuseIdentifier:@"MJSimilarMoviesCollectionViewCell"];
+    [MJSimilarMoviesCollectionViewCell registerNibWithCollection:self.collectionView];
 
     self.collectionView.dataSource = dataSourceDelegate;
     self.collectionView.delegate = dataSourceDelegate;
-    self.collectionView.index = index;
 
     [self.collectionView reloadData];
 }
-
+- (IBAction)buttonPressed:(id)sender
+{
+    if ([self.delegate respondsToSelector:@selector(similarMoviesCellButtonPressed:)]) {
+        [self.delegate similarMoviesCellButtonPressed:self];
+    }
+}
 @end

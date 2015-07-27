@@ -34,6 +34,8 @@
 @property (nonatomic, copy) NSString* reviewCount; //影评总数
 @property (nonatomic, copy) NSMutableArray* reviews;
 
-- (id)initWithDictionary:(NSDictionary*)dictionary;
++ (instancetype)movieWithDictionary:(NSDictionary*)dictionary;
+- (instancetype)initWithDictionary:(NSDictionary*)dictionary;
+
 
 @end

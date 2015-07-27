@@ -9,13 +9,33 @@
 #import "MJMovieDescriptionCell.h"
 #import "MMPlaceHolder.h"
 
+@interface MJMovieDescriptionCell ()
+
+@property (weak, nonatomic) IBOutlet UILabel* movieSummaryLabel;
+
+@end
+
 @implementation MJMovieDescriptionCell
 
-+ (MJMovieDescriptionCell*)movieDescriptionCell
++ (void)registerNibWithTableView:(UITableView*)tableView
 {
-    MJMovieDescriptionCell* cell = [[[NSBundle mainBundle] loadNibNamed:@"MJMovieDescriptionCell" owner:self options:nil] objectAtIndex:0];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    static NSString* ID = @"MJMovieDescriptionCell";
+
+    UINib* directorNib = [UINib nibWithNibName:ID bundle:nil];
+    [tableView registerNib:directorNib forCellReuseIdentifier:ID];
+}
+
++ (MJMovieDescriptionCell*)cellWithTableView:(UITableView*)tableView
+{
+    static NSString* ID = @"MJMovieDescriptionCell";
+    MJMovieDescriptionCell* cell = [tableView dequeueReusableCellWithIdentifier:ID];
     return cell;
+}
+
+- (void)setMovie:(MJMovie*)movie
+{
+    _movie = movie;
+    self.movieSummaryLabel.text = movie.movieSummary;
 }
 
 - (void)awakeFromNib

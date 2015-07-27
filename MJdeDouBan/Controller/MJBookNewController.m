@@ -10,15 +10,15 @@
 #import "MJNetworkLoadingViewController.h"
 #import "MJHTTPFetcher.h"
 #import "BookNewListCell.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "MJBookDetailController.h"
+#import "MJLoadingView.h"
 
 @interface MJBookNewController ()
 
-@property (nonatomic, strong) NSArray* books;
-@property (nonatomic, strong) MJNetworkLoadingViewController* networkLoadingViewController;
+@property (weak, nonatomic) IBOutlet UITableView* tableView;
+@property (nonatomic, weak) MJLoadingView* loadingView;
 
-@property (nonatomic, strong) NSIndexPath* selectedIndexPath;
+@property (nonatomic, strong) NSArray* books;
 
 @end
 
@@ -27,17 +27,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"%@,---%@", self, self.flag);
+    [self showLoadingView];
     [self requestBookNew];
 }
-//
-//- (void)viewWillAppear:(BOOL)animated
-//{
-//    [super viewWillAppear:animated];
-//    if (!self.books) {
-//        [self.tableView reloadData];
-//    }
-//}
 
 - (NSArray*)books
 {
@@ -56,13 +48,9 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"MJNetworkLoadingViewController"]) {
-        self.networkLoadingViewController = segue.destinationViewController;
-        self.networkLoadingViewController.delegate = self;
-    }
-    else if ([segue.identifier isEqualToString:@"BookDetail"]) {
+    if ([segue.identifier isEqualToString:@"BookDetail"]) {
         MJBookDetailController* controller = segue.destinationViewController;
-        controller.bookId = [[self.books objectAtIndex:self.selectedIndexPath.row] bookId];
+        controller.book = [self.books objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     }
 }
 
@@ -75,24 +63,17 @@
             NSArray* temp = (NSArray*)data;
             NSLog(@"%@", temp);
             if ([temp count] == 0) {
-                [self.networkLoadingViewController showNoContentView];
+                //                [self.networkLoadingViewController showNoContentView];
             }
             else {
                 self.books = temp;
-                [self hideLoadingView];
+                [self.loadingView hideLoadingView];
                 [self.tableView reloadData];
             }
         }
-        failure:^(MJHTTPFetcher* fetcher, NSError* error) {
-            [self.networkLoadingViewController showErrorView];
+        failure:^(MJHTTPFetcher* fetcher, NSError* error){
+            //            [self.networkLoadingViewController showErrorView];
         }];
-}
-
-#pragma mark - MJNetworkLoadingViewDelegate
-
-- (void)retryRequest;
-{
-    [self requestBookNew];
 }
 
 #pragma mark UITableViewSource
@@ -104,42 +85,16 @@
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    BookNewListCell* cell = (BookNewListCell*)[tableView dequeueReusableCellWithIdentifier:@"BookNewListCell" forIndexPath:indexPath];
-
-    [cell.posterImageView sd_setImageWithURL:[self.books[indexPath.row] valueForKey:@"bookPosterUrl"] placeholderImage:nil];
-    [cell.titleLabel setText:[self.books[indexPath.row] valueForKey:@"bookTitle"]];
-    [cell.subTitleLabel setText:[self.books[indexPath.row] valueForKey:@"bookSubTitle"]];
-
-    [cell.summaryLabel setText:[self.books[indexPath.row] valueForKey:@"bookSummary"]];
+    BookNewListCell* cell = [BookNewListCell cellWithTableView:tableView];
+    cell.book = self.books[indexPath.row];
     return cell;
 }
 
-#pragma mark - UITableViewDelegate
-
-- (NSIndexPath*)tableView:(UITableView*)tableView willSelectRowAtIndexPath:(NSIndexPath*)indexPath
+#pragma mark - LoadingView
+- (void)showLoadingView
 {
-    self.selectedIndexPath = indexPath;
-    return indexPath;
-}
-
-- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-#pragma mark - MJNetworkLoadingViewController Methods
-- (void)hideLoadingView
-{
-    NSLog(@"remove loadingView");
-    [UIView transitionWithView:self.view
-        duration:0.3f
-        options:UIViewAnimationOptionTransitionCrossDissolve
-        animations:^(void) {
-            [self.networkLoadingContainerView removeFromSuperview];
-        }
-        completion:^(BOOL finished) {
-            [self.networkLoadingViewController removeFromParentViewController];
-            self.networkLoadingContainerView = nil;
-        }];
+    MJLoadingView* loadingView = [[MJLoadingView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:loadingView];
+    self.loadingView = loadingView;
 }
 @end

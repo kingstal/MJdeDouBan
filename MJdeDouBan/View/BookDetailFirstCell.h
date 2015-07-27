@@ -8,13 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "ScoreStarsView.h"
+#import "MJBookDetail.h"
 
 @interface BookDetailFirstCell : UITableViewCell
-@property (nonatomic, weak) IBOutlet UIImageView* posterImageView;
-@property (nonatomic, weak) IBOutlet UILabel* titleLabel;
-@property (nonatomic, weak) IBOutlet ScoreStarsView* scoreStarView;
-@property (nonatomic, weak) IBOutlet UILabel* scoreLabel;
-@property (nonatomic, weak) IBOutlet UILabel* voteCountLabel;
-@property (nonatomic, weak) IBOutlet UILabel* authorLabel;
-@property (nonatomic, weak) IBOutlet UILabel* publishLabel;
+@property (nonatomic, strong) MJBookDetail* bookDetail;
+
++ (void)registerNibWithTableView:(UITableView*)tableView;
++ (BookDetailFirstCell*)cellWithTableView:(UITableView*)tableView;
 @end

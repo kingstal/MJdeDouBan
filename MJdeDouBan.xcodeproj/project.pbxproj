@@ -17,8 +17,6 @@
 		8E152C561B3CE61000CC6DD0 /* BookDetailSecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E152C541B3CE61000CC6DD0 /* BookDetailSecondCell.xib */; };
 		8E17A3711B2583D400A60CC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E17A3701B2583D400A60CC9 /* main.m */; };
 		8E17A3741B2583D400A60CC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E17A3731B2583D400A60CC9 /* AppDelegate.m */; };
-		8E17A3771B2583D400A60CC9 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E17A3761B2583D400A60CC9 /* FirstViewController.m */; };
-		8E17A37A1B2583D400A60CC9 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E17A3791B2583D400A60CC9 /* SecondViewController.m */; };
 		8E17A37D1B2583D400A60CC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E17A37B1B2583D400A60CC9 /* Main.storyboard */; };
 		8E17A37F1B2583D400A60CC9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E17A37E1B2583D400A60CC9 /* Images.xcassets */; };
 		8E17A3821B2583D400A60CC9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E17A3801B2583D400A60CC9 /* LaunchScreen.xib */; };
@@ -29,6 +27,7 @@
 		8E3D4FED1B27F26B00BEAFAE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3D4FEC1B27F26B00BEAFAE /* CoreLocation.framework */; };
 		8E3D4FEF1B27F27100BEAFAE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E3D4FEE1B27F27100BEAFAE /* MapKit.framework */; };
 		8E4C83A31B2822A3007EDFF6 /* MJNetworkLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4C83A21B2822A3007EDFF6 /* MJNetworkLoadingViewController.m */; };
+		8E5247C91B637321004DD4B0 /* MJLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5247C81B637321004DD4B0 /* MJLoadingView.m */; };
 		8E54A16E1B34568200DF8BB3 /* MJMoviePosterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E54A16D1B34568200DF8BB3 /* MJMoviePosterCell.m */; };
 		8E5760FE1B3C3E4E00508591 /* BookDetailSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5760FC1B3C3E4E00508591 /* BookDetailSummaryCell.m */; };
 		8E5760FF1B3C3E4E00508591 /* BookDetailSummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E5760FD1B3C3E4E00508591 /* BookDetailSummaryCell.xib */; };
@@ -36,13 +35,13 @@
 		8E5761041B3C3F8F00508591 /* BookDetailAuthorSummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E5761021B3C3F8F00508591 /* BookDetailAuthorSummaryCell.xib */; };
 		8E5BABD11B2F08CD00C2D59B /* ScoreStarsKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5BABCE1B2F08CD00C2D59B /* ScoreStarsKit.m */; };
 		8E5BABD21B2F08CD00C2D59B /* ScoreStarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5BABD01B2F08CD00C2D59B /* ScoreStarsView.m */; };
-		8E6B8D4B1B2A799F001BAC3E /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B8D401B2A799F001BAC3E /* RAMBounceAnimation.swift */; };
-		8E6B8D4C1B2A799F001BAC3E /* RAMFrameItemAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B8D421B2A799F001BAC3E /* RAMFrameItemAnimation.swift */; };
-		8E6B8D4D1B2A799F001BAC3E /* RAMFumeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B8D441B2A799F001BAC3E /* RAMFumeAnimation.swift */; };
-		8E6B8D4E1B2A799F001BAC3E /* RAMRotationAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B8D461B2A799F001BAC3E /* RAMRotationAnimation.swift */; };
-		8E6B8D4F1B2A799F001BAC3E /* RAMTransitionItemAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B8D481B2A799F001BAC3E /* RAMTransitionItemAnimation.swift */; };
-		8E6B8D501B2A799F001BAC3E /* RAMAnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B8D491B2A799F001BAC3E /* RAMAnimatedTabBarController.swift */; };
-		8E6B8D511B2A799F001BAC3E /* RAMItemAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B8D4A1B2A799F001BAC3E /* RAMItemAnimationProtocol.swift */; };
+		8E6899311B5FCCDF00EFF4CA /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6899261B5FCCDF00EFF4CA /* RAMBounceAnimation.swift */; };
+		8E6899321B5FCCDF00EFF4CA /* RAMFrameItemAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6899281B5FCCDF00EFF4CA /* RAMFrameItemAnimation.swift */; };
+		8E6899331B5FCCDF00EFF4CA /* RAMFumeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E68992A1B5FCCDF00EFF4CA /* RAMFumeAnimation.swift */; };
+		8E6899341B5FCCDF00EFF4CA /* RAMRotationAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E68992C1B5FCCDF00EFF4CA /* RAMRotationAnimation.swift */; };
+		8E6899351B5FCCDF00EFF4CA /* RAMTransitionItemAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E68992E1B5FCCDF00EFF4CA /* RAMTransitionItemAnimation.swift */; };
+		8E6899361B5FCCDF00EFF4CA /* RAMAnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E68992F1B5FCCDF00EFF4CA /* RAMAnimatedTabBarController.swift */; };
+		8E6899371B5FCCDF00EFF4CA /* RAMItemAnimationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6899301B5FCCDF00EFF4CA /* RAMItemAnimationProtocol.swift */; };
 		8E7BC7681B39867D006921F1 /* RKBookSwipeBetweenViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7BC7671B39867D006921F1 /* RKBookSwipeBetweenViewControllers.m */; };
 		8EA1FBD01B29A5810057E6E2 /* MJMovieDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA1FBCF1B29A5810057E6E2 /* MJMovieDetailsViewController.m */; };
 		8EA1FBD31B29A72A0057E6E2 /* FeThreeDotGlow.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA1FBD21B29A72A0057E6E2 /* FeThreeDotGlow.m */; };
@@ -50,7 +49,6 @@
 		8EA1FBDB1B29ACB20057E6E2 /* MJDetailsPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA1FBDA1B29ACB20057E6E2 /* MJDetailsPageView.m */; };
 		8EB075011B398D5C00B7AE14 /* MJBookTop250Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB075001B398D5C00B7AE14 /* MJBookTop250Controller.m */; };
 		8EB075051B39904300B7AE14 /* BookTop250ListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB075041B39904300B7AE14 /* BookTop250ListCell.m */; };
-		8EB245431B33EA0500CAE35A /* MJButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB245421B33EA0500CAE35A /* MJButton.m */; };
 		8EB245461B344C0300CAE35A /* StoryBoardUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB245451B344C0300CAE35A /* StoryBoardUtilities.m */; };
 		8EB245491B3453BF00CAE35A /* MJSimilarMoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB245481B3453BF00CAE35A /* MJSimilarMoviesViewController.m */; };
 		8EB7E4F01B2AD9EA005F4C2E /* MJMovieDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB7E4EE1B2AD9EA005F4C2E /* MJMovieDetailCell.m */; };
@@ -67,7 +65,6 @@
 		8EDB2A3A1B2AF83C0049DC6A /* MJSimilarMoviesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDB2A381B2AF83C0049DC6A /* MJSimilarMoviesCollectionViewCell.xib */; };
 		8EDB2A3E1B2AFA4E0049DC6A /* MJSimilarMoviesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDB2A3C1B2AFA4E0049DC6A /* MJSimilarMoviesCell.m */; };
 		8EDB2A3F1B2AFA4E0049DC6A /* MJSimilarMoviesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDB2A3D1B2AFA4E0049DC6A /* MJSimilarMoviesCell.xib */; };
-		8EDB2A421B2AFACA0049DC6A /* MJIndexedCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDB2A411B2AFACA0049DC6A /* MJIndexedCollectionView.m */; };
 		8EDB2A461B2B11CB0049DC6A /* MJMovieCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDB2A441B2B11CB0049DC6A /* MJMovieCommentCell.m */; };
 		8EDB2A471B2B11CB0049DC6A /* MJMovieCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDB2A451B2B11CB0049DC6A /* MJMovieCommentCell.xib */; };
 		8EDB2A4B1B2B15780049DC6A /* MJMovieViewAllCommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDB2A491B2B15780049DC6A /* MJMovieViewAllCommentsCell.m */; };
@@ -76,6 +73,7 @@
 		8EDB2A511B2B22AD0049DC6A /* MJMovieDirectorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDB2A4F1B2B22AD0049DC6A /* MJMovieDirectorCell.xib */; };
 		8EED4A2C1B31B842000B33D1 /* MJComingSoonMovieListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EED4A2B1B31B842000B33D1 /* MJComingSoonMovieListCell.m */; };
 		8EED4A2F1B3292F2000B33D1 /* MJReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EED4A2E1B3292F2000B33D1 /* MJReview.m */; };
+		8EF83DA81B65392600CE83B1 /* UIViewController+Swizzled.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF83DA71B65392600CE83B1 /* UIViewController+Swizzled.m */; };
 		BEFD9908ABB7726565155607 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50455F608FA4759AEE0F3533 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -100,10 +98,6 @@
 		8E17A3701B2583D400A60CC9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8E17A3721B2583D400A60CC9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8E17A3731B2583D400A60CC9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8E17A3751B2583D400A60CC9 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		8E17A3761B2583D400A60CC9 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		8E17A3781B2583D400A60CC9 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		8E17A3791B2583D400A60CC9 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		8E17A37C1B2583D400A60CC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8E17A37E1B2583D400A60CC9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8E17A3811B2583D400A60CC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -121,6 +115,8 @@
 		8E3D4FEE1B27F27100BEAFAE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8E4C83A11B2822A3007EDFF6 /* MJNetworkLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJNetworkLoadingViewController.h; path = Controller/MJNetworkLoadingViewController.h; sourceTree = "<group>"; };
 		8E4C83A21B2822A3007EDFF6 /* MJNetworkLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJNetworkLoadingViewController.m; path = Controller/MJNetworkLoadingViewController.m; sourceTree = "<group>"; };
+		8E5247C71B637321004DD4B0 /* MJLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJLoadingView.h; path = View/MJLoadingView.h; sourceTree = "<group>"; };
+		8E5247C81B637321004DD4B0 /* MJLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJLoadingView.m; path = View/MJLoadingView.m; sourceTree = "<group>"; };
 		8E54A16C1B34568200DF8BB3 /* MJMoviePosterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJMoviePosterCell.h; path = View/MJMoviePosterCell.h; sourceTree = "<group>"; };
 		8E54A16D1B34568200DF8BB3 /* MJMoviePosterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJMoviePosterCell.m; path = View/MJMoviePosterCell.m; sourceTree = "<group>"; };
 		8E5760FB1B3C3E4E00508591 /* BookDetailSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookDetailSummaryCell.h; path = View/BookDetailSummaryCell.h; sourceTree = "<group>"; };
@@ -133,13 +129,13 @@
 		8E5BABCE1B2F08CD00C2D59B /* ScoreStarsKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreStarsKit.m; sourceTree = "<group>"; };
 		8E5BABCF1B2F08CD00C2D59B /* ScoreStarsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreStarsView.h; sourceTree = "<group>"; };
 		8E5BABD01B2F08CD00C2D59B /* ScoreStarsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreStarsView.m; sourceTree = "<group>"; };
-		8E6B8D401B2A799F001BAC3E /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
-		8E6B8D421B2A799F001BAC3E /* RAMFrameItemAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMFrameItemAnimation.swift; sourceTree = "<group>"; };
-		8E6B8D441B2A799F001BAC3E /* RAMFumeAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMFumeAnimation.swift; sourceTree = "<group>"; };
-		8E6B8D461B2A799F001BAC3E /* RAMRotationAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMRotationAnimation.swift; sourceTree = "<group>"; };
-		8E6B8D481B2A799F001BAC3E /* RAMTransitionItemAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMTransitionItemAnimation.swift; sourceTree = "<group>"; };
-		8E6B8D491B2A799F001BAC3E /* RAMAnimatedTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMAnimatedTabBarController.swift; sourceTree = "<group>"; };
-		8E6B8D4A1B2A799F001BAC3E /* RAMItemAnimationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMItemAnimationProtocol.swift; sourceTree = "<group>"; };
+		8E6899261B5FCCDF00EFF4CA /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
+		8E6899281B5FCCDF00EFF4CA /* RAMFrameItemAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMFrameItemAnimation.swift; sourceTree = "<group>"; };
+		8E68992A1B5FCCDF00EFF4CA /* RAMFumeAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMFumeAnimation.swift; sourceTree = "<group>"; };
+		8E68992C1B5FCCDF00EFF4CA /* RAMRotationAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMRotationAnimation.swift; sourceTree = "<group>"; };
+		8E68992E1B5FCCDF00EFF4CA /* RAMTransitionItemAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMTransitionItemAnimation.swift; sourceTree = "<group>"; };
+		8E68992F1B5FCCDF00EFF4CA /* RAMAnimatedTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMAnimatedTabBarController.swift; sourceTree = "<group>"; };
+		8E6899301B5FCCDF00EFF4CA /* RAMItemAnimationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMItemAnimationProtocol.swift; sourceTree = "<group>"; };
 		8E7BC7661B39867D006921F1 /* RKBookSwipeBetweenViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKBookSwipeBetweenViewControllers.h; sourceTree = "<group>"; };
 		8E7BC7671B39867D006921F1 /* RKBookSwipeBetweenViewControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKBookSwipeBetweenViewControllers.m; sourceTree = "<group>"; };
 		8EA1FBCE1B29A5810057E6E2 /* MJMovieDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJMovieDetailsViewController.h; path = Controller/MJMovieDetailsViewController.h; sourceTree = "<group>"; };
@@ -154,8 +150,6 @@
 		8EB075001B398D5C00B7AE14 /* MJBookTop250Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJBookTop250Controller.m; path = Controller/MJBookTop250Controller.m; sourceTree = "<group>"; };
 		8EB075031B39904300B7AE14 /* BookTop250ListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookTop250ListCell.h; path = View/BookTop250ListCell.h; sourceTree = "<group>"; };
 		8EB075041B39904300B7AE14 /* BookTop250ListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookTop250ListCell.m; path = View/BookTop250ListCell.m; sourceTree = "<group>"; };
-		8EB245411B33EA0500CAE35A /* MJButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJButton.h; sourceTree = "<group>"; };
-		8EB245421B33EA0500CAE35A /* MJButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJButton.m; sourceTree = "<group>"; };
 		8EB245441B344C0300CAE35A /* StoryBoardUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryBoardUtilities.h; sourceTree = "<group>"; };
 		8EB245451B344C0300CAE35A /* StoryBoardUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryBoardUtilities.m; sourceTree = "<group>"; };
 		8EB245471B3453BF00CAE35A /* MJSimilarMoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJSimilarMoviesViewController.h; path = Controller/MJSimilarMoviesViewController.h; sourceTree = "<group>"; };
@@ -184,8 +178,6 @@
 		8EDB2A3B1B2AFA4E0049DC6A /* MJSimilarMoviesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJSimilarMoviesCell.h; path = View/MJSimilarMoviesCell.h; sourceTree = "<group>"; };
 		8EDB2A3C1B2AFA4E0049DC6A /* MJSimilarMoviesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJSimilarMoviesCell.m; path = View/MJSimilarMoviesCell.m; sourceTree = "<group>"; };
 		8EDB2A3D1B2AFA4E0049DC6A /* MJSimilarMoviesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MJSimilarMoviesCell.xib; path = View/MJSimilarMoviesCell.xib; sourceTree = "<group>"; };
-		8EDB2A401B2AFACA0049DC6A /* MJIndexedCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJIndexedCollectionView.h; path = Utils/MJIndexedCollectionView.h; sourceTree = "<group>"; };
-		8EDB2A411B2AFACA0049DC6A /* MJIndexedCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJIndexedCollectionView.m; path = Utils/MJIndexedCollectionView.m; sourceTree = "<group>"; };
 		8EDB2A431B2B11CB0049DC6A /* MJMovieCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJMovieCommentCell.h; path = View/MJMovieCommentCell.h; sourceTree = "<group>"; };
 		8EDB2A441B2B11CB0049DC6A /* MJMovieCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJMovieCommentCell.m; path = View/MJMovieCommentCell.m; sourceTree = "<group>"; };
 		8EDB2A451B2B11CB0049DC6A /* MJMovieCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MJMovieCommentCell.xib; path = View/MJMovieCommentCell.xib; sourceTree = "<group>"; };
@@ -199,6 +191,8 @@
 		8EED4A2B1B31B842000B33D1 /* MJComingSoonMovieListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJComingSoonMovieListCell.m; path = View/MJComingSoonMovieListCell.m; sourceTree = "<group>"; };
 		8EED4A2D1B3292F2000B33D1 /* MJReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJReview.h; path = Model/MJReview.h; sourceTree = "<group>"; };
 		8EED4A2E1B3292F2000B33D1 /* MJReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJReview.m; path = Model/MJReview.m; sourceTree = "<group>"; };
+		8EF83DA61B65392600CE83B1 /* UIViewController+Swizzled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Swizzled.h"; sourceTree = "<group>"; };
+		8EF83DA71B65392600CE83B1 /* UIViewController+Swizzled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Swizzled.m"; sourceTree = "<group>"; };
 		F18330DA74D8E1E814FDCA6B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FD26D74BFAD84333207A5F92 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -246,10 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				8EB075061B3993E500B7AE14 /* Common */,
-				8EA1FBCD1B29A53D0057E6E2 /* MovieMaster */,
-				8EA1FBD81B29AC770057E6E2 /* MovieDetail */,
-				8EED4A291B31B7F1000B33D1 /* ComingSoonMovieMaster */,
-				8E54A16B1B34565000DF8BB3 /* SimilarMovie */,
+				8EA1FBD81B29AC770057E6E2 /* Movie */,
 				8EB075021B39900E00B7AE14 /* Book */,
 			);
 			name = View;
@@ -294,14 +285,9 @@
 				8EA1FBD71B29A8920057E6E2 /* Utils */,
 				8E133D981B2805A0007BD0A7 /* Model */,
 				8E133D991B2805AB007BD0A7 /* View */,
-				8E25994F1B285A8D00C86B76 /* Control */,
 				8E133D9A1B2805B9007BD0A7 /* Controller */,
 				8E17A3721B2583D400A60CC9 /* AppDelegate.h */,
 				8E17A3731B2583D400A60CC9 /* AppDelegate.m */,
-				8E17A3751B2583D400A60CC9 /* FirstViewController.h */,
-				8E17A3761B2583D400A60CC9 /* FirstViewController.m */,
-				8E17A3781B2583D400A60CC9 /* SecondViewController.h */,
-				8E17A3791B2583D400A60CC9 /* SecondViewController.m */,
 				8E17A37B1B2583D400A60CC9 /* Main.storyboard */,
 				8E17A37E1B2583D400A60CC9 /* Images.xcassets */,
 				8E17A3801B2583D400A60CC9 /* LaunchScreen.xib */,
@@ -339,88 +325,71 @@
 		8E17A3971B2583E700A60CC9 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				8EF83DA91B65393600CE83B1 /* UIViewController-Swizzled */,
+				8E6899231B5FCCDF00EFF4CA /* RAMAnimatedTabBarController */,
 				8EFAA9761B2A856E0072B78E /* FeSpinner */,
-				8E6B8D3D1B2A799F001BAC3E /* RAMAnimatedTabBarController */,
 			);
 			name = Library;
 			sourceTree = "<group>";
 		};
-		8E25994F1B285A8D00C86B76 /* Control */ = {
+		8E6899231B5FCCDF00EFF4CA /* RAMAnimatedTabBarController */ = {
 			isa = PBXGroup;
 			children = (
-				8E2599501B285ACC00C86B76 /* MJHTTPFetcher.h */,
-				8E2599511B285ACC00C86B76 /* MJHTTPFetcher.m */,
-			);
-			name = Control;
-			sourceTree = "<group>";
-		};
-		8E54A16B1B34565000DF8BB3 /* SimilarMovie */ = {
-			isa = PBXGroup;
-			children = (
-				8E54A16C1B34568200DF8BB3 /* MJMoviePosterCell.h */,
-				8E54A16D1B34568200DF8BB3 /* MJMoviePosterCell.m */,
-			);
-			name = SimilarMovie;
-			sourceTree = "<group>";
-		};
-		8E6B8D3D1B2A799F001BAC3E /* RAMAnimatedTabBarController */ = {
-			isa = PBXGroup;
-			children = (
-				8E6B8D3E1B2A799F001BAC3E /* Animations */,
-				8E6B8D491B2A799F001BAC3E /* RAMAnimatedTabBarController.swift */,
-				8E6B8D4A1B2A799F001BAC3E /* RAMItemAnimationProtocol.swift */,
+				8E6899241B5FCCDF00EFF4CA /* Animations */,
+				8E68992F1B5FCCDF00EFF4CA /* RAMAnimatedTabBarController.swift */,
+				8E6899301B5FCCDF00EFF4CA /* RAMItemAnimationProtocol.swift */,
 			);
 			path = RAMAnimatedTabBarController;
 			sourceTree = "<group>";
 		};
-		8E6B8D3E1B2A799F001BAC3E /* Animations */ = {
+		8E6899241B5FCCDF00EFF4CA /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				8E6B8D3F1B2A799F001BAC3E /* BounceAnimation */,
-				8E6B8D411B2A799F001BAC3E /* FrameAnimation */,
-				8E6B8D431B2A799F001BAC3E /* FumeAnimation */,
-				8E6B8D451B2A799F001BAC3E /* RotationAnimation */,
-				8E6B8D471B2A799F001BAC3E /* TransitionAniamtions */,
+				8E6899251B5FCCDF00EFF4CA /* BounceAnimation */,
+				8E6899271B5FCCDF00EFF4CA /* FrameAnimation */,
+				8E6899291B5FCCDF00EFF4CA /* FumeAnimation */,
+				8E68992B1B5FCCDF00EFF4CA /* RotationAnimation */,
+				8E68992D1B5FCCDF00EFF4CA /* TransitionAniamtions */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
 		};
-		8E6B8D3F1B2A799F001BAC3E /* BounceAnimation */ = {
+		8E6899251B5FCCDF00EFF4CA /* BounceAnimation */ = {
 			isa = PBXGroup;
 			children = (
-				8E6B8D401B2A799F001BAC3E /* RAMBounceAnimation.swift */,
+				8E6899261B5FCCDF00EFF4CA /* RAMBounceAnimation.swift */,
 			);
 			path = BounceAnimation;
 			sourceTree = "<group>";
 		};
-		8E6B8D411B2A799F001BAC3E /* FrameAnimation */ = {
+		8E6899271B5FCCDF00EFF4CA /* FrameAnimation */ = {
 			isa = PBXGroup;
 			children = (
-				8E6B8D421B2A799F001BAC3E /* RAMFrameItemAnimation.swift */,
+				8E6899281B5FCCDF00EFF4CA /* RAMFrameItemAnimation.swift */,
 			);
 			path = FrameAnimation;
 			sourceTree = "<group>";
 		};
-		8E6B8D431B2A799F001BAC3E /* FumeAnimation */ = {
+		8E6899291B5FCCDF00EFF4CA /* FumeAnimation */ = {
 			isa = PBXGroup;
 			children = (
-				8E6B8D441B2A799F001BAC3E /* RAMFumeAnimation.swift */,
+				8E68992A1B5FCCDF00EFF4CA /* RAMFumeAnimation.swift */,
 			);
 			path = FumeAnimation;
 			sourceTree = "<group>";
 		};
-		8E6B8D451B2A799F001BAC3E /* RotationAnimation */ = {
+		8E68992B1B5FCCDF00EFF4CA /* RotationAnimation */ = {
 			isa = PBXGroup;
 			children = (
-				8E6B8D461B2A799F001BAC3E /* RAMRotationAnimation.swift */,
+				8E68992C1B5FCCDF00EFF4CA /* RAMRotationAnimation.swift */,
 			);
 			path = RotationAnimation;
 			sourceTree = "<group>";
 		};
-		8E6B8D471B2A799F001BAC3E /* TransitionAniamtions */ = {
+		8E68992D1B5FCCDF00EFF4CA /* TransitionAniamtions */ = {
 			isa = PBXGroup;
 			children = (
-				8E6B8D481B2A799F001BAC3E /* RAMTransitionItemAnimation.swift */,
+				8E68992E1B5FCCDF00EFF4CA /* RAMTransitionItemAnimation.swift */,
 			);
 			path = TransitionAniamtions;
 			sourceTree = "<group>";
@@ -434,31 +403,24 @@
 			name = RKBookSwipeBetweenViewControllers;
 			sourceTree = "<group>";
 		};
-		8EA1FBCD1B29A53D0057E6E2 /* MovieMaster */ = {
-			isa = PBXGroup;
-			children = (
-				8E133D9E1B28093E007BD0A7 /* MJMovieListCell.h */,
-				8E133D9F1B28093E007BD0A7 /* MJMovieListCell.m */,
-			);
-			name = MovieMaster;
-			sourceTree = "<group>";
-		};
 		8EA1FBD71B29A8920057E6E2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				8EDB2A401B2AFACA0049DC6A /* MJIndexedCollectionView.h */,
-				8EDB2A411B2AFACA0049DC6A /* MJIndexedCollectionView.m */,
+				8E2599501B285ACC00C86B76 /* MJHTTPFetcher.h */,
+				8E2599511B285ACC00C86B76 /* MJHTTPFetcher.m */,
 				8EB245441B344C0300CAE35A /* StoryBoardUtilities.h */,
 				8EB245451B344C0300CAE35A /* StoryBoardUtilities.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
 		};
-		8EA1FBD81B29AC770057E6E2 /* MovieDetail */ = {
+		8EA1FBD81B29AC770057E6E2 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
 				8EA1FBD91B29ACB20057E6E2 /* MJDetailsPageView.h */,
 				8EA1FBDA1B29ACB20057E6E2 /* MJDetailsPageView.m */,
+				8E133D9E1B28093E007BD0A7 /* MJMovieListCell.h */,
+				8E133D9F1B28093E007BD0A7 /* MJMovieListCell.m */,
 				8EB7E4ED1B2AD9EA005F4C2E /* MJMovieDetailCell.h */,
 				8EB7E4EE1B2AD9EA005F4C2E /* MJMovieDetailCell.m */,
 				8EB7E4EF1B2AD9EA005F4C2E /* MJMovieDetailCell.xib */,
@@ -480,8 +442,12 @@
 				8EDB2A481B2B15780049DC6A /* MJMovieViewAllCommentsCell.h */,
 				8EDB2A491B2B15780049DC6A /* MJMovieViewAllCommentsCell.m */,
 				8EDB2A4A1B2B15780049DC6A /* MJMovieViewAllCommentsCell.xib */,
+				8EED4A2A1B31B842000B33D1 /* MJComingSoonMovieListCell.h */,
+				8EED4A2B1B31B842000B33D1 /* MJComingSoonMovieListCell.m */,
+				8E54A16C1B34568200DF8BB3 /* MJMoviePosterCell.h */,
+				8E54A16D1B34568200DF8BB3 /* MJMoviePosterCell.m */,
 			);
-			name = MovieDetail;
+			name = Movie;
 			sourceTree = "<group>";
 		};
 		8EB074FD1B398CEC00B7AE14 /* Movie */ = {
@@ -546,6 +512,8 @@
 				8E5BABCE1B2F08CD00C2D59B /* ScoreStarsKit.m */,
 				8E5BABCF1B2F08CD00C2D59B /* ScoreStarsView.h */,
 				8E5BABD01B2F08CD00C2D59B /* ScoreStarsView.m */,
+				8E5247C71B637321004DD4B0 /* MJLoadingView.h */,
+				8E5247C81B637321004DD4B0 /* MJLoadingView.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -560,15 +528,13 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		8EED4A291B31B7F1000B33D1 /* ComingSoonMovieMaster */ = {
+		8EF83DA91B65393600CE83B1 /* UIViewController-Swizzled */ = {
 			isa = PBXGroup;
 			children = (
-				8EED4A2A1B31B842000B33D1 /* MJComingSoonMovieListCell.h */,
-				8EED4A2B1B31B842000B33D1 /* MJComingSoonMovieListCell.m */,
-				8EB245411B33EA0500CAE35A /* MJButton.h */,
-				8EB245421B33EA0500CAE35A /* MJButton.m */,
+				8EF83DA61B65392600CE83B1 /* UIViewController+Swizzled.h */,
+				8EF83DA71B65392600CE83B1 /* UIViewController+Swizzled.m */,
 			);
-			name = ComingSoonMovieMaster;
+			name = "UIViewController-Swizzled";
 			sourceTree = "<group>";
 		};
 		8EFAA9761B2A856E0072B78E /* FeSpinner */ = {
@@ -713,31 +679,32 @@
 			files = (
 				8EBCA8CA1B319BFC003FA128 /* MJComingSoonMovieMasterViewController.m in Sources */,
 				8E133DA01B28093E007BD0A7 /* MJMovieListCell.m in Sources */,
-				8E6B8D4B1B2A799F001BAC3E /* RAMBounceAnimation.swift in Sources */,
 				8EB7E4F01B2AD9EA005F4C2E /* MJMovieDetailCell.m in Sources */,
 				8ECFF8D11B3AC7FE0000EBD2 /* BookHotListCell.m in Sources */,
 				8E2599521B285ACC00C86B76 /* MJHTTPFetcher.m in Sources */,
 				8E3431D91B29C49B00439644 /* MJMovie.m in Sources */,
 				8E3B12EC1B37D96A00E9CD81 /* MJBook.m in Sources */,
-				8E17A37A1B2583D400A60CC9 /* SecondViewController.m in Sources */,
-				8E6B8D501B2A799F001BAC3E /* RAMAnimatedTabBarController.swift in Sources */,
+				8E6899361B5FCCDF00EFF4CA /* RAMAnimatedTabBarController.swift in Sources */,
 				8EED4A2C1B31B842000B33D1 /* MJComingSoonMovieListCell.m in Sources */,
+				8E5247C91B637321004DD4B0 /* MJLoadingView.m in Sources */,
 				8E133D9D1B28061A007BD0A7 /* MJHotMovieMasterViewController.m in Sources */,
 				8ECFF8D41B3AC87E0000EBD2 /* MJBookHotController.m in Sources */,
 				8EDB2A3E1B2AFA4E0049DC6A /* MJSimilarMoviesCell.m in Sources */,
 				8ECFF8CE1B3A86840000EBD2 /* BookNewListCell.m in Sources */,
+				8EF83DA81B65392600CE83B1 /* UIViewController+Swizzled.m in Sources */,
+				8E6899371B5FCCDF00EFF4CA /* RAMItemAnimationProtocol.swift in Sources */,
 				8E5BABD11B2F08CD00C2D59B /* ScoreStarsKit.m in Sources */,
 				8E5760FE1B3C3E4E00508591 /* BookDetailSummaryCell.m in Sources */,
 				8EDB2A461B2B11CB0049DC6A /* MJMovieCommentCell.m in Sources */,
 				8EB245461B344C0300CAE35A /* StoryBoardUtilities.m in Sources */,
+				8E6899341B5FCCDF00EFF4CA /* RAMRotationAnimation.swift in Sources */,
+				8E6899351B5FCCDF00EFF4CA /* RAMTransitionItemAnimation.swift in Sources */,
+				8E6899311B5FCCDF00EFF4CA /* RAMBounceAnimation.swift in Sources */,
 				8EED4A2F1B3292F2000B33D1 /* MJReview.m in Sources */,
-				8EDB2A421B2AFACA0049DC6A /* MJIndexedCollectionView.m in Sources */,
 				8E54A16E1B34568200DF8BB3 /* MJMoviePosterCell.m in Sources */,
 				8EDB2A4B1B2B15780049DC6A /* MJMovieViewAllCommentsCell.m in Sources */,
-				8E6B8D4E1B2A799F001BAC3E /* RAMRotationAnimation.swift in Sources */,
 				8EBCA8C71B317059003FA128 /* RKMovieSwipeBetweenViewControllers.m in Sources */,
 				8EB075011B398D5C00B7AE14 /* MJBookTop250Controller.m in Sources */,
-				8EB245431B33EA0500CAE35A /* MJButton.m in Sources */,
 				8E121FA01B38474000FC0109 /* MJBookDetail.m in Sources */,
 				8EA1FBD61B29A88A0057E6E2 /* UIColor+flat.m in Sources */,
 				8E5BABD21B2F08CD00C2D59B /* ScoreStarsView.m in Sources */,
@@ -746,22 +713,19 @@
 				8EB075051B39904300B7AE14 /* BookTop250ListCell.m in Sources */,
 				8E152C501B3CE11800CC6DD0 /* BookDetailFirstCell.m in Sources */,
 				8ECFF8CB1B3A81CE0000EBD2 /* MJBookNewController.m in Sources */,
-				8E17A3771B2583D400A60CC9 /* FirstViewController.m in Sources */,
 				8E7BC7681B39867D006921F1 /* RKBookSwipeBetweenViewControllers.m in Sources */,
-				8E6B8D4F1B2A799F001BAC3E /* RAMTransitionItemAnimation.swift in Sources */,
 				8EA1FBDB1B29ACB20057E6E2 /* MJDetailsPageView.m in Sources */,
+				8E6899321B5FCCDF00EFF4CA /* RAMFrameItemAnimation.swift in Sources */,
 				8EA1FBD01B29A5810057E6E2 /* MJMovieDetailsViewController.m in Sources */,
-				8E6B8D511B2A799F001BAC3E /* RAMItemAnimationProtocol.swift in Sources */,
 				8EB245491B3453BF00CAE35A /* MJSimilarMoviesViewController.m in Sources */,
 				8EDB2A341B2AF4560049DC6A /* MJMovieDescriptionCell.m in Sources */,
 				8EA1FBD31B29A72A0057E6E2 /* FeThreeDotGlow.m in Sources */,
 				8E4C83A31B2822A3007EDFF6 /* MJNetworkLoadingViewController.m in Sources */,
-				8E6B8D4C1B2A799F001BAC3E /* RAMFrameItemAnimation.swift in Sources */,
-				8E6B8D4D1B2A799F001BAC3E /* RAMFumeAnimation.swift in Sources */,
 				8E5761031B3C3F8F00508591 /* BookDetailAuthorSummaryCell.m in Sources */,
 				8E003DF91B3BD44600819AAB /* MJBookDetailController.m in Sources */,
 				8E17A3711B2583D400A60CC9 /* main.m in Sources */,
 				8EDB2A391B2AF83C0049DC6A /* MJSimilarMoviesCollectionViewCell.m in Sources */,
+				8E6899331B5FCCDF00EFF4CA /* RAMFumeAnimation.swift in Sources */,
 				8EDB2A501B2B22AD0049DC6A /* MJMovieDirectorCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -824,7 +788,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -861,7 +825,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -874,6 +838,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MJdeDouBan/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -885,6 +850,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MJdeDouBan/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

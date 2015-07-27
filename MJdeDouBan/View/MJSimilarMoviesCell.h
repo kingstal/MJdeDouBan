@@ -7,14 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MJIndexedCollectionView.h"
+
+@class MJSimilarMoviesCell;
+
+@protocol MJSimilarMoviesCellDelegate <NSObject>
+@optional
+- (void)similarMoviesCellButtonPressed:(MJSimilarMoviesCell*)cell;
+@end
 
 @interface MJSimilarMoviesCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet MJIndexedCollectionView* collectionView;
-@property (weak, nonatomic) IBOutlet UIButton* viewAllSimilarMoviesButton;
+@property (weak, nonatomic) id<MJSimilarMoviesCellDelegate> delegate;
 
-+ (MJSimilarMoviesCell*)similarMoviesCell;
++ (void)registerNibWithTableView:(UITableView*)tableView;
 
-- (void)setCollectionViewDataSourceDelegate:(id<UICollectionViewDataSource, UICollectionViewDelegate>)dataSourceDelegate index:(NSInteger)index;
++ (MJSimilarMoviesCell*)cellWithTableView:(UITableView*)tableView;
+
+- (void)setCollectionViewDataSourceDelegate:(id<UICollectionViewDataSource, UICollectionViewDelegate>)dataSourceDelegate;
 @end

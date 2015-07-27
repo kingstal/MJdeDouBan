@@ -8,17 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "ScoreStarsView.h"
+#import "MJMovie.h"
 
 @interface MJMovieDetailCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView* posterImageView;
-@property (weak, nonatomic) IBOutlet ScoreStarsView* starRatingView;
-@property (weak, nonatomic) IBOutlet UILabel* scoreLabel;
-@property (weak, nonatomic) IBOutlet UILabel* voteCountLabel;
-@property (weak, nonatomic) IBOutlet UILabel* genresLabel;
-@property (weak, nonatomic) IBOutlet UILabel* regionDurationLabel;
-@property (weak, nonatomic) IBOutlet UILabel* releaseDateLabel;
+@property (strong, nonatomic) MJMovie* movie;
 
-+ (MJMovieDetailCell*)movieDetailsCell;
++ (void)registerNibWithTableView:(UITableView*)tableView;
++ (MJMovieDetailCell*)cellWithTableView:(UITableView*)tableView;
 
 @end

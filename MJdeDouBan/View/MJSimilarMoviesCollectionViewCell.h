@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MJMovie.h"
 
 @interface MJSimilarMoviesCollectionViewCell : UICollectionViewCell
 
-+ (MJSimilarMoviesCollectionViewCell*)similarMoviesCollectionViewCell;
++ (void)registerNibWithCollection:(UICollectionView*)collection;
++ (MJSimilarMoviesCollectionViewCell*)cellWithCollectionView:(UICollectionView*)collectionView forIndexPath:(NSIndexPath*)indexPath;
 
-@property (weak, nonatomic) IBOutlet UIImageView* cellImageView;
-@property (weak, nonatomic) IBOutlet UIView* cellBackgroundView;
-
+@property (nonatomic, strong) MJMovie* movie;
 @end

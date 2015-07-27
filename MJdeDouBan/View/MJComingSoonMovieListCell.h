@@ -7,17 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MJButton.h"
+#import "MJMovie.h"
+
+@class MJComingSoonMovieListCell;
+
+@protocol MJComingSoonMovieListCellDelegate <NSObject>
+@optional
+- (void)comingSoonMovieListCellBtnPressed:(MJComingSoonMovieListCell*)cell;
+@end
 
 @interface MJComingSoonMovieListCell : UITableViewCell
+@property (strong, nonatomic) MJMovie* movie;
+@property (weak, nonatomic) id<MJComingSoonMovieListCellDelegate> deleaget;
 
-@property (weak, nonatomic) IBOutlet UIImageView* posterImageView;
-@property (weak, nonatomic) IBOutlet UILabel* titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel* dateLabel;
-@property (weak, nonatomic) IBOutlet UILabel* genreLabel;
-@property (weak, nonatomic) IBOutlet UILabel* regionLabel;
-@property (weak, nonatomic) IBOutlet UILabel* peopleWantSeeLabel;
-
-@property (weak, nonatomic) IBOutlet MJButton* trailerButton;
-
++ (MJComingSoonMovieListCell*)cellWithTableView:(UITableView*)tableView;
 @end

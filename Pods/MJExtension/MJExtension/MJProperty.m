@@ -8,30 +8,37 @@
 
 #import "MJProperty.h"
 #import "MJFoundation.h"
-#import "MJConst.h"
+#import "MJExtensionConst.h"
+
+@implementation MJPropertyKey
+
+- (id)valueInObject:(id)object
+{
+    if ([object isKindOfClass:[NSDictionary class]] && self.type == MJPropertyKeyTypeDictionary) {
+        return object[self.name];
+    } else if ([object isKindOfClass:[NSArray class]] && self.type == MJPropertyKeyTypeArray) {
+        return object[self.name.intValue];
+    }
+    return nil;
+}
+
+@end
 
 @interface MJProperty()
-@property (strong, nonatomic) NSMutableDictionary *keyDict;
-@property (strong, nonatomic) NSMutableDictionary *keysDict;
+
+@property (strong, nonatomic) NSMutableDictionary *propertyKeysDict;
 @property (strong, nonatomic) NSMutableDictionary *objectClassInArrayDict;
+
 @end
 
 @implementation MJProperty
 
-- (NSMutableDictionary *)keyDict
+- (NSMutableDictionary *)propertyKeysDict
 {
-    if (!_keyDict) {
-        self.keyDict = [NSMutableDictionary dictionary];
+    if (!_propertyKeysDict) {
+        self.propertyKeysDict = [NSMutableDictionary dictionary];
     }
-    return _keyDict;
-}
-
-- (NSMutableDictionary *)keysDict
-{
-    if (!_keysDict) {
-        self.keysDict = [NSMutableDictionary dictionary];
-    }
-    return _keysDict;
+    return _propertyKeysDict;
 }
 
 - (NSMutableDictionary *)objectClassInArrayDict
@@ -57,7 +64,7 @@
 {
     _property = property;
     
-    MJAssertParamNotNil(property);
+    MJExtensionAssertParamNotNil(property);
     
     // 1.属性名
     _name = @(property_getName(property));
@@ -72,7 +79,7 @@
 /**
  *  获得成员变量的值
  */
-- (id)valueFromObject:(id)object
+- (id)valueForObject:(id)object
 {
     if (_type.KVCDisabled) return [NSNull null];
     return [object valueForKey:_name];
@@ -91,24 +98,51 @@
 - (void)setKey:(NSString *)key forClass:(Class)c
 {
     if (!key) return;
-    self.keyDict[NSStringFromClass(c)] = key;
+    
     // 如果有多级映射
-    [self setKeys:[key componentsSeparatedByString:@"."] forClass:c];
-}
-- (NSString *)keyFromClass:(Class)c
-{
-    return self.keyDict[NSStringFromClass(c)];
+    NSArray *oldKeys = [key componentsSeparatedByString:@"."];
+    NSMutableArray *propertyKeys = [NSMutableArray array];
+    
+    for (NSString *oldKey in oldKeys) {
+        NSUInteger start = [oldKey rangeOfString:@"["].location;
+        if (start != NSNotFound) { // 有索引的key
+            NSString *prefixKey = [oldKey substringToIndex:start];
+            NSString *indexKey = prefixKey;
+            if (prefixKey.length) {
+                MJPropertyKey *propertyKey = [[MJPropertyKey alloc] init];
+                propertyKey.name = prefixKey;
+                [propertyKeys addObject:propertyKey];
+                
+                indexKey = [oldKey stringByReplacingOccurrencesOfString:prefixKey withString:@""];
+            }
+            
+            /** 解析索引 **/
+            // 元素
+            NSArray *cmps = [[indexKey stringByReplacingOccurrencesOfString:@"[" withString:@""] componentsSeparatedByString:@"]"];
+            for (NSInteger i = 0; i<cmps.count - 1; i++) {
+                MJPropertyKey *subPropertyKey = [[MJPropertyKey alloc] init];
+                subPropertyKey.type = MJPropertyKeyTypeArray;
+                subPropertyKey.name = cmps[i];
+                [propertyKeys addObject:subPropertyKey];
+            }
+        } else { // 没有索引的key
+            MJPropertyKey *propertyKey = [[MJPropertyKey alloc] init];
+            propertyKey.name = oldKey;
+            [propertyKeys addObject:propertyKey];
+        }
+    }
+    [self setPorpertyKeys:propertyKeys forClass:c];
 }
 
 /** 对应着字典中的多级key */
-- (void)setKeys:(NSArray *)keys forClass:(Class)c
+- (void)setPorpertyKeys:(NSArray *)propertyKeys forClass:(Class)c
 {
-    if (!keys) return;
-    self.keysDict[NSStringFromClass(c)] = keys;
+    if (!propertyKeys) return;
+    self.propertyKeysDict[NSStringFromClass(c)] = propertyKeys;
 }
-- (NSArray *)keysFromClass:(Class)c
+- (NSArray *)propertyKeysFromClass:(Class)c
 {
-    return self.keysDict[NSStringFromClass(c)];
+    return self.propertyKeysDict[NSStringFromClass(c)];
 }
 
 /** 模型数组中的模型类型 */
