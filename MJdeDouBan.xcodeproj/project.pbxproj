@@ -73,7 +73,7 @@
 		8EDB2A511B2B22AD0049DC6A /* MJMovieDirectorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDB2A4F1B2B22AD0049DC6A /* MJMovieDirectorCell.xib */; };
 		8EED4A2C1B31B842000B33D1 /* MJComingSoonMovieListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EED4A2B1B31B842000B33D1 /* MJComingSoonMovieListCell.m */; };
 		8EED4A2F1B3292F2000B33D1 /* MJReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EED4A2E1B3292F2000B33D1 /* MJReview.m */; };
-		8EEF5D931B62718F000A6AAF /* UIViewController+Tracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF5D921B62718F000A6AAF /* UIViewController+Tracking.m */; };
+		8EF83DA81B65392600CE83B1 /* UIViewController+Swizzled.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF83DA71B65392600CE83B1 /* UIViewController+Swizzled.m */; };
 		BEFD9908ABB7726565155607 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50455F608FA4759AEE0F3533 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -191,8 +191,8 @@
 		8EED4A2B1B31B842000B33D1 /* MJComingSoonMovieListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJComingSoonMovieListCell.m; path = View/MJComingSoonMovieListCell.m; sourceTree = "<group>"; };
 		8EED4A2D1B3292F2000B33D1 /* MJReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJReview.h; path = Model/MJReview.h; sourceTree = "<group>"; };
 		8EED4A2E1B3292F2000B33D1 /* MJReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJReview.m; path = Model/MJReview.m; sourceTree = "<group>"; };
-		8EEF5D911B62718F000A6AAF /* UIViewController+Tracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tracking.h"; sourceTree = "<group>"; };
-		8EEF5D921B62718F000A6AAF /* UIViewController+Tracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Tracking.m"; sourceTree = "<group>"; };
+		8EF83DA61B65392600CE83B1 /* UIViewController+Swizzled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Swizzled.h"; sourceTree = "<group>"; };
+		8EF83DA71B65392600CE83B1 /* UIViewController+Swizzled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Swizzled.m"; sourceTree = "<group>"; };
 		F18330DA74D8E1E814FDCA6B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FD26D74BFAD84333207A5F92 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -325,6 +325,7 @@
 		8E17A3971B2583E700A60CC9 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				8EF83DA91B65393600CE83B1 /* UIViewController-Swizzled */,
 				8E6899231B5FCCDF00EFF4CA /* RAMAnimatedTabBarController */,
 				8EFAA9761B2A856E0072B78E /* FeSpinner */,
 			);
@@ -409,8 +410,6 @@
 				8E2599511B285ACC00C86B76 /* MJHTTPFetcher.m */,
 				8EB245441B344C0300CAE35A /* StoryBoardUtilities.h */,
 				8EB245451B344C0300CAE35A /* StoryBoardUtilities.m */,
-				8EEF5D911B62718F000A6AAF /* UIViewController+Tracking.h */,
-				8EEF5D921B62718F000A6AAF /* UIViewController+Tracking.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -527,6 +526,15 @@
 			);
 			name = RKMovieSwipeBetweenViewControllers;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		8EF83DA91B65393600CE83B1 /* UIViewController-Swizzled */ = {
+			isa = PBXGroup;
+			children = (
+				8EF83DA61B65392600CE83B1 /* UIViewController+Swizzled.h */,
+				8EF83DA71B65392600CE83B1 /* UIViewController+Swizzled.m */,
+			);
+			name = "UIViewController-Swizzled";
 			sourceTree = "<group>";
 		};
 		8EFAA9761B2A856E0072B78E /* FeSpinner */ = {
@@ -683,7 +691,7 @@
 				8ECFF8D41B3AC87E0000EBD2 /* MJBookHotController.m in Sources */,
 				8EDB2A3E1B2AFA4E0049DC6A /* MJSimilarMoviesCell.m in Sources */,
 				8ECFF8CE1B3A86840000EBD2 /* BookNewListCell.m in Sources */,
-				8EEF5D931B62718F000A6AAF /* UIViewController+Tracking.m in Sources */,
+				8EF83DA81B65392600CE83B1 /* UIViewController+Swizzled.m in Sources */,
 				8E6899371B5FCCDF00EFF4CA /* RAMItemAnimationProtocol.swift in Sources */,
 				8E5BABD11B2F08CD00C2D59B /* ScoreStarsKit.m in Sources */,
 				8E5760FE1B3C3E4E00508591 /* BookDetailSummaryCell.m in Sources */,

@@ -54,9 +54,4 @@
                     completion:nil];
 }
 
-- (void)dealloc
-{
-    NSLog(@"loadingView dealloc-------");
-}
-
 @end
