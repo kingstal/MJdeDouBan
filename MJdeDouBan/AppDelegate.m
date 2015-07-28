@@ -26,6 +26,8 @@
 
     // Override point for customization after application launch.
 
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+
     // 缓存
     [NSURLCache setSharedURLCache:[[MJURLCache alloc] init]];
     [[CWObjectCache sharedCache] setMaxCacheSize:1024 * 1024 * 256];

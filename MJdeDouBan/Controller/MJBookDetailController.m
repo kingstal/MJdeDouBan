@@ -37,7 +37,7 @@
 
     UINavigationItem* item = self.navigationItem;
     item.title = self.book.bookTitle;
-    item.leftBarButtonItem.title = @"返回";
+    item.leftBarButtonItem.tintColor = [UIColor whiteColor];
 
     [self registerNib];
     [self showLoadingView];
