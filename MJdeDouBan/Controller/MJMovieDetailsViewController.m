@@ -48,6 +48,10 @@ static NSInteger const REVIEWLIMIT = 10;
 {
     [super viewDidLoad];
 
+    // 隐藏 TabBar
+    self.tabBarController.tabBar.hidden = YES;
+    self.hidesBottomBarWhenPushed = YES;
+
     //添加上拉刷新
     __weak __typeof(self) weakSelf = self;
     self.detailsPageView.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
@@ -103,7 +107,6 @@ static NSInteger const REVIEWLIMIT = 10;
     MJLoadingView* loadingView = [[MJLoadingView alloc] initWithFrame:self.view.frame];
     [self.detailsPageView addSubview:loadingView];
     [self.detailsPageView bringSubviewToFront:loadingView];
-    //    [self.view insertSubview:loadingView aboveSubview:self.detailsPageView];
     self.loadingView = loadingView;
 }
 
@@ -263,7 +266,7 @@ static NSInteger const REVIEWLIMIT = 10;
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
-#pragma mark MJDetailsPageDelegate
+#pragma mark - MJDetailsPage Delegate
 
 - (void)scrollViewWillBeginDragging:(UIScrollView*)scrollView
 {

@@ -31,6 +31,10 @@
 {
     [super viewDidLoad];
 
+    // 隐藏 TabBar
+    self.tabBarController.tabBar.hidden = YES;
+    self.hidesBottomBarWhenPushed = YES;
+
     UINavigationItem* item = self.navigationItem;
     item.title = self.book.bookTitle;
     item.leftBarButtonItem.title = @"返回";

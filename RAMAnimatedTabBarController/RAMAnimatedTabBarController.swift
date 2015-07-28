@@ -61,7 +61,10 @@ class RAMAnimatedTabBarController: UITabBarController {
 
         createCustomIcons(containers)
 
-
+        let conls = (self.viewControllers as? [UIViewController])?.filter({$0 is UINavigationController}) ?? []
+        for ctl in conls{
+            (ctl as! UINavigationController).delegate = self
+        }
     }
 
 // MARK: create methods
@@ -243,6 +246,10 @@ class RAMAnimatedTabBarController: UITabBarController {
         let items = tabBar.items as! [RAMAnimatedTabBarItem]
         items[from].deselectAnimation(iconsView[from].icon, textLabel: iconsView[from].textLabel)
         items[to].playAnimation(iconsView[to].icon, textLabel: iconsView[to].textLabel)
+    }
+    
+    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+        hideTabBar(viewController.hidesBottomBarWhenPushed)
     }
 }
 

@@ -12,7 +12,7 @@
 
 static NSString* const CWDataCacheDirectoryName = @"com.MJdeDouBan.CWObjectCache";
 
-static const NSInteger kDefaultCacheMaxCacheAge = 60 * 60 * 24 * 7; // 1 week
+static const NSInteger kDefaultCacheMaxCacheAge = 60 * 60 * 24 * 1; // 1 day
 static const NSUInteger kDefaultCacheMaxCacheSize = 1024 * 1024 * 512; // 512MB
 
 @interface CWObjectCache ()
