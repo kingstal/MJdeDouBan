@@ -14,25 +14,20 @@ extension RAMAnimatedTabBarController:UINavigationControllerDelegate{
         let atc = self
         let icons = atc.iconsView
         
+        atc.tabBar.alpha = 0
         if (flag == true ) {
             
             for icon in icons {
                 icon.icon.superview?.hidden = true
             }
-            atc.tabBar.hidden = true
             
         } else {
-            atc.tabBar.hidden = false
+            let par = atc.tabBar.superview
             for icon in icons {
                 if let sup = icon.icon.superview{
                     sup.hidden = false
-                    sup.superview?.bringSubviewToFront(sup)
                 }
             }
         }
-    }
-    
-    func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool){
-        hideTabBar(viewController.hidesBottomBarWhenPushed)
     }
 }

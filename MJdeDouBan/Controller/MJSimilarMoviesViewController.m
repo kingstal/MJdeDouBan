@@ -32,6 +32,10 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self setupCollectionViewLayout];
+
+    //    隐藏 TabBar
+    self.tabBarController.tabBar.hidden = YES;
+    self.hidesBottomBarWhenPushed = YES;
 }
 
 #pragma mark - CollectionView Layout

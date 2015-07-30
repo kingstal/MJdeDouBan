@@ -42,10 +42,6 @@
         [self.cacheSizeLabel setText:cacheSize];
         [self.cacheIndicator stopAnimating];
     }];
-
-    //    // 显示 TabBar
-    //    self.tabBarController.tabBar.hidden = NO;
-    //    self.hidesBottomBarWhenPushed = NO;
 }
 
 #pragma mark - UITableView delegate

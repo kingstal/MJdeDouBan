@@ -48,9 +48,8 @@ static NSInteger const REVIEWLIMIT = 10;
 {
     [super viewDidLoad];
 
-    // 隐藏 TabBar
-    self.tabBarController.tabBar.hidden = YES;
     self.hidesBottomBarWhenPushed = YES;
+    self.tabBarController.tabBar.hidden = YES;
 
     //添加上拉刷新
     __weak __typeof(self) weakSelf = self;

@@ -12,8 +12,6 @@
 
 @interface MJBookDetailController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-//@property (nonatomic, strong) NSString* bookId;
-//@property (nonatomic, strong) NSString* bookTitle;
 @property (nonatomic, strong) MJBook* book;
 
 @end

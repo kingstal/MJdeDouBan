@@ -7,6 +7,8 @@
 //
 
 #import "MJBrowserViewController.h"
+//#import "MJdeDouBan-Swift.h"
+#import "MJdeDouBan-Swift.h"
 
 @interface MJBrowserViewController ()
 
@@ -18,11 +20,9 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-
     // 隐藏 TabBar
-    //    self.tabBarController.tabBar.hidden = YES;
-    //    self.hidesBottomBarWhenPushed = YES;
+    self.tabBarController.tabBar.hidden = YES;
+    self.hidesBottomBarWhenPushed = YES;
 }
 
 - (UIWebView*)webView

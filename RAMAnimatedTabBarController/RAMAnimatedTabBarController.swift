@@ -60,7 +60,7 @@ class RAMAnimatedTabBarController: UITabBarController {
         let containers = createViewContainers()
 
         createCustomIcons(containers)
-
+        
         let conls = (self.viewControllers as? [UIViewController])?.filter({$0 is UINavigationController}) ?? []
         for ctl in conls{
             (ctl as! UINavigationController).delegate = self
@@ -108,6 +108,7 @@ class RAMAnimatedTabBarController: UITabBarController {
                 }
 
                 let iconsAndLabels = (icon:icon, textLabel:textLabel)
+                iconsAndLabels.icon.superview?.backgroundColor = UIColor(red:0.664, green:0.664, blue:0.664, alpha:1)
                 iconsView.append(iconsAndLabels)
 
                 if 0 == index { // selected first elemet
@@ -250,6 +251,7 @@ class RAMAnimatedTabBarController: UITabBarController {
     
     func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
         hideTabBar(viewController.hidesBottomBarWhenPushed)
+        println("-----调用hidesBottomBarWhenPushed------\(viewController):\(viewController.hidesBottomBarWhenPushed)")
     }
 }
 
