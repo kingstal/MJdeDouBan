@@ -28,6 +28,7 @@ static NSString* const MJHTTPURLProtocolHandledKey = @"MJHTTPURLProtocolHandledK
         return NO;
     }
 
+    // 标记 request，防止无限循环
     if ([NSURLProtocol propertyForKey:MJHTTPURLProtocolHandledKey inRequest:request]) {
         return NO;
     }
