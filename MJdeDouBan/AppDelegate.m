@@ -29,7 +29,7 @@
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 
     // 缓存
-    [NSURLCache setSharedURLCache:[[MJURLCache alloc] init]];
+    //    [NSURLCache setSharedURLCache:[[MJURLCache alloc] init]];
     [[CWObjectCache sharedCache] setMaxCacheSize:1024 * 1024 * 256];
 
     [NSURLProtocol registerClass:[MJHTTPURLProtocol class]];

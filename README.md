@@ -11,7 +11,7 @@ MJdeDouBan是我独立开发的一个关于豆瓣的iOS客户端，融合了豆�
 - 客户端与服务器的通信采用[AFNetworking](https://github.com/AFNetworking/AFNetworking)，数据交互的格式为json，采用[MJExtension](https://github.com/CoderMJLee/MJExtension)实现json到模型的转换。
 - 客户端使用[SDWebImage](https://github.com/rs/SDWebImage)异步加载缓存图片，使用[MJRefresh](https://github.com/CoderMJLee/MJRefresh)实现数据的下拉刷新。
 - 客户端各个Tab页的布局方式为TableView，部分UITableViewCell的高度并不确定，需要在程序运行时计算它的高度，这里主要使用了[UITableView+FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)来优化UITableViewCell高度的计算。
-- 客户端使用`NSURLProtocol`和`NSURLCache`实现数据缓存。
+- 客户端使用`NSURLProtocol`和`NSCache`实现数据缓存。
 
 待完成：
 
